@@ -3,6 +3,7 @@ projects
 	"Collects class-side methods containing <SwProject> pragma"
 
 	| projectConstructors |
+	projects ifNotNil: [ ^ projects ].
 	projectConstructors := (PragmaCollector filter: [:prag | prag keyword = 'SwProject' ]) reset collected.
-	^ projectConstructors collect: [ :e |
+	^ projects := projectConstructors collect: [ :e |
 		e methodClass soleInstance perform: e selector ]
