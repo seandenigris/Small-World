@@ -10,5 +10,4 @@ printConfigurationLoadStatementOn: aStream
 		with: project repository goferLoadCascade
 		with: project configurationName surroundedBySingleQuotes.
 	loadCommand := loadTemplate format: loadParameters.
-	Halt now.
 	aStream nextPutAll: loadCommand; cr.
