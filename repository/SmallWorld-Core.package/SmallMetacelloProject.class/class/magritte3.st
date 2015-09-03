@@ -3,7 +3,7 @@ magritte3
 	<SwProject>
 
 	^ (SmallMetacelloProject named: 'Magritte3')
-			repository: 'http://smalltalkhub.com/mc/Magritte/Magritte3/main/' asUrl;
+			onSmalltalkHubUser: 'Magritte';
 			testPackageNames: #('Magritte-Tests-Model' 'Magritte-Tests-Pharo-Model');
 			beBleedingEdge;
 			yourself.

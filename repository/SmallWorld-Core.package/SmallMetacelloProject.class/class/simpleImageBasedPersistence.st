@@ -2,4 +2,4 @@ projects
 simpleImageBasedPersistence
 	<SwProject>
 
-	^ (self named: 'SimplePersistence') onSqueaksource3.
+	^ (self named: 'SimplePersistence') onSmalltalkHubUser: 'TorstenBergmann'.
