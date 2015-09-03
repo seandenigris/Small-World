@@ -1,0 +1,16 @@
+{
+	"category" : "SmallWorld-Core",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"name",
+		"description",
+		"repository" ],
+	"name" : "SmallProject",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

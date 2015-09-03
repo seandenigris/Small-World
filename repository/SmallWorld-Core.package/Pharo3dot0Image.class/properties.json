@@ -1,0 +1,14 @@
+{
+	"category" : "SmallWorld-Core-Images",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "Pharo3dot0Image",
+	"pools" : [
+		 ],
+	"super" : "PharoImage",
+	"type" : "normal" }

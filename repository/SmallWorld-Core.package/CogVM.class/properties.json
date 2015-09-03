@@ -1,0 +1,14 @@
+{
+	"category" : "SmallWorld-Core-VM",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "SeanDeNigris 4/25/2012 23:30",
+	"instvars" : [
+		 ],
+	"name" : "CogVM",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

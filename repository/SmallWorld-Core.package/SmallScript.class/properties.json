@@ -1,0 +1,15 @@
+{
+	"category" : "SmallWorld-Core",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"shouldSave",
+		"shouldQuit" ],
+	"name" : "SmallScript",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

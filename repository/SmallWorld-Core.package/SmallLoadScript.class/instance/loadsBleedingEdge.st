@@ -1,0 +1,4 @@
+testing
+loadsBleedingEdge
+
+	^ projectVersion = #bleedingEdge.

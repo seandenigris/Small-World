@@ -1,0 +1,19 @@
+{
+	"category" : "SmallWorld-Core",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"debug",
+		"loads",
+		"project",
+		"projectVersion",
+		"whatToLoad",
+		"loadConfigurationOnly" ],
+	"name" : "SmallLoadScript",
+	"pools" : [
+		 ],
+	"super" : "SmallScript",
+	"type" : "normal" }

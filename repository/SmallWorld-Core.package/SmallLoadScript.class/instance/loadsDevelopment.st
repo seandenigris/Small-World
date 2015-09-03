@@ -1,0 +1,4 @@
+testing
+loadsDevelopment
+
+	^ projectVersion = #development.

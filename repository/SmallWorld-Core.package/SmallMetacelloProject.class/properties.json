@@ -1,0 +1,16 @@
+{
+	"category" : "SmallWorld-Core",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		"configurationName",
+		"testPackages",
+		"defaultVersion" ],
+	"name" : "SmallMetacelloProject",
+	"pools" : [
+		 ],
+	"super" : "SmallProject",
+	"type" : "normal" }

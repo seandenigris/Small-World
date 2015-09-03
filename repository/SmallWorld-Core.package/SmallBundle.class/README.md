@@ -1,0 +1,1 @@
+This was how we launched Pharo before ZeroConf

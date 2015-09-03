@@ -1,0 +1,14 @@
+{
+	"category" : "SmallWorld-Core-Bugs",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "PharoIssueTracker",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
