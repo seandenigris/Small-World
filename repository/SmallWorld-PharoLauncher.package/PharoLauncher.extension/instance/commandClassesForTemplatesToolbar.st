@@ -1,0 +1,3 @@
+*SmallWorld-PharoLauncher
+commandClassesForTemplatesToolbar
+	^ {PhLCreateImageFromTemplateCommand. PhLLoadProjectCommand. PhLRefreshTemplateRepositoryCommand}
