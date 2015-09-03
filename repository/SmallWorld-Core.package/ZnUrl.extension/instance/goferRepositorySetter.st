@@ -1,4 +1,4 @@
 *SmallWorld-Core
 goferRepositorySetter
 
-	^ #url:.
+	^ #url:username:password:.
