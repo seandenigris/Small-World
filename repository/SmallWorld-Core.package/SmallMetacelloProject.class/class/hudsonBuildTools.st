@@ -1,5 +1,6 @@
 projects
 hudsonBuildTools
+	<SwProject>
 	"Right now, there is no mechanism to load projects without Metacello configurations. We are only loading this with Jenkins, so for now, we'll wait"
 
 	| project |

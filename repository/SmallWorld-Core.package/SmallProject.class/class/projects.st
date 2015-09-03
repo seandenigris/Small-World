@@ -1,11 +1,8 @@
 instance creation
 projects
+	"Collects class-side methods containing <SwProject> pragma"
 
-	| projects |
-	projects := OrderedCollection new.
-	self subclassesDo: [ :klass | | builders |
-		builders := klass class selectorsInProtocol: #projects.
-		builders do: [ :selector | | project | 
-			project := klass perform: selector.
-			projects add: project ] ].
-	^ projects.
+	| projectConstructors |
+	projectConstructors := (PragmaCollector filter: [:prag | prag keyword = 'SwProject' ]) reset collected.
+	^ projectConstructors collect: [ :e |
+		e methodClass soleInstance perform: e selector ]
