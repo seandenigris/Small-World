@@ -1,3 +1,3 @@
 accessing
 projectVersion
-	^ projectVersion
+	^ projectVersion ifNil: [ projectVersion := self class defaultProjectVersion ]

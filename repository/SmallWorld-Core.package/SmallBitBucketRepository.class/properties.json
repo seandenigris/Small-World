@@ -1,0 +1,15 @@
+{
+	"category" : "SmallWorld-Core-Projects",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"user",
+		"projectName" ],
+	"name" : "SmallBitBucketRepository",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

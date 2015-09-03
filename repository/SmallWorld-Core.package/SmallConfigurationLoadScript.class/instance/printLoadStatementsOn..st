@@ -1,5 +1,5 @@
 private
-printLoadStatementOn: aStream 
+printLoadStatementsOn: aStream 
 		 
 	| projectLoadTemplate projectLoadString |
 	projectLoadTemplate :='((Smalltalk at: {1}) project version: {2}) load: {3}.'.
