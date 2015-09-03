@@ -1,14 +1,10 @@
 action
 loadProjectIntoNewImage
 
-	| loadScript evalString image command |
+	| evalString image command |
 	image := context imageRepository images detect: [ :e | e name = self newImageName ].
-	loadScript := self project loadScript
-	quitting: true;
-	saving: true;
-	yourself.
-	evalString := loadScript asString withLineEndings: ' '.
-	command := Smalltalk vm fullPath asString, ' --headless "', image file fullName, '" eval "', evalString, '"'.
+	evalString := self project loadScript asString withLineEndings: ' '.
+	command := Smalltalk vm fullPath asString, ' --headless "', image file fullName, '" eval --save "', evalString, '"  > /tmp/launcherLoad', self newImageName, '.log'. "It seems we need to redirect output to a file otherwise the command never completes; possibly related to the pipe being full and blocking"
 	[ :job |
 		| p |
 		job title: 'Loading project'.
