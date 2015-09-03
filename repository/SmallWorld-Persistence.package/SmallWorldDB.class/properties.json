@@ -1,0 +1,14 @@
+{
+	"category" : "SmallWorld-Persistence",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SmallWorldDB",
+	"pools" : [
+		 ],
+	"super" : "SpFileDatabase",
+	"type" : "normal" }

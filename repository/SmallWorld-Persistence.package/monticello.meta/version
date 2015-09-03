@@ -1,0 +1,1 @@
+(name 'SmallWorld-Persistence-SeanDeNigris.1' message '- Store projects via SimplePersistence; add appropriate support to configuration- Port HttpUrl extensions to ZnUrl- Add missing dependency on Magritte to config' id '7523162c-d6da-4366-96a8-3fd890c609bf' date '31 May 2015' time '1:23:04.836066 pm' author 'SeanDeNigris' ancestors () stepChildren ())
