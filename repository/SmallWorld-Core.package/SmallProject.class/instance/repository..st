@@ -1,5 +1,5 @@
 accessing
 repository: anObject
-	"anObject - anHttpUrl or aFileReference"
+	"anObject - a URL or aFileReference"
 
 	repository := anObject.
