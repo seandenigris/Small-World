@@ -1,9 +1,9 @@
 action
-loadIntoNewImage: project
+loadProjectIntoNewImage
 
 	| loadScript evalString image command |
-	image := context imageRepository images detect: [ :e | e name = newImageName ].
-	loadScript := project loadScript
+	image := context imageRepository images detect: [ :e | e name = self newImageName ].
+	loadScript := self project loadScript
 	quitting: true;
 	saving: true;
 	yourself.
