@@ -2,7 +2,7 @@ magritte
 descriptionDefaultVersion
 	<magritteDescription>
 
-	^ MAStringDescription new
+	^ MASymbolDescription new
 		priority: 290;
 		label: 'Default version';
 		accessor: #defaultVersion;
