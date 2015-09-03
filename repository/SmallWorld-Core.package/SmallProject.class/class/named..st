@@ -1,4 +1,6 @@
 instance creation
 named: aString 
 
-	^ self new name: aString.
+	^ self new
+			name: aString;
+			yourself
