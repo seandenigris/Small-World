@@ -1,0 +1,4 @@
+private
+projects
+
+	^ SmallProject projects.

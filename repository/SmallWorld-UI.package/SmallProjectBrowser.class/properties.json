@@ -1,0 +1,15 @@
+{
+	"category" : "SmallWorld-UI",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		"projectListModel",
+		"projectModel" ],
+	"name" : "SmallProjectBrowser",
+	"pools" : [
+		 ],
+	"super" : "ComposableModel",
+	"type" : "normal" }

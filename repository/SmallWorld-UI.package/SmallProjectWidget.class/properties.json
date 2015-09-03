@@ -1,0 +1,19 @@
+{
+	"category" : "SmallWorld-UI",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"loadButton",
+		"project",
+		"loadStableButton",
+		"loadDevelopmentButton",
+		"loadBleedingEdgeButton",
+		"browseScriptButton" ],
+	"name" : "SmallProjectWidget",
+	"pools" : [
+		 ],
+	"super" : "ComposableModel",
+	"type" : "normal" }

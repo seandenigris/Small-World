@@ -1,0 +1,4 @@
+initialization
+loadButton
+		
+	^ loadButton.
