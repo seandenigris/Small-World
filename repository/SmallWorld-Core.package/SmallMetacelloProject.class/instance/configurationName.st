@@ -1,4 +1,4 @@
 accessing
 configurationName
 
-	^ configurationName ifNil: [ configurationName := 'ConfigurationOf', name ].
+	^ configurationName ifNil: [ 'ConfigurationOf', self name ].

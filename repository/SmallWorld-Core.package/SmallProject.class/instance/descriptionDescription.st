@@ -7,5 +7,4 @@ descriptionDescription
 		label: 'Description';
 		accessor: #description;
 		lineCount: 5;
-		beRequired;
 		yourself

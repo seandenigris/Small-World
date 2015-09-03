@@ -1,0 +1,3 @@
+*SmallWorld-Core
+swDescription
+	^ nil
