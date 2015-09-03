@@ -8,7 +8,8 @@
 	"instvars" : [
 		"name",
 		"description",
-		"repository" ],
+		"repository",
+		"loadScript" ],
 	"name" : "SmallProject",
 	"pools" : [
 		 ],

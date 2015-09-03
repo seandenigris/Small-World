@@ -1,4 +1,4 @@
 loading
 loadScript
 
-	^ SmallLoadScript building: self.
+	^ SmallConfigurationLoadScript building: self.

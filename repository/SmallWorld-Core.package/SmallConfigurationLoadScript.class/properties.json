@@ -1,0 +1,14 @@
+{
+	"category" : "SmallWorld-Core",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "SmallConfigurationLoadScript",
+	"pools" : [
+		 ],
+	"super" : "SmallLoadScript",
+	"type" : "normal" }

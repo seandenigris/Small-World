@@ -1,7 +1,7 @@
 *SmallWorld-Core
 swDescription
 
-	^ MAStringDescription new
+	^ MAUrlDescription new
 		priority: 200;
 		label: 'Repository';
 		accessor: #repository;

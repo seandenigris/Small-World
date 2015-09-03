@@ -1,0 +1,3 @@
+accessing
+projectVersionString
+	^ self projectVersion
