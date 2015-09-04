@@ -3,7 +3,7 @@ printLoadOn: aStream
 
 	| template |
 	template := 'Metacello new
-	repository: ''filetree://'', FileLocator imageDirectory fullName, ''/{projectPath}/repository'';
+	repository: ''filetree://'', (repoFolder / ''repository'') fullName;
 	baseline: ''{baselineName}'';
 	onConflict: [ :ex | ex allow ];
 	load.'.
