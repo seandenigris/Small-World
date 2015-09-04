@@ -1,14 +1,15 @@
 {
-	"category" : "SmallWorld-Core-Scripts",
+	"category" : "SmallWorld-Core-Projects",
 	"classinstvars" : [
 		 ],
 	"classvars" : [
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		 ],
-	"name" : "SmallConfigurationLoadScript",
+		"user",
+		"projectName" ],
+	"name" : "SmallRemoteGitRepository",
 	"pools" : [
 		 ],
-	"super" : "SmallLoadScript",
+	"super" : "Object",
 	"type" : "normal" }

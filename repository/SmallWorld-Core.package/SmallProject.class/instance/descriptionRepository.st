@@ -6,6 +6,6 @@ descriptionRepository
 		priority: 200;
 		label: 'Repository';
 		accessor: #repository;
-		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallBitBucketRepository withAllSubclasses;
+		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallRemoteGitRepository allSubclasses;
 		beRequired;
 		yourself

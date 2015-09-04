@@ -6,10 +6,9 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"user",
-		"projectName" ],
+		 ],
 	"name" : "SmallBitBucketRepository",
 	"pools" : [
 		 ],
-	"super" : "Object",
+	"super" : "SmallRemoteGitRepository",
 	"type" : "normal" }
