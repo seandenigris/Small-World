@@ -1,7 +1,7 @@
 as yet unclassified
 printGitCloneOn: aStream
 	| template |
-	template := 'repoFolder := FileLocator home / ''Dynabook'' / ''Repositories'' / ''{projectPath}''.
+	template := 'repoFolder := FileLocator home / ''Dynabook'' / ''Repositories'' / ''{projectName}''.
 repoFolder exists
 	ifFalse: [ NBMacShell run: ''git clone {sshCloneUrl} '', repoFolder fullName surroundedBySingleQuotes ].'.
 
@@ -9,6 +9,6 @@ repoFolder exists
 		printTemplate: template
 		format: {
 				#sshCloneUrl -> self project repository sshCloneUrl.
-				#projectPath -> self project repository projectPath.
+				#projectName -> self project name.
 			}
 		on: aStream.
