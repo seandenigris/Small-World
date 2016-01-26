@@ -5,5 +5,5 @@ descriptionContents
 	^ MAMemoDescription new
 			label: 'Contents';
 			accessor: #asString;
-			gtPresentation: [ :a | a smalltalkCode ];
+			glmPresentation: [ :a | a smalltalkCode ];
 			yourself
