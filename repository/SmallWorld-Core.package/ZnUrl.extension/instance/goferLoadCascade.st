@@ -2,6 +2,6 @@
 goferLoadCascade
 	| repository repoUsername repoPassword |
 	repository := MCHttpRepository location: self asString.
-	repoUsername := DpMcConfigurationFile new defaultUserFor: repository.
-	repoPassword := DpMcConfigurationFile new defaultPasswordFor: repository.
+	repoUsername := MlConfigurationFile new defaultUserFor: repository.
+	repoPassword := MlConfigurationFile new defaultPasswordFor: repository.
 	^ 'url: ', self asGoferString surroundedBySingleQuotes, ' username: ''', repoUsername, ''' password: ''', repoPassword, ''''
