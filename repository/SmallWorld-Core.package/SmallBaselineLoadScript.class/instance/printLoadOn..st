@@ -11,5 +11,5 @@ printLoadOn: aStream
 		printTemplate: template
 		format: {
 			#projectPath -> self project repository projectPath.
-			(#baselineName -> (self project name copyWithout: Character space)) }
+			#baselineName -> self baselineName }
 		on: aStream

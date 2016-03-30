@@ -1,22 +1,6 @@
 {
 	"class" : {
-		"ffi" : "SeanDeNigris 11/7/2014 15:57",
-		"hudsonBuildTools" : "SeanDeNigris 11/7/2014 15:57",
-		"magritte3" : "SeanDeNigris 11/8/2014 12:07",
-		"monticelloRedirect" : "SeanDeNigris 11/7/2014 15:58",
-		"neoCsv" : "SeanDeNigris 11/7/2014 15:58",
-		"petitParser" : "SeanDeNigris 11/7/2014 15:58",
-		"petitParserSpd" : "SeanDeNigris 11/7/2014 15:59",
-		"pharoSpd" : "SeanDeNigris 11/8/2014 12:19",
-		"phexample" : "SeanDeNigris 11/7/2014 15:59",
-		"scheduler" : "SeanDeNigris 11/7/2014 15:59",
-		"simpleApplescript" : "SeanDeNigris 11/7/2014 15:59",
-		"simpleImageBasedPersistence" : "SeanDeNigris 11/8/2014 12:08",
-		"soup" : "SeanDeNigris 11/7/2014 15:59",
-		"versionner" : "SeanDeNigris 11/8/2014 12:19",
-		"vimPharo" : "SeanDeNigris 11/8/2014 12:19",
-		"zinc" : "SeanDeNigris 11/7/2014 16:00",
-		"zodiac" : "SeanDeNigris 11/7/2014 16:00" },
+		 },
 	"instance" : {
 		"beBleedingEdge" : "SeanDeNigris 10/24/2013 19:29",
 		"beDevelopment" : "SeanDeNigris 6/12/2013 15:35",
