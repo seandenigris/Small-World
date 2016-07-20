@@ -5,5 +5,5 @@ descriptionLoadScriptSource
 	^ MAMemoDescription new
 			label: 'Load Script';
 			accessor: { #loadScript. #asString };
-			glmPresentation: [ :a | a smalltalkCode ];
+			glmPresentation: [ :a | a pharoScript ];
 			yourself

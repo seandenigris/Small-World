@@ -5,5 +5,5 @@ descriptionContents
 	^ MAMemoDescription new
 			label: 'Contents';
 			accessor: #asString;
-			glmPresentation: [ :a | a smalltalkCode ];
+			glmPresentation: [ :a | a pharoScript ];
 			yourself
