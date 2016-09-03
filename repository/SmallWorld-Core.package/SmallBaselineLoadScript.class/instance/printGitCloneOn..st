@@ -4,7 +4,7 @@ printGitCloneOn: aStream
 	template := 'repoFolder := FileLocator home / ''Dynabook'' / ''Repositories'' / ''{projectName}''.
 repoFolder exists
 	ifFalse: [ 
-		NBMacShell run: ''git clone {sshCloneUrl} '', repoFolder fullName surroundedBySingleQuotes.
+		LibC system: ''git clone {sshCloneUrl} '', repoFolder fullName surroundedBySingleQuotes.
 		(repoFolder / ''repository'') ensureCreateDirectory ].'.
 
 	self
