@@ -23,3 +23,11 @@ baseline: spec
 			package: 'SmallWorld-Platform';
 			package: #'SmallWorld-Persistence' with: [
 				spec requires: #('SimplePersistence' ). ]. ].
+
+			"We require an updated GT which was not integrated until Pharo 6"
+	spec for: #(#'pharo4.x' #'pharo5.x') do: [
+		spec 
+			package: 'GT-Inspector' with: [
+				spec repository: 'http://smalltalkhub.com/mc/Moose/GToolkit/main/'. ] ].
+	
+	spec for: #'PharoLauncher' do: [ spec package: 'SmallWorld-PharoLauncher' ]
