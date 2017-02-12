@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/seandenigris/TempfileSt.png?branch=master)](https://travis-ci.org/seandenigris/TempfileSt)
+[![Build Status](https://travis-ci.org/seandenigris/Small-World.png?branch=master)](https://travis-ci.org/seandenigris/Small-World)
 SmallWorld
 ==========
 
