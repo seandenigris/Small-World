@@ -4,5 +4,5 @@ menuCommandOn: aBuilder
 	
 	(aBuilder item: #'Dashboard')
 		parent: #'Small World';
-		action: [ self open ]; 
+		action: [ self openGlamour ]; 
 		icon: Smalltalk ui icons smallLoadProjectIcon
