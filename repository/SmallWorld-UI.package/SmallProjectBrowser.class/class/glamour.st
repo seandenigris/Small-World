@@ -16,5 +16,5 @@ glamour
 	browser transmit
 		from: #one;
 		to: #two;
-		andShow: [ :a :b | a custom: (GTInspector new startOn: b) ].
+		andShow: [ :a :b | b gtInspectorPresentationsIn: a inContext: GTInspector new ].
 	^ browser
