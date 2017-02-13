@@ -3,8 +3,8 @@ printLoadOn: aStream
 
 	| template |
 	template := 'Metacello new
-	baseline: ''{baselineName}'';
 	repository: ''filetree://'', (repoFolder / ''repository'') fullName;
+	baseline: ''{baselineName}'';
 	onConflict: [ :ex | ex allow ];
 	load.'.
 	self
