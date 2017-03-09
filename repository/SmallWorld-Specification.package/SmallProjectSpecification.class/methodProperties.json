@@ -2,6 +2,7 @@
 	"class" : {
 		 },
 	"instance" : {
+		"testCamelCaseName" : "SeanDeNigris 3/9/2017 11:52",
 		"testLoadBleedingEdge" : "SeanDeNigris 10/24/2013 19:30",
 		"testLoadDevelopmentByDefault" : "SeanDeNigris 6/12/2013 15:32",
 		"testLoadDevelopmentVersion" : "SeanDeNigris 2/22/2013 10:28",
