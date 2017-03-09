@@ -7,6 +7,5 @@ descriptionRepository
 		label: 'Repository';
 		accessor: #repository;
 		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallRemoteGitRepository allSubclasses;
-		initializer: [ :repo | repo projectName: self name ];
 		beRequired;
 		yourself

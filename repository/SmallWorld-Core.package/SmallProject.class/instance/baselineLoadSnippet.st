@@ -4,5 +4,5 @@ baselineLoadSnippet
 	template := 'baseline: ''{projectName}'' with: [
 				spec repository: ''{repoURL}'' ]'.
 	^ template format: { 
-			#projectName -> (self name copyWithout: Character space).
+			#projectName -> self camelCaseName.
 			#repoURL -> self repository directDownloadURL } asDictionary
