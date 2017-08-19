@@ -1,5 +1,8 @@
 {
-	"class" : {
-		 },
 	"instance" : {
-		"baseline:" : "SeanDeNigris 1/30/2017 10:02" } }
+		"isLauncherImage" : "SeanDeNigris 8/19/2017 18:36",
+		"baseline:" : "SeanDeNigris 1/30/2017 10:02",
+		"customProjectAttributes" : "SeanDeNigris 8/19/2017 18:35"
+	},
+	"class" : { }
+}
