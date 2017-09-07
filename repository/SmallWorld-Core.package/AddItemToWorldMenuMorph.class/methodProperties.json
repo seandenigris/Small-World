@@ -1,6 +1,9 @@
 {
-	"class" : {
-		"openToAddMenuFor:" : "SeanDeNigris 8/22/2011 06:46" },
 	"instance" : {
-		"open" : "SeanDeNigris 8/22/2011 06:50",
-		"setTargetClass:" : "SeanDeNigris 8/22/2011 06:47" } }
+		"setTargetClass:" : "SeanDeNigris 8/22/2011 06:47",
+		"open" : "SeanDeNigris 8/22/2011 06:50"
+	},
+	"class" : {
+		"openToAddMenuFor:" : "SeanDeNigris 8/22/2011 06:46"
+	}
+}

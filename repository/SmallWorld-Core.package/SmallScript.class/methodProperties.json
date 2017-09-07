@@ -1,9 +1,10 @@
 {
-	"class" : {
-		 },
 	"instance" : {
 		"asString" : "SeanDeNigris 6/26/2012 16:24",
 		"initialize" : "SeanDeNigris 7/26/2012 13:36",
-		"run" : "SeanDeNigris 6/26/2012 16:22",
+		"saveAs:" : "SeanDeNigris 6/26/2012 16:21",
 		"save:andQuit:" : "SeanDeNigris 7/26/2012 13:35",
-		"saveAs:" : "SeanDeNigris 6/26/2012 16:21" } }
+		"run" : "SeanDeNigris 6/26/2012 16:22"
+	},
+	"class" : { }
+}

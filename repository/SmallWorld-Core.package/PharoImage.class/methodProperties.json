@@ -1,24 +1,27 @@
 {
-	"class" : {
-		"archiveDirectory" : "SeanDeNigris 2/22/2013 10:34",
-		"currentPackageNames" : "SeanDeNigris 11/7/2014 14:13",
-		"defaultPackageNamesForUpdate:" : "SeanDeNigris 7/5/2012 15:30",
-		"file:" : "SeanDeNigris 2/22/2013 10:36",
-		"menuCommandOn:" : "SeanDeNigris 1/5/2012 21:06",
-		"named:" : "SeanDeNigris 2/22/2013 10:36",
-		"setUpWith:" : "SeanDeNigris 1/30/2011 11:49",
-		"version:" : "SeanDeNigris 12/31/2011 21:46",
-		"versions" : "SeanDeNigris 12/31/2011 21:42" },
 	"instance" : {
 		"createSetupScript" : "SeanDeNigris 1/30/2011 02:24",
-		"createStartupScriptFrom:" : "SeanDeNigris 5/22/2011 15:57",
-		"filePath" : "SeanDeNigris 5/22/2011 15:32",
-		"open" : "SeanDeNigris 12/31/2011 21:38",
-		"openForDevelopment" : "SeanDeNigris 1/1/2012 17:02",
 		"setFile:" : "SeanDeNigris 12/31/2011 12:09",
+		"setupScriptPath" : "SeanDeNigris 5/22/2011 16:00",
+		"setupScriptDirectoryPath" : "SeanDeNigris 1/30/2011 02:20",
+		"open" : "SeanDeNigris 12/31/2011 21:38",
+		"filePath" : "SeanDeNigris 5/22/2011 15:32",
+		"openForDevelopment" : "SeanDeNigris 1/1/2012 17:02",
+		"createStartupScriptFrom:" : "SeanDeNigris 5/22/2011 15:57",
 		"setScriptContents:" : "SeanDeNigris 1/30/2011 11:05",
 		"setupScriptContents" : "SeanDeNigris 1/30/2011 11:09",
-		"setupScriptDirectoryPath" : "SeanDeNigris 1/30/2011 02:20",
-		"setupScriptPath" : "SeanDeNigris 5/22/2011 16:00",
 		"startAndEvaluate:" : "SeanDeNigris 12/31/2011 21:26",
-		"vmBundle" : "SeanDeNigris 7/5/2012 23:46" } }
+		"vmBundle" : "SeanDeNigris 7/5/2012 23:46"
+	},
+	"class" : {
+		"version:" : "SeanDeNigris 12/31/2011 21:46",
+		"menuCommandOn:" : "SeanDeNigris 1/5/2012 21:06",
+		"defaultPackageNamesForUpdate:" : "SeanDeNigris 7/5/2012 15:30",
+		"archiveDirectory" : "SeanDeNigris 2/22/2013 10:34",
+		"file:" : "SeanDeNigris 2/22/2013 10:36",
+		"named:" : "SeanDeNigris 2/22/2013 10:36",
+		"versions" : "SeanDeNigris 12/31/2011 21:42",
+		"setUpWith:" : "SeanDeNigris 1/30/2011 11:49",
+		"currentPackageNames" : "SeanDeNigris 11/7/2014 14:13"
+	}
+}

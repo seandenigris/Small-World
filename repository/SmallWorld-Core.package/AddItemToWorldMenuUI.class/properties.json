@@ -1,14 +1,13 @@
 {
-	"category" : "SmallWorld-Core-IDE",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		"targetClass" ],
-	"name" : "AddItemToWorldMenuUI",
-	"pools" : [
-		 ],
 	"super" : "ComposableModel",
-	"type" : "normal" }
+	"category" : "SmallWorld-Core-IDE",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"targetClass"
+	],
+	"name" : "AddItemToWorldMenuUI",
+	"type" : "normal"
+}

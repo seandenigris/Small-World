@@ -1,14 +1,13 @@
 {
-	"category" : "SmallWorld-Core-Projects",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		"packageName" ],
-	"name" : "SmallMcProject",
-	"pools" : [
-		 ],
 	"super" : "SmallProject",
-	"type" : "normal" }
+	"category" : "SmallWorld-Core-Projects",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"packageName"
+	],
+	"name" : "SmallMcProject",
+	"type" : "normal"
+}

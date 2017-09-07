@@ -1,14 +1,11 @@
 {
-	"category" : "SmallWorld-Core-Projects",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "SmallBitBucketRepository",
-	"pools" : [
-		 ],
 	"super" : "SmallRemoteGitRepository",
-	"type" : "normal" }
+	"category" : "SmallWorld-Core-Projects",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SmallBitBucketRepository",
+	"type" : "normal"
+}

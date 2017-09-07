@@ -1,17 +1,18 @@
 {
+	"commentStamp" : "",
+	"super" : "Object",
 	"category" : "SmallWorld-Core-Projects",
 	"classinstvars" : [
-		"projects" ],
-	"classvars" : [
-		 ],
-	"commentStamp" : "",
+		"projects"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"name",
 		"description",
 		"repository",
-		"loadScript" ],
+		"loadScript"
+	],
 	"name" : "SmallProject",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

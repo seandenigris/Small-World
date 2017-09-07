@@ -1,9 +1,10 @@
 {
-	"class" : {
-		 },
 	"instance" : {
-		"addToGofer:" : "SeanDeNigris 11/20/2013 14:40",
 		"goferLoadCascade" : "SeanDeNigris 8/18/2015 15:01",
+		"swDescription" : "SeanDeNigris 11/21/2013 22:15",
 		"goferRepositorySetter" : "SeanDeNigris 11/20/2013 14:41",
 		"swConstructorString" : "SeanDeNigris 11/21/2013 22:29",
-		"swDescription" : "SeanDeNigris 11/21/2013 22:15" } }
+		"addToGofer:" : "SeanDeNigris 11/20/2013 14:40"
+	},
+	"class" : { }
+}

@@ -1,14 +1,11 @@
 {
-	"category" : "SmallWorld-Core-Scripts",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "SmallConfigurationLoadScript",
-	"pools" : [
-		 ],
 	"super" : "SmallLoadScript",
-	"type" : "normal" }
+	"category" : "SmallWorld-Core-Scripts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SmallConfigurationLoadScript",
+	"type" : "normal"
+}

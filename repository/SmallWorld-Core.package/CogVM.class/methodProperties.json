@@ -1,16 +1,17 @@
 {
+	"instance" : { },
 	"class" : {
-		"buildScriptString" : "SeanDeNigris 4/25/2012 23:12",
-		"cloneFromGit" : "SeanDeNigris 8/22/2011 20:49",
-		"compile" : "SeanDeNigris 4/26/2012 10:59",
-		"downloadFiles" : "SeanDeNigris 4/25/2012 22:40",
+		"uncompressFiles" : "SeanDeNigris 4/25/2012 23:03",
 		"generateSources" : "SeanDeNigris 4/26/2012 11:05",
-		"gitoriousRepo" : "SeanDeNigris 8/22/2011 20:47",
+		"cloneFromGit" : "SeanDeNigris 8/22/2011 20:49",
 		"makeFresh" : "SeanDeNigris 4/25/2012 23:24",
 		"openImageMaker" : "SeanDeNigris 4/26/2012 11:05",
-		"openInXcode" : "SeanDeNigris 4/25/2012 23:23",
+		"compile" : "SeanDeNigris 4/26/2012 10:59",
 		"reset" : "SeanDeNigris 4/26/2012 14:16",
+		"buildScriptString" : "SeanDeNigris 4/25/2012 23:12",
+		"downloadFiles" : "SeanDeNigris 4/25/2012 22:40",
 		"rootFolder" : "SeanDeNigris 4/25/2012 22:59",
-		"uncompressFiles" : "SeanDeNigris 4/25/2012 23:03" },
-	"instance" : {
-		 } }
+		"gitoriousRepo" : "SeanDeNigris 8/22/2011 20:47",
+		"openInXcode" : "SeanDeNigris 4/25/2012 23:23"
+	}
+}

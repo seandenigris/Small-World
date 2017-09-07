@@ -1,15 +1,14 @@
 {
-	"category" : "SmallWorld-Core-Projects",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "SmallWorld-Core-Projects",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"user",
-		"projectName" ],
+		"projectName"
+	],
 	"name" : "SmallRemoteGitRepository",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

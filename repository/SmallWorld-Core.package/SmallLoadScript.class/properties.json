@@ -1,19 +1,18 @@
 {
-	"category" : "SmallWorld-Core-Scripts",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "SmallScript",
+	"category" : "SmallWorld-Core-Scripts",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"debug",
 		"loads",
 		"project",
 		"projectVersion",
 		"whatToLoad",
-		"loadConfigurationOnly" ],
+		"loadConfigurationOnly"
+	],
 	"name" : "SmallLoadScript",
-	"pools" : [
-		 ],
-	"super" : "SmallScript",
-	"type" : "normal" }
+	"type" : "normal"
+}

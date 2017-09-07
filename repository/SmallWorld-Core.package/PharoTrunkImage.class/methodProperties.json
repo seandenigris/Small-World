@@ -1,12 +1,15 @@
 {
-	"class" : {
-		"archiveFileName" : "SeanDeNigris 1/12/2011 16:31",
-		"description" : "SeanDeNigris 2/12/2011 13:19",
-		"latestLocal" : "SeanDeNigris 2/1/2011 16:56",
-		"uncompressFreshCopy" : "SeanDeNigris 5/22/2011 15:42" },
 	"instance" : {
-		"filePath" : "SeanDeNigris 1/30/2011 00:56",
-		"initialize" : "SeanDeNigris 5/22/2011 15:42",
 		"setupScript" : "SeanDeNigris 1/30/2011 01:48",
-		"setupScriptFileName" : "SeanDeNigris 1/30/2011 02:19",
-		"setupScriptPath" : "SeanDeNigris 5/22/2011 15:58" } }
+		"initialize" : "SeanDeNigris 5/22/2011 15:42",
+		"filePath" : "SeanDeNigris 1/30/2011 00:56",
+		"setupScriptPath" : "SeanDeNigris 5/22/2011 15:58",
+		"setupScriptFileName" : "SeanDeNigris 1/30/2011 02:19"
+	},
+	"class" : {
+		"uncompressFreshCopy" : "SeanDeNigris 5/22/2011 15:42",
+		"description" : "SeanDeNigris 2/12/2011 13:19",
+		"archiveFileName" : "SeanDeNigris 1/12/2011 16:31",
+		"latestLocal" : "SeanDeNigris 2/1/2011 16:56"
+	}
+}
