@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "SmallRemoteGitRepository",
+	"category" : "SmallWorld-Core-Projects",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "SmallGitLabRepository",
+	"type" : "normal"
+}

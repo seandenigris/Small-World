@@ -9,7 +9,5 @@ printLoadOn: aStream
 	load.'.
 	self
 		printTemplate: template
-		format: {
-			#projectPath -> self project repository projectPath.
-			#baselineName -> self baselineName }
+		format: { #baselineName -> self baselineName }
 		on: aStream
