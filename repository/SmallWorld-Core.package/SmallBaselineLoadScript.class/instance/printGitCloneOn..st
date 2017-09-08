@@ -1,4 +1,4 @@
-as yet unclassified
+printing
 printGitCloneOn: aStream
 	| template |
 	template := 'repoFolder := FileLocator home / ''Dynabook'' / ''Repositories'' / ''{projectName}''.
@@ -11,6 +11,6 @@ repoFolder exists
 		printTemplate: template
 		format: {
 				#sshCloneUrl -> self project repository sshCloneUrl.
-				#projectName -> self project name.
+				#projectName -> self project localFolderName.
 			}
 		on: aStream.
