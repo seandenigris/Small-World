@@ -11,7 +11,8 @@
 		"name",
 		"description",
 		"repository",
-		"loadScript"
+		"loadScript",
+		"isPrivate"
 	],
 	"name" : "SmallProject",
 	"type" : "normal"
