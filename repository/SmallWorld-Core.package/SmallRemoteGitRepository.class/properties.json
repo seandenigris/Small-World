@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"user",
-		"projectName"
+		"projectName",
+		"codeSubfolder"
 	],
 	"name" : "SmallRemoteGitRepository",
 	"type" : "normal"

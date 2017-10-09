@@ -1,3 +1,3 @@
 accessing
 localCloneURL
-	^ '''filetree://'', (FileLocator home / ''Dynabook'' / ''Repositories'' / ''', self projectName, ''' / ''repository'') fullName'
+	^ '''filetree://'', (FileLocator home / ''Dynabook'' / ''Repositories'' / ''', self projectName, ''' / ''', self codeSubfolder, ''') fullName'

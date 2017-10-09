@@ -1,13 +1,15 @@
-as yet unclassified
+printing
 printLoadOn: aStream 
 
 	| template |
 	template := 'Metacello new
 	baseline: ''{baselineName}'';
-	repository: ''filetree://'', (repoFolder / ''repository'') fullName;
+	repository: ''filetree://'', (repoFolder / ''{codeSubfolder}'') fullName;
 	onConflict: [ :ex | ex allow ];
 	load.'.
 	self
 		printTemplate: template
-		format: { #baselineName -> self baselineName }
-		on: aStream
+		format: { 
+			#baselineName -> self baselineName.
+			#codeSubfolder -> self project repository codeSubfolder }
+			on: aStream
