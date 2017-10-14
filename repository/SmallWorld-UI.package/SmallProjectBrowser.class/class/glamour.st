@@ -1,11 +1,11 @@
-as yet unclassified
+glamour
 glamour
 
 	| browser |
 	browser := GLMTabulator new.
 	browser
 		column: #one;
-		column: #two.
+		column: #two span: 4.
 	browser transmit
 		to: #one;
 		andShow: [ :a | 
@@ -16,5 +16,5 @@ glamour
 	browser transmit
 		from: #one;
 		to: #two;
-		andShow: [ :a :b | b gtInspectorPresentationsIn: a inContext: GTInspector new ].
+		andShow: [ :a | a finder show: [ :b :object | object gtInspectorPresentationsIn: b inContext: GTInspector new ] ].
 	^ browser

@@ -1,4 +1,4 @@
-as yet unclassified
+specs
 title
 
 	^ 'Smalltalk Projects'.
