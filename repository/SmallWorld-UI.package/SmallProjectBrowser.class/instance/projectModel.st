@@ -1,4 +1,0 @@
-accessing
-projectModel
-
-	^ projectModel.

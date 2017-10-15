@@ -1,1 +1,0 @@
-I am a Spec implementation. For now, I have been superseded by Glamour.
