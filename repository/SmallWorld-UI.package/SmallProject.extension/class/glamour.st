@@ -1,4 +1,4 @@
-glamour
+*SmallWorld-UI
 glamour
 
 	| browser |

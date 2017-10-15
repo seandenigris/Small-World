@@ -1,4 +1,0 @@
-accessing
-loadBleedingEdgeButton
-
-	^ loadBleedingEdgeButton.

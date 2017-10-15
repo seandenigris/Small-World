@@ -1,4 +1,4 @@
-opening
+*SmallWorld-UI
 openGlamour
 	<script>
 

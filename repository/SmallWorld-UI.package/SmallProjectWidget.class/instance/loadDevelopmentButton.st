@@ -1,4 +1,0 @@
-accessing
-loadDevelopmentButton
-
-	^ loadDevelopmentButton.

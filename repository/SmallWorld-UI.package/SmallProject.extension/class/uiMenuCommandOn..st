@@ -1,5 +1,5 @@
-world menu
-menuCommandOn: aBuilder 
+*SmallWorld-UI
+uiMenuCommandOn: aBuilder 
 	<worldMenu> 
 	
 	(aBuilder item: #'Dashboard')

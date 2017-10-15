@@ -1,4 +1,4 @@
 private
 localRepositoryRoot
 
-	^ '/Users/Sean/Squeak/Repositories/' asFileReference.
+	^ FileLocator home / 'Dynabook' / 'Repositories'.
