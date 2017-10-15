@@ -12,9 +12,16 @@ glamour
 			a fastList
 				title: 'Filter and named action ';
 				display: [ :input | input ];
+				icon: [ :project | 
+					project isLoaded
+						ifTrue: [ Smalltalk ui icons testGreen ] 
+						ifFalse: [ Smalltalk ui icons testNotRun ] ];
+				act: [ self add ] iconName: #add on: $a entitled: 'Add Project';
+				act: [ :list | list selection repository open ] iconName: #glamorousOpenFromUrl on: $o entitled: 'Open Repository';
 				enableFilterWithAction: [ :dataSource :pattern :selectedRow | selectedRow browse ] named: 'Browse' ].
 	browser transmit
 		from: #one;
 		to: #two;
-		andShow: [ :a | a finder show: [ :b :object | object gtInspectorPresentationsIn: b inContext: GTInspector new ] ].
+		andShow: [ :a | 
+			a finder show: [ :b :object | object gtInspectorPresentationsIn: b inContext: GTInspector new ] ].
 	^ browser

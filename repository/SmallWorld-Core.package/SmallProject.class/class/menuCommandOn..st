@@ -5,7 +5,7 @@ menuCommandOn: aBuilder
 	(aBuilder item: #'Small World')
 		with: [
 			(aBuilder item: #'Add Project')
-				action: [ (self projects add: SmallProject new) inspect ]; 
+				action: [ self add ]; 
 				icon: Smalltalk ui icons add.
 			(aBuilder item: #'Save Project Catalog')
 				action: [ SmallWorldDB saveRepository ]; 

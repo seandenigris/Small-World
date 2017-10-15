@@ -1,0 +1,3 @@
+*SmallWorld-Core
+isSmallProjectLoaded
+	^ false

@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 remoteLoadSnippet
 	"Adapted from https://github.com/dalehenrich/metacello-work#pharo30-pharo40-and-pharo50"
 	| template |
