@@ -1,4 +1,4 @@
-as yet unclassified
+printing
 printTemplate: aString format: convertibleToDictionary on: aStream
 	| filled |
 	filled := aString

@@ -1,4 +1,4 @@
-as yet unclassified
+Magritte
 descriptionProjectVersion
 	<magritteDescription>
 

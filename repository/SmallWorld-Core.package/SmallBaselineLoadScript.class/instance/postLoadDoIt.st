@@ -1,0 +1,3 @@
+accessing
+postLoadDoIt
+	^ postLoadDoIt ifNil: [ '' ]

@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 projectVersion: aString 
 	projectVersion := aString
