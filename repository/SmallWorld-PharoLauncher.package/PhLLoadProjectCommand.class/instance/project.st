@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 project
 	^ project ifNil: [ project := self requestProject ]

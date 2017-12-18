@@ -1,4 +1,4 @@
-as yet unclassified
+action
 requestProject
 	| chooser |
 	chooser := ListDialogWindow new

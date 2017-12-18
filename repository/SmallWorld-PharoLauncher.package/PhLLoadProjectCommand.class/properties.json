@@ -1,14 +1,13 @@
 {
-	"category" : "SmallWorld-PharoLauncher",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		"project" ],
-	"name" : "PhLLoadProjectCommand",
-	"pools" : [
-		 ],
 	"super" : "PhLCreateImageFromTemplateCommand",
-	"type" : "normal" }
+	"category" : "SmallWorld-PharoLauncher",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"project"
+	],
+	"name" : "PhLLoadProjectCommand",
+	"type" : "normal"
+}
