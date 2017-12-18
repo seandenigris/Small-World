@@ -17,7 +17,7 @@ glamour
 						ifTrue: [ Smalltalk ui icons testGreen ] 
 						ifFalse: [ Smalltalk ui icons testNotRun ] ];
 				act: [ self add ] iconName: #add on: $a entitled: 'Add Project';
-				selectionAct: [ :list | list selection repository open ] iconName: #glamorousOpenFromUrl on: $o entitled: 'Open Repository';
+				maAddSelectionActionsFor: SmallProject new;
 				enableFilterWithAction: [ :dataSource :pattern :selectedRow | selectedRow browse ] named: 'Browse' ].
 	browser transmit
 		from: #one;

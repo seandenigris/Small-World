@@ -1,3 +1,3 @@
 as yet unclassified
-open
+view
 	self url open
