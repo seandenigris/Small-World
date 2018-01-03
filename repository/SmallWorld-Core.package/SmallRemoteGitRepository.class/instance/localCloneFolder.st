@@ -1,3 +1,3 @@
 accessing
 localCloneFolder
-	^ FileLocator home / 'Dynabook' / 'Repositories' / self user asLowercase /  self projectName
+	^ FileLocator home / 'Dynabook' / 'Repositories' / self user asLowercase /  (self projectName copyReplaceAll: ' ' with: '-')
