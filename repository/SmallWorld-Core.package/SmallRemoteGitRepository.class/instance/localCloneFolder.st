@@ -1,3 +1,5 @@
 accessing
 localCloneFolder
-	^ FileLocator home / 'Dynabook' / 'Repositories' / self user asLowercase /  (self projectName copyReplaceAll: ' ' with: '-')
+	| safeProjectName |
+	safeProjectName := self projectName copyReplaceAll: ' ' with: '-'.
+	^ FileLocator home / 'Dynabook' / 'Repositories' / self user asLowercase / safeProjectName

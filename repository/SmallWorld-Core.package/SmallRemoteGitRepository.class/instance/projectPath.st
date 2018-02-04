@@ -1,3 +1,3 @@
 accessing
 projectPath
-	^ self projectName asLowercase copyReplaceAll: ' ' with: '-'
+	^ self projectName copyReplaceAll: ' ' with: '-'
