@@ -4,7 +4,6 @@ descriptionRepository
 
 	^ MAToOneRelationDescription new
 		priority: 200;
-		label: 'Repository';
 		accessor: #repository;
 		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallRemoteGitRepository allSubclasses;
 		initializer: [ :repo | repo projectName: self name ];

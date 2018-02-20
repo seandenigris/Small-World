@@ -2,8 +2,7 @@
 swDescription
 
 	^ MAUrlDescription new
-		priority: 200;
-		label: 'Repository';
-		accessor: #repository;
-		beRequired;
-		yourself
+			priority: 200;
+			accessor: #repository;
+			beRequired;
+			yourself
