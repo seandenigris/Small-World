@@ -6,6 +6,6 @@ descriptionRepository
 		priority: 200;
 		accessor: #repository;
 		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallRemoteGitRepository allSubclasses;
-		initializer: [ :repo | repo projectName: self name ];
+		initializer: [ :repo | repo project: self ];
 		beRequired;
 		yourself

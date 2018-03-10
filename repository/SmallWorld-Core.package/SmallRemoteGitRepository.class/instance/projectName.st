@@ -1,3 +1,3 @@
 accessing
 projectName
-	^ projectName
+	^ projectName ifNil: [ self project name ]

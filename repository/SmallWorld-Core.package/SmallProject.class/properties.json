@@ -12,7 +12,8 @@
 		"description",
 		"repository",
 		"loadScript",
-		"isPrivate"
+		"isPrivate",
+		"supportedImages"
 	],
 	"name" : "SmallProject",
 	"type" : "normal"
