@@ -13,7 +13,7 @@ baseline: spec
 					loads: #('Morphic' 'Magritte-GT');
 					repository: 'github://seandenigris/Magritte3:master/repository' ];
 			baseline: 'GitLabCI' with: [
-				spec repository: 'gitlab://SeanDeNigris/gitlab-smalltalk-ci:master/repository' ].
+				spec repository: 'gitlab://SeanDeNigris/gitlab-smalltalk-ci:master/src' ].
 		spec 
 			package: 'Glamour-Magritte-Presentations' with: [
 				spec repository: 'http://smalltalkhub.com/mc/Moose/Glamour/main/'. ];
