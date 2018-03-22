@@ -11,7 +11,8 @@
 		"project",
 		"projectVersion",
 		"whatToLoad",
-		"loadConfigurationOnly"
+		"loadConfigurationOnly",
+		"conflictBlock"
 	],
 	"name" : "SmallLoadScript",
 	"type" : "normal"
