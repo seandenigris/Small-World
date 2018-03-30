@@ -2,7 +2,7 @@ baselines
 baselineLoadSnippet
 	| template |
 	template := 'baseline: ''{projectName}'' with: [
-				spec repository: {repoURL} ]'.
+				spec repository: ''{repoURL}'' ]'.
 	^ template format: { 
 			#projectName -> (self name copyWithout: Character space).
-			#repoURL -> self metacelloURL } asDictionary
+			#repoURL -> self repository directDownloadURL } asDictionary

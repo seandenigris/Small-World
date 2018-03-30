@@ -1,4 +1,4 @@
-accessing-magritte
+accessing
 allSmalltalkImages
 	"See #glAsSmalltalkImagesStoreString re how this list was created"
 		

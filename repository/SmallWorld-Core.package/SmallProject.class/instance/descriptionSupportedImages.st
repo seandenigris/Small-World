@@ -1,4 +1,4 @@
-accessing-magritte
+magritte
 descriptionSupportedImages
 	<magritteDescription>
 	^ MAMultipleOptionDescription new
