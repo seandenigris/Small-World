@@ -11,7 +11,7 @@ baseline: spec
 			baseline: 'Magritte3' with: [
 				spec
 					loads: #('Morphic' 'Magritte-GT');
-					repository: 'github://seandenigris/Magritte3:master/repository' ];
+					repository: 'github://seandenigris/Magritte3:original_master/repository' ];
 			baseline: 'GitLabCI' with: [
 				spec repository: 'gitlab://SeanDeNigris/gitlab-smalltalk-ci:master/src' ].
 		spec 
