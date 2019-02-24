@@ -8,17 +8,17 @@ baseline: spec
 				spec repository: 'github://seandenigris/Baby-Phexample:master/repository' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence:master/repository' ];
-			baseline: 'Magritte3' with: [
+			baseline: 'Magritte' with: [
 				spec
 					loads: #('Morphic' 'Magritte-GT');
-					repository: 'github://seandenigris/Magritte3:original_master/repository' ];
+					repository: 'github://seandenigris/Magritte:master/source' ];
 			baseline: 'GitLabCI' with: [
 				spec repository: 'gitlab://SeanDeNigris/gitlab-smalltalk-ci:master/src' ].
 		spec 
 			package: 'Glamour-Magritte-Presentations' with: [
 				spec repository: 'http://smalltalkhub.com/mc/Moose/Glamour/main/'. ];
 			package: 'SmallWorld-Core' with: [
-				spec requires: #('Magritte3' 'Glamour-Magritte-Presentations' 'GitLabCI'). ];
+				spec requires: #('Magritte' 'Glamour-Magritte-Presentations' 'GitLabCI'). ];
 			package: 'SmallWorld-UI';
 			package: 'SmallWorld-Specification' with: [
 				spec requires: #('BabyPhexample' ). ];
