@@ -1,4 +1,0 @@
-*SmallWorld-Core
-goferRepositorySetter
-
-	^ #directory:.

@@ -1,3 +1,0 @@
-accessing
-postLoadDoIt
-	^ postLoadDoIt ifNil: [ '' ]

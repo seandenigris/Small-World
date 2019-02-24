@@ -1,3 +1,0 @@
-accessing
-hostname
-	^ 'gitlab.com'

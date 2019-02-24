@@ -1,3 +1,0 @@
-accessing
-hostname
-	^ 'github.com'

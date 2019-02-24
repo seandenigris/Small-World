@@ -1,4 +1,0 @@
-converting
-beDebug
-
-	debug := true.

@@ -1,3 +1,0 @@
-accessing
-projectVersionString
-	^ self projectVersion

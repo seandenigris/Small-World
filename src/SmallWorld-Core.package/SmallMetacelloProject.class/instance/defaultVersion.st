@@ -1,4 +1,0 @@
-accessing
-defaultVersion
-
-	^ defaultVersion.

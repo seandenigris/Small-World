@@ -1,4 +1,0 @@
-configuring
-loadingConfigurationOnly
-
-	loadConfigurationOnly := true.
