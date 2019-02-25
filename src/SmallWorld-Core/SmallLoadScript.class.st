@@ -41,7 +41,7 @@ SmallLoadScript >> beDebug [
 
 { #category : #accessing }
 SmallLoadScript >> conflictBlock [
-	^ self maLazyFromDescriptionOf: #conflictBlock
+	^ self maLazyFrom: self descriptionConflictBlock
 ]
 
 { #category : #accessing }

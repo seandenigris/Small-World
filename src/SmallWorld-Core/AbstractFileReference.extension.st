@@ -7,6 +7,12 @@ AbstractFileReference >> addToGofer: aGofer [
 ]
 
 { #category : #'*SmallWorld-Core' }
+AbstractFileReference >> asGoferString [
+
+	^ self fullName.
+]
+
+{ #category : #'*SmallWorld-Core' }
 AbstractFileReference >> goferLoadCascade [
 	^ 'directory: ', self asGoferString surroundedBySingleQuotes
 ]

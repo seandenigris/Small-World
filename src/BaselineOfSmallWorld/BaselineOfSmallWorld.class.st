@@ -1,7 +1,7 @@
 Class {
 	#name : #BaselineOfSmallWorld,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfSmallWorld'
+	#category : #BaselineOfSmallWorld
 }
 
 { #category : #baselines }
@@ -28,7 +28,6 @@ BaselineOfSmallWorld >> baseline: spec [
 			package: 'SmallWorld-UI';
 			package: 'SmallWorld-Specification' with: [
 				spec requires: #('BabyPhexample' ). ];
-			package: 'SmallWorld-Platform';
 			package: #'SmallWorld-Persistence' with: [
 				spec requires: #('SimplePersistence' ). ]. ].
 
