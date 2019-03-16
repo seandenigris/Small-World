@@ -382,7 +382,7 @@ SmallProject >> save [
 
 { #category : #accessing }
 SmallProject >> supportedImages [
-	^ self maLazyFromDescriptionOf: #supportedImages
+	^ self maLazyFrom: self descriptionSupportedImages
 ]
 
 { #category : #accessing }
