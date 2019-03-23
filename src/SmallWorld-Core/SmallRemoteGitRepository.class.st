@@ -5,9 +5,10 @@ Class {
 		'user',
 		'projectName',
 		'project',
-		'codeSubfolder'
+		'codeSubfolder',
+		'hasProjectMetadata'
 	],
-	#category : 'SmallWorld-Core-Projects'
+	#category : #'SmallWorld-Core-Projects'
 }
 
 { #category : #accessing }
@@ -29,6 +30,17 @@ SmallRemoteGitRepository >> descriptionCodeSubfolder [
 		accessor: #codeSubfolder;
 		morphClass: MADropListMorph;
 		options: #('src' 'source' 'repository' 'packages');
+		yourself
+]
+
+{ #category : #magritte }
+SmallRemoteGitRepository >> descriptionHasProjectMetadata [
+	<magritteDescription>
+
+	^ MABooleanDescription new
+		priority: 400;
+		accessor: #hasProjectMetadata;
+		default: false;
 		yourself
 ]
 
@@ -74,10 +86,21 @@ SmallRemoteGitRepository >> directDownloadURL [
 	"This is actually in the wrong place because it assumes the master branch. Right now, only the load script knows which branch we want"
 	| scheme url |
 	scheme := self hostname copyUpTo: $..
-	url := scheme, '://', self user, '/', self projectName, ':master'.
+	url := scheme, '://', self user, '/', self projectName", ':master'".
+	self hasProjectMetadata ifTrue: [ ^ url ].
 	^ self codeSubfolder
 			ifNotNil: [ :folder | url, '/', folder ]
 			ifNil: [ url ]
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> hasProjectMetadata [
+	^ self maLazyFrom: self descriptionHasProjectMetadata
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> hasProjectMetadata: anObject [
+	hasProjectMetadata := anObject
 ]
 
 { #category : #accessing }
