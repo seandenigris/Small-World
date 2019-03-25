@@ -122,18 +122,25 @@ repoFolder exists
 { #category : #printing }
 SmallBaselineLoadScript >> printLoadOn: aStream [ 
 
-	| template |
+	| template loadCascade |
 	template := 'Metacello new
 	baseline: ''{baselineName}'';
 	repository: ''{repositoryURL}'';
 	onConflict: {conflictBlock};
-	load.'.
+	{loadCascade}'.
+	
+	self flag: 'yuck, but don''t have time to research Metacello API right now to come up with a flexible way to handle this'.
+	loadCascade := (#('default' nil) includes: whatToLoad)
+		ifTrue: [ 'load.' ]
+		ifFalse: [ 'load: ', whatToLoad surroundedBySingleQuotes ].
+		
 	self
 		printTemplate: template
 		format: { 
 			#baselineName -> self baselineName.
 			#repositoryURL -> self repository directDownloadURL.
-			#conflictBlock -> self conflictBlock 	
+			#conflictBlock -> self conflictBlock.
+			#loadCascade -> loadCascade
 		}
 		on: aStream
 ]
@@ -143,8 +150,10 @@ SmallBaselineLoadScript >> printLoadStatementsOn: aStream [
 
 	self repository ifNil: [ ^ self ].
 	self printLoadOn: aStream.
-	aStream crlf.
-	aStream nextPutAll: self postLoadDoIt.
+	self postLoadDoIt ifNotNil: [ :pl |
+		aStream
+			crlf;
+			nextPutAll: pl ].
 ]
 
 { #category : #printing }
