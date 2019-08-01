@@ -6,7 +6,7 @@ Class {
 
 { #category : #customization }
 SmallWorldDB class >> backupDirectoryParent [
-	^ FileLocator home / 'Dynabook' / 'User Data'
+	^ FileLocator userData
 ]
 
 { #category : #'class initialization' }
