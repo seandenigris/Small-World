@@ -11,21 +11,24 @@ BaselineOfSmallWorld >> baseline: spec [
 	spec for: #'common' do: [
 		spec 
 			baseline: 'BabyPhexample' with: [
-				spec repository: 'github://seandenigris/Baby-Phexample:master/repository' ];
+				spec repository: 'github://seandenigris/Baby-Phexample' ];
 			baseline: 'SimplePersistence' with: [
-				spec repository: 'github://seandenigris/Simple-Persistence:master/repository' ];
+				spec repository: 'github://seandenigris/Simple-Persistence' ];
 			baseline: 'Magritte' with: [
 				spec
 					loads: #('Morphic' 'Magritte-GT');
-					repository: 'github://seandenigris/Magritte:master/source' ];
+					repository: 'github://seandenigris/Magritte' ];
 			baseline: 'GitLabCI' with: [
 				spec repository: 'gitlab://SeanDeNigris/gitlab-smalltalk-ci:master/src' ];
 			baseline: 'PharoEnhancements' with: [
-				spec repository: 'github://seandenigris/Pharo-Enhancements' ].
+				spec repository: 'github://seandenigris/Pharo-Enhancements' ];
+			baseline: 'ExternalWebBrowser' with: [
+				spec repository: 'github://seandenigris/Pharo-Web-Browser' ].
 		spec
 			package: 'SmallWorld-Core' with: [
 				spec requires: #('Magritte' 'GitLabCI'). ];
-			package: 'SmallWorld-UI';
+			package: 'SmallWorld-UI' with: [
+				spec requires: #('ExternalWebBrowser'). ];
 			package: 'SmallWorld-Specification' with: [
 				spec requires: #('BabyPhexample' ). ];
 			package: #'SmallWorld-Persistence' with: [
