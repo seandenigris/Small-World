@@ -80,6 +80,15 @@ SmallProject >> cloneOpenConsole [
 	LibC system: 'open -a Terminal ', self repository localCloneFolder fullName surroundedByDoubleQuotes
 ]
 
+{ #category : #actions }
+SmallProject >> copyLoadScriptFrom: existingProject [
+	"Helpful temporarily because of Magritte bug which prevents load script being saved in MA form (related to defaults)"
+
+	self loadScript: (existingProject loadScript copy
+		project: self;
+		yourself)
+]
+
 { #category : #Metacello }
 SmallProject >> createBaselineBoilerplate [
 	MetacelloToolBox 
