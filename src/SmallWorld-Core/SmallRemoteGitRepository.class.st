@@ -6,7 +6,8 @@ Class {
 		'projectName',
 		'project',
 		'codeSubfolder',
-		'hasProjectMetadata'
+		'hasProjectMetadata',
+		'isUpstream'
 	],
 	#category : #'SmallWorld-Core-Projects'
 }
@@ -19,6 +20,11 @@ SmallRemoteGitRepository >> codeSubfolder [
 { #category : #accessing }
 SmallRemoteGitRepository >> codeSubfolder: aString [
 	codeSubfolder := aString
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> defaultUser [
+	self subclassResponsibility
 ]
 
 { #category : #magritte }
@@ -40,6 +46,17 @@ SmallRemoteGitRepository >> descriptionHasProjectMetadata [
 	^ MABooleanDescription new
 		priority: 400;
 		accessor: #hasProjectMetadata;
+		default: false;
+		yourself
+]
+
+{ #category : #'accessing-magritte' }
+SmallRemoteGitRepository >> descriptionIsUpstream [
+	<magritteDescription>
+	^ MABooleanDescription new
+		accessor: #isUpstream;
+		label: 'Upstream?';
+		comment: 'Is this someone else''s project that you''ve forked?';
 		default: false;
 		yourself
 ]
@@ -86,7 +103,7 @@ SmallRemoteGitRepository >> directDownloadURL [
 	"This is actually in the wrong place because it assumes the master branch. Right now, only the load script knows which branch we want"
 	| scheme url |
 	scheme := self hostname copyUpTo: $..
-	url := scheme, '://', self user, '/', self projectName", ':master'".
+	url := scheme, '://', self workingUser, '/', self projectName", ':master'".
 	self hasProjectMetadata ifTrue: [ ^ url ].
 	^ self codeSubfolder
 			ifNotNil: [ :folder | url, '/', folder ]
@@ -106,6 +123,16 @@ SmallRemoteGitRepository >> hasProjectMetadata: anObject [
 { #category : #accessing }
 SmallRemoteGitRepository >> hostname [
 	self subclassResponsibility
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> isUpstream [
+	^ self maLazyFrom: self descriptionIsUpstream
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> isUpstream: anObject [
+	isUpstream := anObject
 ]
 
 { #category : #accessing }
@@ -175,7 +202,39 @@ SmallRemoteGitRepository >> projectPath [
 
 { #category : #accessing }
 SmallRemoteGitRepository >> sshCloneUrl [
-	^ 'git@', self hostname, ':', self user, '/', self projectPath, '.git'
+	^ self sshUrlForUserNamed: self workingUser
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> sshUpstreamUrl [
+	^ self sshUrlForUserNamed: self user
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> sshUrlForUserNamed: aString [
+	^ 'git@', self hostname, ':', aString, '/', self projectPath, '.git'
+]
+
+{ #category : #actions }
+SmallRemoteGitRepository >> syncFork [
+	| commandTemplate command |
+	self isUpstream ifFalse: [ self error: 'No fork to sync!' ].
+	commandTemplate := 'git clone git@github.com:{defaultUser}/{projectName}.git
+cd {projectName}/
+git remote add upstream {sshUpstreamUrl}
+git fetch upstream
+git merge upstream/master
+git push origin master
+'.
+	command := commandTemplate format: { 
+		#defaultUser -> self defaultUser.
+		#projectName -> self projectName.
+		#sshUpstreamUrl -> self sshUpstreamUrl } asDictionary.
+	
+	"To actually run this with LibC, prepend a `cd` into an appropriate direcdtory and then squash into one line separated by semicolons. I personally like to run in a Terminal window so I can see the output"
+	Clipboard clipboardText: command.
+	UIManager inform: 'Sync command copied to clipboard'
+	
 ]
 
 { #category : #accessing }
@@ -191,10 +250,16 @@ SmallRemoteGitRepository >> url [
 
 { #category : #accessing }
 SmallRemoteGitRepository >> user [
-	^ user
+	^ self maLazyFrom: self descriptionUser
 ]
 
 { #category : #accessing }
 SmallRemoteGitRepository >> user: anObject [
 	user := anObject
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> workingUser [
+	"If we've forked, all downloads, clones, etc. should come from the fork"
+	^ self isUpstream ifTrue: [ self defaultUser ] ifFalse: [ self user ].
 ]
