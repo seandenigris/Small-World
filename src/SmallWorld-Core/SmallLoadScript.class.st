@@ -49,7 +49,7 @@ SmallLoadScript >> conflictBlock: anObject [
 	conflictBlock := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #Magritte }
 SmallLoadScript >> descriptionConflictBlock [
 	<magritteDescription>
 
@@ -60,7 +60,7 @@ SmallLoadScript >> descriptionConflictBlock [
 		yourself
 ]
 
-{ #category : #magritte }
+{ #category : #Magritte }
 SmallLoadScript >> descriptionContents [
 	<gtInspectorPresentationOrder: 2>
 
