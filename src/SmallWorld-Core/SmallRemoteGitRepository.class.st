@@ -7,7 +7,8 @@ Class {
 		'project',
 		'codeSubfolder',
 		'hasProjectMetadata',
-		'isUpstream'
+		'isUpstream',
+		'defaultBranch'
 	],
 	#category : #'SmallWorld-Core-Projects'
 }
@@ -20,6 +21,16 @@ SmallRemoteGitRepository >> codeSubfolder [
 { #category : #accessing }
 SmallRemoteGitRepository >> codeSubfolder: aString [
 	codeSubfolder := aString
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> defaultBranch [
+	^ self maLazyFrom: self descriptionDefaultBranch
+]
+
+{ #category : #accessing }
+SmallRemoteGitRepository >> defaultBranch: anObject [
+	defaultBranch := anObject
 ]
 
 { #category : #accessing }
@@ -36,6 +47,15 @@ SmallRemoteGitRepository >> descriptionCodeSubfolder [
 		accessor: #codeSubfolder;
 		morphClass: MADropListMorph;
 		options: #('src' 'source' 'repository' 'packages');
+		yourself
+]
+
+{ #category : #'accessing-magritte' }
+SmallRemoteGitRepository >> descriptionDefaultBranch [
+	<magritteDescription>
+	^ MAStringDescription new
+		accessor: #defaultBranch;
+		default: 'master';
 		yourself
 ]
 
@@ -110,14 +130,20 @@ SmallRemoteGitRepository >> descriptionUser [
 
 { #category : #accessing }
 SmallRemoteGitRepository >> directDownloadURL [
-	"This is actually in the wrong place because it assumes the master branch. Right now, only the load script knows which branch we want"
-	| scheme url |
+
+	| scheme url path |
 	scheme := self hostname copyUpTo: $..
-	url := scheme, '://', self workingUser, '/', self projectName", ':master'".
+	path := self projectName.
+	self defaultBranch = self descriptionDefaultBranch default ifFalse: [ path := path, ':', self defaultBranch ].
+	url := ZnUrl new
+		scheme: scheme;
+		host: self workingUser;
+		addPathSegment: path;
+		yourself.
 	self hasProjectMetadata ifTrue: [ ^ url ].
 	^ self codeSubfolder
-			ifNotNil: [ :folder | url, '/', folder ]
-			ifNil: [ url ]
+			ifNotNil: [ :folder | url / folder ]
+			ifNil: [ url ].
 ]
 
 { #category : #accessing }
