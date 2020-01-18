@@ -58,6 +58,12 @@ SmallProject class >> restoreFrom: anObject [
 	projects := anObject.
 ]
 
+{ #category : #persistence }
+SmallProject class >> spData [
+
+	^ projects
+]
+
 { #category : #accessing }
 SmallProject >> allSmalltalkImages [
 	"See #glAsSmalltalkImagesStoreString re how this list was created"
