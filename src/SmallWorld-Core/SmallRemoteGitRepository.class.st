@@ -50,7 +50,7 @@ SmallRemoteGitRepository >> descriptionCodeSubfolder [
 		yourself
 ]
 
-{ #category : #'accessing-magritte' }
+{ #category : #magritte }
 SmallRemoteGitRepository >> descriptionDefaultBranch [
 	<magritteDescription>
 	^ MAStringDescription new
@@ -70,7 +70,7 @@ SmallRemoteGitRepository >> descriptionHasProjectMetadata [
 		yourself
 ]
 
-{ #category : #'accessing-magritte' }
+{ #category : #magritte }
 SmallRemoteGitRepository >> descriptionIsUpstream [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -108,12 +108,14 @@ SmallRemoteGitRepository >> descriptionProjectName [
 
 { #category : #magritte }
 SmallRemoteGitRepository >> descriptionSyncForkScript [
-	<gtInspectorPresentationOrder: 2>
+	<gtInspectorPresentationOrder: 200>
 
-	^ MAMemoDescription new
+	| result |
+	result := MAMemoDescription new
 			accessor: #syncForkScript;
-			glmPresentation: #text;
-			yourself
+			yourself.
+	self isUpstream ifFalse: [ result glmPresentation: nil ].
+	^ result
 ]
 
 { #category : #magritte }
@@ -255,28 +257,14 @@ SmallRemoteGitRepository >> sshUrlForUserNamed: aString [
 SmallRemoteGitRepository >> syncFork [
 	| commandTemplate command |
 	self isUpstream ifFalse: [ self error: 'No fork to sync!' ].
-	commandTemplate := 'git clone git@github.com:{defaultUser}/{projectName}.git
-cd {projectName}/
-git remote add upstream {sshUpstreamUrl}
-git fetch upstream
-git merge upstream/master
-git push origin master
-'.
-	command := commandTemplate format: { 
-		#defaultUser -> self defaultUser.
-		#projectName -> self projectName.
-		#sshUpstreamUrl -> self sshUpstreamUrl } asDictionary.
-	
 	"To actually run this with LibC, prepend a `cd` into an appropriate direcdtory and then squash into one line separated by semicolons. I personally like to run in a Terminal window so I can see the output"
-	Clipboard clipboardText: command.
-	UIManager inform: 'Sync command copied to clipboard'
-	
+	Clipboard clipboardText: self syncForkScript.
+	UIManager inform: 'Sync command copied to clipboard'.
 ]
 
-{ #category : #actions }
+{ #category : #accessing }
 SmallRemoteGitRepository >> syncForkScript [
-	| commandTemplate command |
-	self isUpstream ifFalse: [ self error: 'No fork to sync!' ].
+	| commandTemplate |
 	commandTemplate := 'git clone git@github.com:{defaultUser}/{projectName}.git
 cd {projectName}/
 git remote add upstream {sshUpstreamUrl}
@@ -284,17 +272,10 @@ git fetch upstream
 git merge upstream/master
 git push origin master
 '.
-	command := commandTemplate format: { 
-		#defaultUser -> self defaultUser.
-		#projectName -> self projectName.
-		#sshUpstreamUrl -> self sshUpstreamUrl } asDictionary.
-	
-	"To actually run this with LibC, prepend a `cd` into an appropriate direcdtory and then squash into one line separated by semicolons. I personally like to run in a Terminal window so I can see the output"
-	Clipboard clipboardText: command.
-	UIManager inform: 'Sync command copied to clipboard'.
-	
-	^ command
-	
+	^ commandTemplate format: { 
+			#defaultUser -> self defaultUser.
+			#projectName -> self projectName.
+			#sshUpstreamUrl -> self sshUpstreamUrl } asDictionary.
 ]
 
 { #category : #accessing }
