@@ -133,7 +133,7 @@ SmallProject >> descriptionCloneConsole [
 SmallProject >> descriptionCopyBaselineLoadSnippet [
 	<magritteActionDescription>
 	^ MAActionDescription new
-		priority: 100;
+		priority: 150;
 		label: 'Copy Baseline Load Snippet';
 		action: [ Clipboard clipboardText: self baselineLoadSnippet ];
 		yourself
@@ -144,8 +144,18 @@ SmallProject >> descriptionDescription [
 	<magritteDescription>
 
 	^ MAMemoDescription new
-		priority: 300;
+		priority: 125;
 		accessor: #description;
+		lineCount: 5;
+		yourself
+]
+
+{ #category : #magritte }
+SmallProject >> descriptionGtCustomizationScript [
+	<magritteDescription>
+	^ MAMemoDescription new
+		accessor: #gtCustomizationScript;
+		priority: 500;
 		lineCount: 5;
 		yourself
 ]
@@ -178,7 +188,7 @@ SmallProject >> descriptionLoadScript [
 	<magritteDescription>
 
 	^ MAToOneRelationDescription new
-		priority: 300;
+		priority: 350;
 		accessor: #loadScript;
 		initializer: [ :e | e project: self ];
 		classes: SmallLoadScript allSubclasses;
@@ -239,6 +249,18 @@ SmallProject >> forkCloneOpenConsole [
 	| myUsername |
 	myUsername := 'seandenigris'.
 	LibC system: 'open -a Terminal ', (self repository localCloneFolderForUser: myUsername) fullName surroundedByDoubleQuotes
+]
+
+{ #category : #accessing }
+SmallProject >> gtCustomizationScript [
+	"To automate, place in a MetaC postload e.g. `spec for: #'common' do: [ spec postLoadDoIt: #'postLoad'. ]`"
+	| template |
+	template := '	| rootFolder |
+	rootFolder := FileLocator dynabookData / ''{projectName}''.
+	GTPlayBook 
+		cacheDirectory: rootFolder / ''play-cache'';
+		stashDirectory: rootFolder / ''play-stash''.'.
+	^ template format: { #projectName -> self name } asDictionary
 ]
 
 { #category : #testing }
