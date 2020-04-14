@@ -254,7 +254,7 @@ SmallProject >> forkCloneOpenConsole [
 
 { #category : #accessing }
 SmallProject >> gtCustomizationScript [
-	"To automate, place in a MetaC postload e.g. `spec for: #'common' do: [ spec postLoadDoIt: #'postLoad'. ]`"
+	"Preserve your play pages when you move to a new image. To automate, place in a MetaC postload e.g. `spec for: #'common' do: [ spec postLoadDoIt: #'postLoad'. ]`"
 	| template |
 	template := '	| rootFolder |
 	rootFolder := FileLocator dynabookData / ''{projectName}''.
