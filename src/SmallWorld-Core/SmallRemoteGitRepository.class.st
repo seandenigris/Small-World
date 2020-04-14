@@ -280,13 +280,12 @@ git push origin master
 
 { #category : #accessing }
 SmallRemoteGitRepository >> url [
-	| template urlString |
-	template := 'https://{hostname}/{user}/{projectPath}'.
-	urlString := template format: { 
-		#hostname -> self hostname.
-		#user -> self user.
-		#projectPath -> self projectPath } asDictionary.
-	^ urlString asUrl
+	^ ZnUrl new
+			scheme: #https;
+			host: self hostname;
+			addPathSegment: self user;
+			addPathSegment: self projectPath;
+			yourself.
 ]
 
 { #category : #accessing }

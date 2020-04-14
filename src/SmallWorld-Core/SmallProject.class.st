@@ -155,6 +155,7 @@ SmallProject >> descriptionGtCustomizationScript [
 	<magritteDescription>
 	^ MAMemoDescription new
 		accessor: #gtCustomizationScript;
+		readonly: true;
 		priority: 500;
 		lineCount: 5;
 		yourself
