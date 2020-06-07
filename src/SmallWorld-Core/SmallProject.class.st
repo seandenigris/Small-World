@@ -12,7 +12,7 @@ Class {
 	#classInstVars : [
 		'projects'
 	],
-	#category : 'SmallWorld-Core-Projects'
+	#category : #'SmallWorld-Core-Projects'
 }
 
 { #category : #private }
@@ -62,6 +62,11 @@ SmallProject class >> restoreFrom: anObject [
 SmallProject class >> spData [
 
 	^ projects
+]
+
+{ #category : #comparing }
+SmallProject >> <= rhs [
+	^ self name <= rhs name
 ]
 
 { #category : #accessing }
