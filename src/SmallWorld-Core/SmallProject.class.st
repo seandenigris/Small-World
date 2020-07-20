@@ -7,7 +7,8 @@ Class {
 		'repository',
 		'loadScript',
 		'isPrivate',
-		'supportedImages'
+		'supportedImages',
+		'isObsolete'
 	],
 	#classInstVars : [
 		'projects'
@@ -250,6 +251,15 @@ SmallProject >> descriptionSupportedImages [
 		yourself
 ]
 
+{ #category : #accessing }
+SmallProject >> displayText [
+	| result |
+	result := self name asText.
+	self isObsolete
+		ifTrue: [ result addAttribute: TextEmphasis struckOut ].
+	^ result
+]
+
 { #category : #actions }
 SmallProject >> forkCloneOpenConsole [
 	| myUsername |
@@ -278,6 +288,25 @@ SmallProject >> hasMetacelloConfiguration [
 { #category : #testing }
 SmallProject >> isLoaded [
 	^ self loadScript isSmallProjectLoaded
+]
+
+{ #category : #accessing }
+SmallProject >> isObsolete [
+	^ self maLazyFrom: self isObsoleteDescription
+]
+
+{ #category : #accessing }
+SmallProject >> isObsolete: anObject [
+	isObsolete := anObject
+]
+
+{ #category : #'magritte-accessing' }
+SmallProject >> isObsoleteDescription [
+	<magritteDescription>
+	^ MABooleanDescription new
+		accessor: #isObsolete;
+		default: false;
+		yourself
 ]
 
 { #category : #testing }

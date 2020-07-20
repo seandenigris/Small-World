@@ -1,7 +1,7 @@
 Extension { #name : #SmallProject }
 
 { #category : #'*SmallWorld-UI' }
-SmallProject classSide >> add [
+SmallProject class >> add [
 	self new asMagritteMorph
 		addButtons;
 		addWindow;
@@ -10,7 +10,7 @@ SmallProject classSide >> add [
 ]
 
 { #category : #'*SmallWorld-UI' }
-SmallProject classSide >> glamour [
+SmallProject class >> glamour [
 
 	| browser |
 	browser := GLMTabulator new.
@@ -23,6 +23,7 @@ SmallProject classSide >> glamour [
 			a fastList
 				title: 'Filter and named action ';
 				display: [ :input | input ];
+				format: [ :e | e displayText ];
 				icon: [ :project | 
 					project isLoaded
 						ifTrue: [ Smalltalk ui icons testGreen ] 
@@ -39,14 +40,14 @@ SmallProject classSide >> glamour [
 ]
 
 { #category : #'*SmallWorld-UI' }
-SmallProject classSide >> openGlamour [
+SmallProject class >> openGlamour [
 	<script>
 
 	^ self glamour openOn: SmallProject projects
 ]
 
 { #category : #'*SmallWorld-UI' }
-SmallProject classSide >> uiMenuCommandOn: aBuilder [ 
+SmallProject class >> uiMenuCommandOn: aBuilder [ 
 	<worldMenu> 
 	
 	(aBuilder item: #'Dashboard')
