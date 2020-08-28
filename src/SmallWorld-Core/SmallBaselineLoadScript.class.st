@@ -5,7 +5,7 @@ Class {
 		'baselineName',
 		'postLoadDoIt'
 	],
-	#category : 'SmallWorld-Core-Scripts'
+	#category : #'SmallWorld-Core-Scripts'
 }
 
 { #category : #'as yet unclassified' }
@@ -132,7 +132,7 @@ SmallBaselineLoadScript >> printLoadOn: aStream [
 	self flag: 'yuck, but don''t have time to research Metacello API right now to come up with a flexible way to handle this'.
 	loadCascade := (#('default' nil) includes: whatToLoad)
 		ifTrue: [ 'load.' ]
-		ifFalse: [ 'load: ', whatToLoad surroundedBySingleQuotes ].
+		ifFalse: [ 'load: ', whatToLoad printString ].
 		
 	self
 		printTemplate: template

@@ -10,7 +10,7 @@ Class {
 		'loadConfigurationOnly',
 		'conflictBlock'
 	],
-	#category : 'SmallWorld-Core-Scripts'
+	#category : #'SmallWorld-Core-Scripts'
 }
 
 { #category : #'instance creation' }
@@ -87,6 +87,11 @@ SmallLoadScript >> isSmallProjectLoaded [
 		registrationForClassNamed: self configurationName
 		ifAbsent: [ ^ false ].
 	^ registration loadedInImage
+]
+
+{ #category : #actions }
+SmallLoadScript >> load: aStringOrCollection [
+	whatToLoad := aStringOrCollection
 ]
 
 { #category : #configuring }
