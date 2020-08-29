@@ -170,11 +170,10 @@ SmallProject >> descriptionGtCustomizationScript [
 { #category : #magritte }
 SmallProject >> descriptionHasMetacelloConfiguration [
 	<magritteDescription>
-
 	^ MABooleanDescription new
 		priority: 250;
 		accessor: #hasMetacelloConfiguration;
-		beReadonly;
+		beReadOnly;
 		beRequired;
 		yourself
 ]
@@ -402,6 +401,16 @@ SmallProject >> putInstVarsOn: aWriteStream [
 
 	self putInstVarNamed: 'repository' On: aWriteStream unlessDefault: nil.
 	self putInstVarNamed: 'description' On: aWriteStream unlessDefault: ''.
+]
+
+{ #category : #baselines }
+SmallProject >> releaserProject [
+	| template |
+	template := 'BaselineOf{projectName} gtRlProjectWithRepository: ''{repoURL}'''.
+	^ template
+		format:
+			{(#projectName -> (self name copyWithout: Character space)).
+			(#repoURL -> self repository directDownloadURL)} asDictionary
 ]
 
 { #category : #accessing }
