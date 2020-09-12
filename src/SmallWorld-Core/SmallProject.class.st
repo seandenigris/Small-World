@@ -273,8 +273,11 @@ SmallProject >> gtCustomizationScript [
 	template := '	| rootFolder |
 	rootFolder := FileLocator dynabookData / ''{projectName}''.
 	GTPlayBook 
-		cacheDirectory: rootFolder / ''play-cache'';
-		stashDirectory: rootFolder / ''play-stash''.'.
+		cacheDirectory: (rootFolder / ''play-cache'') ensureCreateDirectory;
+		stashDirectory: (rootFolder / ''play-stash'') ensureCreateDirectory.
+	Smalltalk globals
+		at: #XdPlaygroundSettings
+		ifPresent: [ :cls | cls directory: (rootFolder / ''xdocs'') ensureCreateDirectory ]'.
 	^ template format: { #projectName -> self name } asDictionary
 ]
 
