@@ -157,17 +157,6 @@ SmallProject >> descriptionDescription [
 ]
 
 { #category : #magritte }
-SmallProject >> descriptionGtCustomizationScript [
-	<magritteDescription>
-	^ MAMemoDescription new
-		accessor: #gtCustomizationScript;
-		readonly: true;
-		priority: 500;
-		lineCount: 5;
-		yourself
-]
-
-{ #category : #magritte }
 SmallProject >> descriptionHasMetacelloConfiguration [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -240,6 +229,17 @@ SmallProject >> descriptionRepositoryView [
 ]
 
 { #category : #magritte }
+SmallProject >> descriptionSupportFileRelocationScript [
+	<magritteDescription>
+	^ MAMemoDescription new
+		accessor: #supportFileRelocationScript;
+		readonly: true;
+		priority: 500;
+		lineCount: 5;
+		yourself
+]
+
+{ #category : #magritte }
 SmallProject >> descriptionSupportedImages [
 	<magritteDescription>
 	^ MAMultipleOptionDescription new
@@ -264,21 +264,6 @@ SmallProject >> forkCloneOpenConsole [
 	| myUsername |
 	myUsername := 'seandenigris'.
 	LibC system: 'open -a Terminal ', (self repository localCloneFolderForUser: myUsername) fullName surroundedByDoubleQuotes
-]
-
-{ #category : #accessing }
-SmallProject >> gtCustomizationScript [
-	"Preserve your play pages when you move to a new image. To automate, place in a MetaC postload e.g. `spec for: #'common' do: [ spec postLoadDoIt: #'postLoad'. ]`"
-	| template |
-	template := '	| rootFolder |
-	rootFolder := FileLocator dynabookData / ''{projectName}''.
-	GTPlayBook 
-		cacheDirectory: (rootFolder / ''play-cache'') ensureCreateDirectory;
-		stashDirectory: (rootFolder / ''play-stash'') ensureCreateDirectory.
-	Smalltalk globals
-		at: #XdPlaygroundSettings
-		ifPresent: [ :cls | cls directory: (rootFolder / ''xdocs'') ensureCreateDirectory ]'.
-	^ template format: { #projectName -> self name } asDictionary
 ]
 
 { #category : #testing }
@@ -462,6 +447,22 @@ SmallProject >> save [
 			nextPutAll: 'yourself.' ].
 	
 	self class class compile: source classified: 'projects'.
+]
+
+{ #category : #accessing }
+SmallProject >> supportFileRelocationScript [
+	"Preserve your play pages when you move to a new image. To automate, place in a MetaC postload e.g. `spec for: #'common' do: [ spec postLoadDoIt: #'postLoad'. ]`"
+	| template |
+	template := '	| rootFolder |
+	rootFolder := FileLocator dynabookData / ''{projectName}''.
+	GTPlayBook 
+		cacheDirectory: (rootFolder / ''play-cache'') ensureCreateDirectory;
+		stashDirectory: (rootFolder / ''play-stash'') ensureCreateDirectory.
+	Smalltalk globals
+		at: #XdPlaygroundSettings
+		ifPresent: [ :cls | cls directory: (rootFolder / ''xdocs'') ensureCreateDirectory ].
+	OmSessionStore defaultBaseLocator: rootFolder / ''ombu-sessions'''.
+	^ template format: { #projectName -> self name } asDictionary
 ]
 
 { #category : #accessing }
