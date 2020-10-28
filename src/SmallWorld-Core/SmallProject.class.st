@@ -209,7 +209,7 @@ SmallProject >> descriptionRepository [
 	^ MAToOneRelationDescription new
 		priority: 200;
 		accessor: #repository;
-		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallRemoteGitRepository allSubclasses;
+		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallRepository allSubclasses;
 		initializer: [ :repo | repo project: self ];
 		beRequired;
 		yourself

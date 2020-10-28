@@ -1,10 +1,8 @@
 Class {
 	#name : #SmallRemoteGitRepository,
-	#superclass : #Object,
+	#superclass : #SmallRepository,
 	#instVars : [
 		'user',
-		'projectName',
-		'project',
 		'codeSubfolder',
 		'hasProjectMetadata',
 		'isUpstream',
@@ -78,31 +76,6 @@ SmallRemoteGitRepository >> descriptionIsUpstream [
 		label: 'Upstream?';
 		comment: 'Is this someone else''s project that you''ve forked?';
 		default: false;
-		yourself
-]
-
-{ #category : #magritte }
-SmallRemoteGitRepository >> descriptionProject [
-	<magritteDescription>
-
-	^ MASingleOptionDescription new
-		priority: 250;
-		accessor: #project;
-		options: SmallProject projects;
-		beExtensible;
-		morphClass: MATokenCompletionMorph;
-		beReadonly;
-		yourself
-]
-
-{ #category : #magritte }
-SmallRemoteGitRepository >> descriptionProjectName [
-	<magritteDescription>
-
-	^ MAStringDescription new
-		priority: 100;
-		accessor: #projectName;
-		beRequired;
 		yourself
 ]
 
@@ -214,26 +187,6 @@ SmallRemoteGitRepository >> printOn: aStream [
 ]
 
 { #category : #accessing }
-SmallRemoteGitRepository >> project [
-	^ project
-]
-
-{ #category : #accessing }
-SmallRemoteGitRepository >> project: anObject [
-	project := anObject
-]
-
-{ #category : #accessing }
-SmallRemoteGitRepository >> projectName [
-	^ projectName ifNil: [ self project name ]
-]
-
-{ #category : #accessing }
-SmallRemoteGitRepository >> projectName: aString [
-	projectName := aString copyReplaceAll: ' ' with: '-'
-]
-
-{ #category : #accessing }
 SmallRemoteGitRepository >> projectPath [
 	^ self projectName copyReplaceAll: ' ' with: '-'
 ]
@@ -280,9 +233,7 @@ git push origin master
 
 { #category : #accessing }
 SmallRemoteGitRepository >> url [
-	^ ZnUrl new
-			scheme: #https;
-			host: self hostname;
+	^ super url
 			addPathSegment: self user;
 			addPathSegment: self projectPath;
 			yourself.
