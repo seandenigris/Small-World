@@ -11,6 +11,17 @@ Class {
 	#category : #'SmallWorld-Core-Projects'
 }
 
+{ #category : #adding }
+SmallRemoteGitRepository >> addRemote: urlString as: nameString [
+	"Assumes repo is loaded"
+	
+	| repo remote |
+	repo := IceRepository registry detect: [ :e | e name = self projectName ].
+	remote := IceGitRemote name: nameString url: urlString.
+	repo addRemote: remote.
+	remote fetch
+]
+
 { #category : #accessing }
 SmallRemoteGitRepository >> codeSubfolder [
 	^ codeSubfolder
@@ -189,6 +200,25 @@ SmallRemoteGitRepository >> printOn: aStream [
 { #category : #accessing }
 SmallRemoteGitRepository >> projectPath [
 	^ self projectName copyReplaceAll: ' ' with: '-'
+]
+
+{ #category : #adding }
+SmallRemoteGitRepository >> scriptToAddRemote: urlString as: nameString [
+	| method transformer |
+	method := SmallRemoteGitRepository>>#addRemote:as:.
+	transformer := method parseTree peTransformer
+		beScript;
+		addStatementFirst: #projectName , ' := ' , self projectName printString;
+		addStatementFirst: #nameString , ' := ' , nameString printString;
+		addStatementFirst: #urlString , ' := ' , urlString printString;
+		replaceNodesSelect: [ :e | e isMessage and: [ e selector = #projectName ] ]
+			withNode: (RBVariableNode named: #projectName).
+	^ transformer newSource
+]
+
+{ #category : #'as yet unclassified' }
+SmallRemoteGitRepository >> scriptToAddUpstreamRemote [
+	^ self scriptToAddRemote: self sshUpstreamUrl as: 'upstream'.
 ]
 
 { #category : #accessing }
