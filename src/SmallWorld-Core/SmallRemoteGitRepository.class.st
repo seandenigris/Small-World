@@ -16,7 +16,7 @@ SmallRemoteGitRepository >> addRemote: urlString as: nameString [
 	"Assumes repo is loaded"
 	
 	| repo remote |
-	repo := IceRepository registry detect: [ :e | e name = self projectName ].
+	repo := IceRepository registry detect: [ :e | e name asLowercase = self projectName asLowercase ].
 	remote := IceGitRemote name: nameString url: urlString.
 	repo addRemote: remote.
 	remote fetch
