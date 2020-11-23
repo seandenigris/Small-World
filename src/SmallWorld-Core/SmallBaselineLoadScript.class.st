@@ -129,7 +129,7 @@ Metacello new
 	repository: ''{repositoryURL}'';
 	onConflict: {conflictBlock};
 	{loadCascade}.
-EpMonitor current enable'.
+EpMonitor current enable.'.
 	
 	self flag: 'yuck, but don''t have time to research Metacello API right now to come up with a flexible way to handle this'.
 	loadCascade := (#('default' nil) includes: whatToLoad)
