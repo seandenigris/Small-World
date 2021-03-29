@@ -124,12 +124,11 @@ SmallBaselineLoadScript >> printLoadOn: aStream [
 
 	| template loadCascade |
 	template := 'EpMonitor current disable.
-Metacello new
+[ Metacello new
 	baseline: ''{baselineName}'';
 	repository: ''{repositoryURL}'';
-	onConflict: {conflictBlock};
-	{loadCascade}.
-EpMonitor current enable.'.
+	"onConflict: {conflictBlock};"
+	{loadCascade} ] ensure: [ EpMonitor current enable ].'.
 	
 	self flag: 'yuck, but don''t have time to research Metacello API right now to come up with a flexible way to handle this'.
 	loadCascade := (#('default' nil) includes: whatToLoad)

@@ -5,15 +5,8 @@ Class {
 		'shouldSave',
 		'shouldQuit'
 	],
-	#category : 'SmallWorld-Core-Scripts'
+	#category : #'SmallWorld-Core-Scripts'
 }
-
-{ #category : #converting }
-SmallScript >> asString [
-	"Return the source code string of the script"
-
-	self subclassResponsibility.
-]
 
 { #category : #API }
 SmallScript >> initialize [

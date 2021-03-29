@@ -24,15 +24,6 @@ SmallLoadScript class >> defaultProjectVersion [
 	self subclassResponsibility
 ]
 
-{ #category : #configuring }
-SmallLoadScript >> asString [
-
-	^ String streamContents: [ :str |
-		self printConfigurationLoadStatementOn: str.
-		loadConfigurationOnly ifFalse: [ self printLoadStatementsOn: str ].
-		shouldSave | shouldQuit ifTrue: [ self printSnaphotStatementOn: str ] ].
-]
-
 { #category : #converting }
 SmallLoadScript >> beDebug [
 
@@ -119,7 +110,9 @@ SmallLoadScript >> printConfigurationLoadStatementOn: aStream [
 { #category : #printing }
 SmallLoadScript >> printOn: aStream [
 
-	aStream nextPutAll: self asString.
+	self printConfigurationLoadStatementOn: aStream.
+	loadConfigurationOnly ifFalse: [ self printLoadStatementsOn: aStream ].
+	shouldSave | shouldQuit ifTrue: [ self printSnaphotStatementOn: aStream ]
 ]
 
 { #category : #private }
