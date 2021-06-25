@@ -50,7 +50,7 @@ SmallProject class >> named: aString [
 { #category : #'instance creation' }
 SmallProject class >> projects [
 
-	^ projects ifNil: [ projects := SortedCollection sortBlock: [ :a :b | a name < b name ] ].
+	^ projects ifNil: [ projects := SortedCollection sortBlock: #name ascending ].
 ]
 
 { #category : #persistence }
@@ -246,7 +246,7 @@ SmallProject >> descriptionSupportedImages [
 		accessor: #supportedImages;
 		priority: 250;
 		options: self allSmalltalkImages;
-		morphClass: MATokenCompletionMorph;
+		morphicClass: MATokenCompletionMorph;
 		yourself
 ]
 
@@ -279,7 +279,7 @@ SmallProject >> isLoaded [
 
 { #category : #accessing }
 SmallProject >> isObsolete [
-	^ self maLazyFrom: self isObsoleteDescription
+	^ self maLazyInstVarUsing: self isObsoleteDescription
 ]
 
 { #category : #accessing }

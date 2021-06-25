@@ -14,10 +14,8 @@ BaselineOfSmallWorld >> baseline: spec [
 				spec repository: 'github://seandenigris/Baby-Phexample' ];
 			baseline: 'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ];
-			baseline: 'Magritte' with: [
-				spec
-					loads: #('Morphic' 'Magritte-GT');
-					repository: 'github://seandenigris/Magritte' ];
+			baseline: 'Magritte' with: [ 
+				spec repository: 'github://seandenigris/Magritte' ];
 			baseline: 'GitLabCI' with: [
 				spec repository: 'gitlab://SeanDeNigris/gitlab-smalltalk-ci:master/src' ];
 			baseline: 'PharoEnhancements' with: [
@@ -33,12 +31,6 @@ BaselineOfSmallWorld >> baseline: spec [
 				spec requires: #('BabyPhexample' ). ];
 			package: #'SmallWorld-Persistence' with: [
 				spec requires: #('SimplePersistence' 'PharoEnhancements' ). ]. ].
-
-	"We require an updated GT which was not integrated until Pharo 6"
-	spec for: #(#'pharo4.x' #'pharo5.x') do: [
-		spec 
-			package: 'GT-Inspector' with: [
-				spec repository: 'http://smalltalkhub.com/mc/Moose/GToolkit/main/'. ] ].
 	
 	spec for: #'PharoLauncher' do: [ spec package: 'SmallWorld-PharoLauncher' ]
 ]
