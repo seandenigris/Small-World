@@ -10,25 +10,25 @@ BaselineOfSmallWorld >> baseline: spec [
 
 	spec for: #'common' do: [
 		spec 
-			baseline: 'BabyPhexample' with: [
-				spec repository: 'github://seandenigris/Baby-Phexample' ];
-			baseline: 'SimplePersistence' with: [
-				spec repository: 'github://seandenigris/Simple-Persistence' ];
-			baseline: 'Magritte' with: [ 
-				spec repository: 'github://seandenigris/Magritte' ];
+			baseline: 'ExternalWebBrowser' with: [
+				spec repository: 'github://seandenigris/Pharo-Web-Browser' ];
 			baseline: 'GitLabCI' with: [
 				spec repository: 'gitlab://SeanDeNigris/gitlab-smalltalk-ci:master/src' ];
+			baseline: 'Magritte' with: [ 
+				spec repository: 'github://seandenigris/Magritte' ];
+			baseline: 'Mocketry' with: [
+				spec repository: 'github://dionisiydk/Mocketry' ];
 			baseline: 'PharoEnhancements' with: [
 				spec repository: 'github://seandenigris/Pharo-Enhancements' ];
-			baseline: 'ExternalWebBrowser' with: [
-				spec repository: 'github://seandenigris/Pharo-Web-Browser' ].
+			baseline: 'SimplePersistence' with: [
+				spec repository: 'github://seandenigris/Simple-Persistence' ].
 		spec
 			package: 'SmallWorld-Core' with: [
 				spec requires: #('Magritte' 'GitLabCI'). ];
 			package: 'SmallWorld-UI' with: [
 				spec requires: #('ExternalWebBrowser'). ];
 			package: 'SmallWorld-Specification' with: [
-				spec requires: #('BabyPhexample' ). ];
+				spec requires: #('Mocketry' ) ];
 			package: #'SmallWorld-Persistence' with: [
 				spec requires: #('SimplePersistence' 'PharoEnhancements' ). ]. ].
 	
