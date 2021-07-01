@@ -14,6 +14,15 @@ SmallBaselineLoadScript class >> defaultProjectVersion [
 	^ 'master'
 ]
 
+{ #category : #examples }
+SmallBaselineLoadScript class >> example [
+	<gtExample>
+	^ self
+		given: [ SmallProject example ]
+		when: [ :proj | self building: proj ]
+		then: [ :script | script baselineName should equal: 'MyProject' ]
+]
+
 { #category : #accessing }
 SmallBaselineLoadScript >> baselineName [
 	^ baselineName ifNil: [ self project name copyWithout: Character space ]

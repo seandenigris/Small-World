@@ -13,6 +13,15 @@ Class {
 	#category : #'SmallWorld-Core-Projects'
 }
 
+{ #category : #examples }
+SmallProject class >> example [
+	<gtExample>
+	^ self
+		given: [ ]
+		when: [ SmallProject named: 'My Project' ]
+		then: [ :proj | proj name should equal: 'My Project' ]
+]
+
 { #category : #private }
 SmallProject class >> localRepositoryRoot [
 
