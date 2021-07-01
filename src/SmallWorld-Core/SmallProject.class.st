@@ -10,9 +10,6 @@ Class {
 		'supportedImages',
 		'isObsolete'
 	],
-	#classInstVars : [
-		'projects'
-	],
 	#category : #'SmallWorld-Core-Projects'
 }
 
@@ -22,47 +19,12 @@ SmallProject class >> localRepositoryRoot [
 	^ FileLocator home / 'Dynabook' / 'Repositories'.
 ]
 
-{ #category : #'world menu' }
-SmallProject class >> menuCommandOn: aBuilder [ 
-	<worldMenu> 
-	
-	(aBuilder item: #'Small World')
-		with: [
-			(aBuilder item: #'Add Project')
-				action: [ self add ]; 
-				icon: Smalltalk ui icons add.
-			(aBuilder item: #'Save Project Catalog')
-				action: [ SmallWorldDB saveRepository ]; 
-				icon: Smalltalk ui icons glamorousSaveIcon.
-			(aBuilder item: #'Project Inspector')
-				action: [ self projects inspect ]; 
-				icon: Smalltalk ui icons smallLoadProjectIcon. ]
-]
-
 { #category : #'instance creation' }
 SmallProject class >> named: aString [ 
 
 	^ self new
 			name: aString;
 			yourself
-]
-
-{ #category : #'instance creation' }
-SmallProject class >> projects [
-
-	^ projects ifNil: [ projects := SortedCollection sortBlock: #name ascending ].
-]
-
-{ #category : #persistence }
-SmallProject class >> restoreFrom: anObject [
-
-	projects := anObject.
-]
-
-{ #category : #persistence }
-SmallProject class >> spData [
-
-	^ projects
 ]
 
 { #category : #comparing }

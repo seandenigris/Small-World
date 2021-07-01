@@ -12,5 +12,5 @@ SmallWorldDB class >> backupDirectoryParent [
 { #category : #accessing }
 SmallWorldDB class >> schema [
 
-	^ { SmallProject }.
+	^ { SmallProjectRegistry }.
 ]

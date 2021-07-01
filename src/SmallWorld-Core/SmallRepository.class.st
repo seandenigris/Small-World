@@ -25,7 +25,7 @@ SmallRepository >> projectDescription [
 	^ MASingleOptionDescription new
 		priority: 250;
 		accessor: #project;
-		options: SmallProject projects;
+		options: SmallProjectRegistry uniqueInstance projects;
 		beExtensible;
 		morphClass: MATokenCompletionMorph;
 		beReadonly;

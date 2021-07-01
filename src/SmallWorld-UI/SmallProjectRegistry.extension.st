@@ -1,16 +1,16 @@
-Extension { #name : #SmallProject }
+Extension { #name : #SmallProjectRegistry }
 
 { #category : #'*SmallWorld-UI' }
-SmallProject class >> add [
-	self new asMagritteMorph
+SmallProjectRegistry class >> add [
+	SmallProject new asMagritteMorph
 		addButtons;
 		addWindow;
-		onAnswer: [ :newProject | self projects add: newProject ];
+		onAnswer: [ :newProject | self uniqueInstance projects add: newProject ];
 		openInWorld
 ]
 
 { #category : #'*SmallWorld-UI' }
-SmallProject class >> glamour [
+SmallProjectRegistry class >> glamour [
 
 	| browser |
 	browser := GLMTabulator new.
@@ -22,7 +22,7 @@ SmallProject class >> glamour [
 		andShow: [ :a | 
 			a fastList
 				title: 'Filter and named action ';
-				display: [ :input | input ];
+				display: [ :registry | registry projects ];
 				format: [ :e | e displayText ];
 				icon: [ :project | 
 					project isLoaded
@@ -40,14 +40,14 @@ SmallProject class >> glamour [
 ]
 
 { #category : #'*SmallWorld-UI' }
-SmallProject class >> openGlamour [
+SmallProjectRegistry class >> openGlamour [
 	<script>
 
-	^ self glamour openOn: SmallProject projects
+	^ self glamour openOn: self uniqueInstance
 ]
 
 { #category : #'*SmallWorld-UI' }
-SmallProject class >> uiMenuCommandOn: aBuilder [ 
+SmallProjectRegistry class >> uiMenuCommandOn: aBuilder [ 
 	<worldMenu> 
 	
 	(aBuilder item: #'Dashboard')
