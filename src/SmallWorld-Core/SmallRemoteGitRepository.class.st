@@ -24,7 +24,7 @@ SmallRemoteGitRepository >> addRemote: urlString as: nameString [
 
 { #category : #accessing }
 SmallRemoteGitRepository >> codeSubfolder [
-	^ codeSubfolder
+	^ self maLazyInstVarUsing: self descriptionCodeSubfolder
 ]
 
 { #category : #accessing }
@@ -56,6 +56,7 @@ SmallRemoteGitRepository >> descriptionCodeSubfolder [
 		accessor: #codeSubfolder;
 		morphClass: MADropListMorph;
 		options: #('src' 'source' 'repository' 'packages');
+		default: 'src';
 		yourself
 ]
 

@@ -14,7 +14,7 @@ Class {
 		'testPackages',
 		'defaultVersion'
 	],
-	#category : 'SmallWorld-Core-Projects'
+	#category : #'SmallWorld-Core-Projects'
 }
 
 { #category : #'version status' }
@@ -155,7 +155,7 @@ SmallMetacelloProject >> loadConfiguration [
 { #category : #loading }
 SmallMetacelloProject >> loadScript [
 
-	^ SmallConfigurationLoadScript building: self.
+	^ loadScript ifNil: [ loadScript := SmallBaselineLoadScript building: self ].
 ]
 
 { #category : #committing }

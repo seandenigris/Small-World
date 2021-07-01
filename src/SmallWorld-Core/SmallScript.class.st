@@ -19,7 +19,7 @@ SmallScript >> initialize [
 { #category : #running }
 SmallScript >> run [
 
-	Compiler evaluate: self asString.
+	Smalltalk compiler evaluate: self asString.
 ]
 
 { #category : #API }
