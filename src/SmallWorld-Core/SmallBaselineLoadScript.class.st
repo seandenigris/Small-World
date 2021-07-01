@@ -3,7 +3,8 @@ Class {
 	#superclass : #SmallLoadScript,
 	#instVars : [
 		'baselineName',
-		'postLoadDoIt'
+		'postLoadDoIt',
+		'isTargetingGToolkit'
 	],
 	#category : #'SmallWorld-Core-Scripts'
 }
@@ -59,6 +60,11 @@ SmallBaselineLoadScript >> descriptionProjectVersion [
 		default: 'master';
 		beRequired;
 		yourself
+]
+
+{ #category : #printing }
+SmallBaselineLoadScript >> isTargetingGToolkit [
+	isTargetingGToolkit ifNil: [ ^ true ]
 ]
 
 { #category : #printing }
@@ -123,6 +129,7 @@ repoFolder exists
 SmallBaselineLoadScript >> printLoadOn: aStream [ 
 
 	| template loadCascade |
+	self isTargetingGToolkit ifTrue: [ aStream nextPutAll: '['; cr ].
 	template := 'EpMonitor current disable.
 [ Metacello new
 	baseline: ''{baselineName}'';
@@ -143,7 +150,8 @@ SmallBaselineLoadScript >> printLoadOn: aStream [
 			#conflictBlock -> self conflictBlock.
 			#loadCascade -> loadCascade
 		}
-		on: aStream
+		on: aStream.
+	self isTargetingGToolkit ifTrue: [ aStream cr; nextPutAll: '] fork.' ].
 ]
 
 { #category : #printing }
