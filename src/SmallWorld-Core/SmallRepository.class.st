@@ -21,14 +21,13 @@ SmallRepository >> project: anObject [
 { #category : #magritte }
 SmallRepository >> projectDescription [
 	<magritteDescription>
-
 	^ MASingleOptionDescription new
 		priority: 250;
 		accessor: #project;
 		options: SmallProjectRegistry uniqueInstance projects;
 		beExtensible;
-		morphClass: MATokenCompletionMorph;
-		beReadonly;
+		morphicClass: MATokenCompletionMorph;
+		beReadOnly;
 		yourself
 ]
 

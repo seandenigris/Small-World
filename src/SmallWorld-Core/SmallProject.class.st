@@ -204,7 +204,7 @@ SmallProject >> descriptionSupportFileRelocationScript [
 	<magritteDescription>
 	^ MAMemoDescription new
 		accessor: #supportFileRelocationScript;
-		readonly: true;
+		readOnly: true;
 		priority: 500;
 		lineCount: 5;
 		yourself
@@ -445,7 +445,7 @@ SmallProject >> supportFileRelocationScript [
 
 { #category : #accessing }
 SmallProject >> supportedImages [
-	^ self maLazyFrom: self descriptionSupportedImages
+	^ self maLazyInstVarUsing: self descriptionSupportedImages
 ]
 
 { #category : #accessing }

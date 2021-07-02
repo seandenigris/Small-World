@@ -34,7 +34,7 @@ SmallRemoteGitRepository >> codeSubfolder: aString [
 
 { #category : #accessing }
 SmallRemoteGitRepository >> defaultBranch [
-	^ self maLazyFrom: self descriptionDefaultBranch
+	^ self maLazyInstVarUsing: self descriptionDefaultBranch
 ]
 
 { #category : #accessing }
@@ -50,11 +50,10 @@ SmallRemoteGitRepository >> defaultUser [
 { #category : #magritte }
 SmallRemoteGitRepository >> descriptionCodeSubfolder [
 	<magritteDescription>
-
 	^ MASingleOptionDescription new
 		priority: 100;
 		accessor: #codeSubfolder;
-		morphClass: MADropListMorph;
+		morphicClass: MADropListMorph;
 		options: #('src' 'source' 'repository' 'packages');
 		default: 'src';
 		yourself
@@ -135,7 +134,7 @@ SmallRemoteGitRepository >> directDownloadURL [
 
 { #category : #accessing }
 SmallRemoteGitRepository >> hasProjectMetadata [
-	^ self maLazyFrom: self descriptionHasProjectMetadata
+	^ self maLazyInstVarUsing: self descriptionHasProjectMetadata
 ]
 
 { #category : #accessing }
@@ -150,7 +149,7 @@ SmallRemoteGitRepository >> hostname [
 
 { #category : #accessing }
 SmallRemoteGitRepository >> isUpstream [
-	^ self maLazyFrom: self descriptionIsUpstream
+	^ self maLazyInstVarUsing: self descriptionIsUpstream
 ]
 
 { #category : #accessing }
@@ -272,7 +271,7 @@ SmallRemoteGitRepository >> url [
 
 { #category : #accessing }
 SmallRemoteGitRepository >> user [
-	^ self maLazyFrom: self descriptionUser
+	^ self maLazyInstVarUsing: self descriptionUser
 ]
 
 { #category : #accessing }
