@@ -13,7 +13,7 @@ BaselineOfSmallWorld >> baseline: spec [
 			baseline: 'ExternalWebBrowser' with: [
 				spec repository: 'github://seandenigris/Pharo-Web-Browser' ];
 			baseline: 'GitLabCI' with: [
-				spec repository: 'gitlab://SeanDeNigris/gitlab-smalltalk-ci:master/src' ];
+				spec repository: 'gitlab://seandenigris/gitlab-smalltalk-ci:master/src' ];
 			baseline: 'Magritte' with: [ 
 				spec repository: 'github://seandenigris/Magritte' ];
 			baseline: 'Mocketry' with: [
