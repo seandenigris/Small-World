@@ -90,6 +90,14 @@ SmallProjectRegistry >> gtSpotterNewProjectFor: aStep [
 ]
 
 { #category : #accessing }
+SmallProjectRegistry >> printOn: aStream [
+	aStream
+		nextPutAll: 'Registry of ';
+		print: self projects size;
+		nextPutAll: ' projects'
+]
+
+{ #category : #accessing }
 SmallProjectRegistry >> projects [
 	^ projects ifNil: [ projects := SortedCollection sortBlock: #name ascending ]
 ]
