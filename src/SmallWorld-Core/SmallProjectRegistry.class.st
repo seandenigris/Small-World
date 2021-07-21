@@ -10,8 +10,9 @@ Class {
 	#category : #'SmallWorld-Core-Projects'
 }
 
-{ #category : #accessing }
-SmallProjectRegistry class >> gtSpotterOn: candidatesSource priority: aNumber for: aStep [ 
+{ #category : #'private-spotter' }
+SmallProjectRegistry class >> gtSpotterOn: candidatesSource priority: aNumber for: aStep [
+	"Helper to make available both from global and instance Spotters. See senders"
 
 	^ aStep listProcessor
 		priority: aNumber;
@@ -61,7 +62,7 @@ SmallProjectRegistry class >> uniqueInstance: anObject [
 	UniqueInstance := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #spotter }
 SmallProjectRegistry >> gtSpotterFor: aStep [
 	<gtSearch>
 	^ self class
@@ -87,6 +88,18 @@ SmallProjectRegistry >> gtSpotterNewProjectFor: aStep [
 				isExisting ifFalse: [ 
 					filter value: context textTrimmed ] ];
 		send: [ :newName :spotterStep | self projects add: (SmallProject named: newName) ]
+]
+
+{ #category : #accessing }
+SmallProjectRegistry >> gtViewProjectsOn: aView [
+	<gtView>
+	
+	^ aView list
+		title: 'Projects' translated;
+		priority: 5;
+		items: [ self projects ];
+		"send: #model;"
+		yourself.
 ]
 
 { #category : #accessing }
