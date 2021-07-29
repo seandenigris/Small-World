@@ -206,7 +206,7 @@ SmallProject >> descriptionSupportFileRelocationScript [
 		accessor: #supportFileRelocationScript;
 		readOnly: true;
 		priority: 500;
-		lineCount: 5;
+		lineCount: 20;
 		yourself
 ]
 
