@@ -278,6 +278,11 @@ SmallProject >> isPrivate: anObject [
 ]
 
 { #category : #accessing }
+SmallProject >> linkPillar [
+	^ PRExternalLink titled: self name targeting: self repository url
+]
+
+{ #category : #accessing }
 SmallProject >> loadScript [
 	^ loadScript
 ]
