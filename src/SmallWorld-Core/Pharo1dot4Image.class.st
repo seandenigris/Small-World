@@ -1,10 +1,10 @@
 Class {
-	#name : #Pharo1dot4Image,
-	#superclass : #PharoImage,
+	#name : 'Pharo1dot4Image',
+	#superclass : 'PharoImage',
 	#category : 'SmallWorld-Core-Images'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Pharo1dot4Image class >> defaultPackageNamesFor14444 [
 	<update: 14444>
 

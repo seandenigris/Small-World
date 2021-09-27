@@ -1,22 +1,22 @@
 Class {
-	#name : #Pharo1dot1dot1Image,
-	#superclass : #PharoImage,
+	#name : 'Pharo1dot1dot1Image',
+	#superclass : 'PharoImage',
 	#category : 'SmallWorld-Core-Images'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Pharo1dot1dot1Image class >> archiveFileName [
 
 	^ 'Pharo-1.1.1.zip'.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Pharo1dot1dot1Image class >> description [
 
 	^ 'Pharo 1.1.1'.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 Pharo1dot1dot1Image class >> uncompressFreshCopy [
 
 	| archive |
@@ -24,20 +24,20 @@ Pharo1dot1dot1Image class >> uncompressFreshCopy [
 	archive extractAllTo: (FileDirectory on: self archiveDirectoryPath).
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 Pharo1dot1dot1Image >> filePath [
 
 	^ '/Users/sean/Squeak/Fresh Images/Pharo-1.1.1/Pharo-1.1.1-dev10.09.1.image'.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Pharo1dot1dot1Image >> initialize [
 
 	super initialize.
 	self class uncompressFreshCopy.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 Pharo1dot1dot1Image >> setupScript [
 
 	Gofer new
@@ -47,13 +47,13 @@ Pharo1dot1dot1Image >> setupScript [
 		load.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 Pharo1dot1dot1Image >> setupScriptFileName [
 
 	^ 'setup_pharo-1.1.1.st'.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 Pharo1dot1dot1Image >> setupScriptPath [
 
 	^ self setupScriptDirectoryPath, self setupScriptFileName.

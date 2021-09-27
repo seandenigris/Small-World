@@ -1,6 +1,6 @@
 Class {
-	#name : #AddItemToWorldMenuUI,
-	#superclass : #ComposableModel,
+	#name : 'AddItemToWorldMenuUI',
+	#superclass : 'ComposableModel',
 	#instVars : [
 		'targetClass'
 	],

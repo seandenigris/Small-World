@@ -1,6 +1,6 @@
-Extension { #name : #Array }
+Extension { #name : 'Array' }
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 Array >> swConstructorString [
 
 	^ self printString.

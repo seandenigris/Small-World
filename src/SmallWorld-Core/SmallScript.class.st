@@ -1,14 +1,14 @@
 Class {
-	#name : #SmallScript,
-	#superclass : #Object,
+	#name : 'SmallScript',
+	#superclass : 'Object',
 	#instVars : [
 		'shouldSave',
 		'shouldQuit'
 	],
-	#category : #'SmallWorld-Core-Scripts'
+	#category : 'SmallWorld-Core-Scripts'
 }
 
-{ #category : #API }
+{ #category : 'API' }
 SmallScript >> initialize [
 
 	super initialize.
@@ -16,20 +16,30 @@ SmallScript >> initialize [
 	shouldQuit := false.
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 SmallScript >> run [
 
 	Smalltalk compiler evaluate: self asString.
 ]
 
-{ #category : #API }
+{ #category : 'accessing' }
+SmallScript >> runDescription [
+	<magritteActionDescription>
+	^ MAActionDescription new
+		priority: 150;
+		gtIcon: BrGlamorousVectorIcons play;
+		action: #run;
+		yourself
+]
+
+{ #category : 'API' }
 SmallScript >> save: saveBoolean andQuit: quitBoolean [
 
 	shouldSave := saveBoolean.
 	shouldQuit := quitBoolean.
 ]
 
-{ #category : #saving }
+{ #category : 'saving' }
 SmallScript >> saveAs: aFileReference [ 
 
 	| fixedScript |

@@ -1,10 +1,10 @@
 Class {
-	#name : #SmallBundle,
-	#superclass : #Object,
+	#name : 'SmallBundle',
+	#superclass : 'Object',
 	#category : 'SmallWorld-Core-Images'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SmallBundle >> file: imageFileReference headlessAndExecute: scriptFileReference [
 | template command |
 	template := '"{1}" -headless "{2}" "{3}"'.

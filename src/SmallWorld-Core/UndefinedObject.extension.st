@@ -1,11 +1,11 @@
-Extension { #name : #UndefinedObject }
+Extension { #name : 'UndefinedObject' }
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 UndefinedObject >> isSmallProjectLoaded [
 	^ false
 ]
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 UndefinedObject >> swDescription [
 	^ nil
 ]

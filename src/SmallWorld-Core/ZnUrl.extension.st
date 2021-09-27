@@ -1,18 +1,18 @@
-Extension { #name : #ZnUrl }
+Extension { #name : 'ZnUrl' }
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 ZnUrl >> addToGofer: aGofer [ 
 
 	aGofer url: self.
 ]
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 ZnUrl >> asGoferString [
 
 	^ self asString.
 ]
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 ZnUrl >> goferLoadCascade [
 	| repository repoUsername repoPassword |
 	repository := MCHttpRepository location: self asString.
@@ -21,13 +21,13 @@ ZnUrl >> goferLoadCascade [
 	^ 'url: ', self asGoferString surroundedBySingleQuotes, ' username: ''', repoUsername, ''' password: ''', repoPassword, ''''
 ]
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 ZnUrl >> goferRepositorySetter [
 
 	^ #url:username:password:.
 ]
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 ZnUrl >> swDescription [
 
 	^ MAUrlDescription new

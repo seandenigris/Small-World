@@ -1,10 +1,10 @@
 Class {
-	#name : #PharoBug,
-	#superclass : #Object,
+	#name : 'PharoBug',
+	#superclass : 'Object',
 	#category : 'SmallWorld-Core-Bugs'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoBug class >> menuCommandOn: aBuilder [ 
 
 	<worldMenu>
@@ -25,13 +25,13 @@ PharoBug class >> menuCommandOn: aBuilder [
 			help: 'Go to Pharocasts' ].
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoBug class >> openUrl: aString [
 
 	aString asUrl openInBrowser.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoBug class >> reportThat: aString [
 
 	"	1. see if it's a bug in latest trunk

@@ -10,27 +10,27 @@ image startAndEvaluate: [
 			load ].
 "
 Class {
-	#name : #PharoImage,
-	#superclass : #Object,
+	#name : 'PharoImage',
+	#superclass : 'Object',
 	#instVars : [
 		'file'
 	],
 	#category : 'SmallWorld-Core-Images'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage class >> archiveDirectory [
 
 	^ '/Users/sean/Squeak/Fresh Images/' asFileReference.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage class >> currentPackageNames [
 	
 	^ RPackageOrganizer default packageNames.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage class >> defaultPackageNamesForUpdate: aNumber [
 
 	| getter |
@@ -43,13 +43,13 @@ PharoImage class >> defaultPackageNamesForUpdate: aNumber [
 	^ self perform: getter selector.
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PharoImage class >> file: aFileReference [
 
 	^ self new setFile: aFileReference.
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoImage class >> menuCommandOn: aBuilder [ 
 
 	<worldMenu>
@@ -64,7 +64,7 @@ PharoImage class >> menuCommandOn: aBuilder [
 				(aBuilder item: 'Open for development') action: [ (PharoImage version: version) openForDevelopment ] ] ] ].
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PharoImage class >> named: aString [
 	"aString - folder name where the image will be; the same as the zipped image folder without extension"
 	
@@ -79,7 +79,7 @@ PharoImage class >> named: aString [
 	^ self new setFile: target / aString , 'image'.
 ]
 
-{ #category : #scripting }
+{ #category : 'scripting' }
 PharoImage class >> setUpWith: scriptBlock [
 	"Use DeNigrisSetup to customize the image.
 	Arguments:
@@ -93,26 +93,26 @@ PharoImage class >> setUpWith: scriptBlock [
 	^ (self basicNew setScriptContents: scriptString) initialize.
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PharoImage class >> version: aNumber [
 
 	^ self named: 'Pharo-', aNumber asString.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage class >> versions [
 
 	^ #(1.3 1.4)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoImage >> createSetupScript [
 
 	FileStream forceNewFileNamed: self setupScriptPath do: [ :str |
 		str nextPutAll: self setupScriptContents ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage >> createStartupScriptFrom: aBlock [
 
 "	ip := Smalltalk imagePath.
@@ -134,13 +134,13 @@ blockStr := [
 		do: [ :file | file nextPutAll: scriptContents ].
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage >> filePath [
 
 	^ filePath.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoImage >> open [
 
 "	self createSetupScript."
@@ -148,28 +148,28 @@ PharoImage >> open [
 	OSProcess command: ('open -n "{1}"' format: { file fullName }).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoImage >> openForDevelopment [
 
 	"-n means 'create a new instance'"
 	OSProcess command: ('open -n "{1}" --args "{2}" "{3}"' format: { self vmBundle fullName. file fullName. DeNigrisSetup bootstrapFile fullName }).
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage >> setFile: anFSReference [
 
 	file := anFSReference.
 	^ self.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage >> setScriptContents: aString [
 
 	scriptContents := aString.
 	^ self.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoImage >> setupScriptContents [
 
 	| scriptMethod sourceString sourceStringWithBracketsStripped |
@@ -180,26 +180,26 @@ PharoImage >> setupScriptContents [
 	^ sourceStringWithBracketsStripped.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PharoImage >> setupScriptDirectoryPath [
 
 	^ '/Users/sean/Squeak/Fresh Images/Temp Setup Scripts/'.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoImage >> setupScriptPath [
 
 	^ ((FileDirectory on: Smalltalk imagePath) / 'tmp' / 'startup_script.st') pathName.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoImage >> startAndEvaluate: aBlock [
 	
 	self createStartupScriptFrom: aBlock.
 	OSProcess command: ('open -n -a "{1}" --args "{2}" "{3}"' format: { self vmBundle. self filePath. self setupScriptPath }).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 PharoImage >> vmBundle [
 	"Mac-only"
 		

@@ -1,10 +1,10 @@
 Class {
-	#name : #Pharo2dot0Image,
-	#superclass : #PharoImage,
+	#name : 'Pharo2dot0Image',
+	#superclass : 'PharoImage',
 	#category : 'SmallWorld-Core-Images'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Pharo2dot0Image class >> defaultPackageNamesFor20186 [
 	<update: 20186>
 

@@ -1,6 +1,6 @@
-Extension { #name : #GtSpotterStart }
+Extension { #name : 'GtSpotterStart' }
 
-{ #category : #'*SmallWorld-Core' }
+{ #category : '*SmallWorld-Core' }
 GtSpotterStart >> spGtProjectSpotterFor: aStep [
 	<gtSearch>
 	^ SmallProjectRegistry

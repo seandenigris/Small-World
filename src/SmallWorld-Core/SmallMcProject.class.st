@@ -1,19 +1,19 @@
 Class {
-	#name : #SmallMcProject,
-	#superclass : #SmallProject,
+	#name : 'SmallMcProject',
+	#superclass : 'SmallProject',
 	#instVars : [
 		'packageName'
 	],
 	#category : 'SmallWorld-Core-Projects'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SmallMcProject class >> named: aString [
 
 	^ (super named: aString) packageName: aString.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallMcProject >> load [
 
 	Gofer it
@@ -22,7 +22,7 @@ SmallMcProject >> load [
 		load.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallMcProject >> packageName: aString [ 
 
 	packageName := aString.

@@ -1,6 +1,6 @@
 Class {
-	#name : #SmallProject,
-	#superclass : #Object,
+	#name : 'SmallProject',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'description',
@@ -10,10 +10,10 @@ Class {
 		'supportedImages',
 		'isObsolete'
 	],
-	#category : #'SmallWorld-Core-Projects'
+	#category : 'SmallWorld-Core-Projects'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 SmallProject class >> example [
 	<gtExample>
 	^ self
@@ -22,13 +22,13 @@ SmallProject class >> example [
 		then: [ :proj | proj name should equal: 'My Project' ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SmallProject class >> localRepositoryRoot [
 
 	^ FileLocator home / 'Dynabook' / 'Repositories'.
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 SmallProject class >> named: aString [ 
 
 	^ self new
@@ -36,19 +36,19 @@ SmallProject class >> named: aString [
 			yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 SmallProject >> <= rhs [
 	^ self name <= rhs name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> allSmalltalkImages [
 	"See #glAsSmalltalkImagesStoreString re how this list was created"
 		
 	^ #('GemStone-3.1.0.6' 'GemStone-3.2.12' 'GemStone-3.3.0' 'Moose-6.0' 'Moose-6.1' 'Moose-trunk' 'Pharo-3.0' 'Pharo-4.0' 'Pharo-5.0' 'Pharo-6.0' 'Pharo-6.1' 'Pharo-7.0' 'Pharo-alpha' 'Pharo-stable' 'Pharo64-6.0' 'Pharo64-6.1' 'Pharo64-7.0' 'Pharo64-alpha' 'Pharo64-stable' 'Squeak-4.5' 'Squeak-4.6' 'Squeak-5.0' 'Squeak-5.1' 'Squeak-trunk' )
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 SmallProject >> baselineLoadSnippet [
 	| template |
 	template := 'baseline: ''{projectName}'' with: [
@@ -58,12 +58,12 @@ SmallProject >> baselineLoadSnippet [
 			#repoURL -> self repository directDownloadURL } asDictionary
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SmallProject >> cloneOpenConsole [
 	LibC system: 'open -a Terminal ', self repository localCloneFolder fullName surroundedByDoubleQuotes
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SmallProject >> copyLoadScriptFrom: existingProject [
 	"Helpful temporarily because of Magritte bug which prevents load script being saved in MA form (related to defaults)"
 
@@ -72,7 +72,7 @@ SmallProject >> copyLoadScriptFrom: existingProject [
 		yourself)
 ]
 
-{ #category : #Metacello }
+{ #category : 'Metacello' }
 SmallProject >> createBaselineBoilerplate [
 	MetacelloToolBox 
 	createBaselineOf: self name asCamelCase
@@ -83,17 +83,17 @@ SmallProject >> createBaselineBoilerplate [
 	groups: #()
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> description [
 	^ description
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> description: anObject [
 	description := anObject
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionCloneConsole [
 	<magritteActionDescription>
 	
@@ -106,7 +106,7 @@ SmallProject >> descriptionCloneConsole [
 			yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionCopyBaselineLoadSnippet [
 	<magritteActionDescription>
 	^ MAActionDescription new
@@ -116,7 +116,7 @@ SmallProject >> descriptionCopyBaselineLoadSnippet [
 		yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionDescription [
 	<magritteDescription>
 
@@ -127,7 +127,7 @@ SmallProject >> descriptionDescription [
 		yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionHasMetacelloConfiguration [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -138,7 +138,7 @@ SmallProject >> descriptionHasMetacelloConfiguration [
 		yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionIsPrivate [
 	<magritteDescription>
 
@@ -149,7 +149,7 @@ SmallProject >> descriptionIsPrivate [
 		yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionLoadScript [
 	<magritteDescription>
 
@@ -162,7 +162,7 @@ SmallProject >> descriptionLoadScript [
 		"yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionName [
 	<magritteDescription>
 
@@ -173,7 +173,7 @@ SmallProject >> descriptionName [
 		yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionRepository [
 	<magritteDescription>
 
@@ -186,7 +186,7 @@ SmallProject >> descriptionRepository [
 		yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionRepositoryView [
 	<magritteActionDescription>
 	
@@ -199,7 +199,7 @@ SmallProject >> descriptionRepositoryView [
 			yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionSupportFileRelocationScript [
 	<magritteDescription>
 	^ MAMemoDescription new
@@ -210,7 +210,7 @@ SmallProject >> descriptionSupportFileRelocationScript [
 		yourself
 ]
 
-{ #category : #magritte }
+{ #category : 'magritte' }
 SmallProject >> descriptionSupportedImages [
 	<magritteDescription>
 	^ MAMultipleOptionDescription new
@@ -221,7 +221,7 @@ SmallProject >> descriptionSupportedImages [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> displayText [
 	| result |
 	result := self name asText.
@@ -230,35 +230,35 @@ SmallProject >> displayText [
 	^ result
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 SmallProject >> forkCloneOpenConsole [
 	| myUsername |
 	myUsername := 'seandenigris'.
 	LibC system: 'open -a Terminal ', (self repository localCloneFolderForUser: myUsername) fullName surroundedByDoubleQuotes
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SmallProject >> hasMetacelloConfiguration [
 
 	^ self isKindOf: SmallMetacelloProject.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SmallProject >> isLoaded [
 	^ self loadScript isSmallProjectLoaded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> isObsolete [
 	^ self maLazyInstVarUsing: self isObsoleteDescription
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> isObsolete: anObject [
 	isObsolete := anObject
 ]
 
-{ #category : #'magritte-accessing' }
+{ #category : 'magritte-accessing' }
 SmallProject >> isObsoleteDescription [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -267,84 +267,84 @@ SmallProject >> isObsoleteDescription [
 		yourself
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 SmallProject >> isPrivate [
 	^ isPrivate
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> isPrivate: anObject [
 	isPrivate := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> linkPillar [
 	^ PRExternalLink titled: self name targeting: self repository url
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> loadScript [
 	^ loadScript
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> loadScript: anObject [
 	loadScript := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> localFolderName [
 	^ self name copyReplaceAll: ' ' with: '-'
 ]
 
-{ #category : #Metacello }
+{ #category : 'Metacello' }
 SmallProject >> metacelloURL [
 	^ self repository metacelloURLFor: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> name [
 
 	^ name ifNil: [ name := '' ].
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SmallProject >> name: aString [ 
 
 	name := aString.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> onSmalltalkHubUser: aString [
 
 	self onSmalltalkHubUser: aString repository: name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> onSmalltalkHubUser: userString repository: repoString [
 
 	self repository: ('http://smalltalkhub.com/mc/', userString, '/', repoString, '/main/') asUrl.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> onSqueaksource [
 
 	self repository: 'http://squeaksource.com/MetacelloRepository' asUrl.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> onSqueaksource3 [
 
 	self repository: ('http://ss3.gemstone.com/ss/', name) asUrl.
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 SmallProject >> printOn: aStream [
 
 	aStream nextPutAll: name asString, ' Project'.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SmallProject >> putInstVarNamed: aString On: aWriteStream unlessDefault: anObject [
 
 	| value |
@@ -360,14 +360,14 @@ SmallProject >> putInstVarNamed: aString On: aWriteStream unlessDefault: anObjec
 		nextPut: $;
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SmallProject >> putInstVarsOn: aWriteStream [ 
 
 	self putInstVarNamed: 'repository' On: aWriteStream unlessDefault: nil.
 	self putInstVarNamed: 'description' On: aWriteStream unlessDefault: ''.
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 SmallProject >> releaserProject [
 	| template |
 	template := 'BaselineOf{projectName} gtRlProjectWithRepository: ''{repoURL}'''.
@@ -377,7 +377,7 @@ SmallProject >> releaserProject [
 			(#repoURL -> self repository directDownloadURL)} asDictionary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> remoteLoadSnippet [
 	"Adapted from https://github.com/dalehenrich/metacello-work#pharo30-pharo40-and-pharo50"
 	| template |
@@ -391,20 +391,20 @@ SmallProject >> remoteLoadSnippet [
 			#repoURL -> self repository directDownloadURL } asDictionary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> repository [
 	
 	^ repository.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> repository: anObject [
 	"anObject - a URL or aFileReference"
 
 	repository := anObject.
 ]
 
-{ #category : #saving }
+{ #category : 'saving' }
 SmallProject >> save [
 
 	| source |
@@ -425,7 +425,7 @@ SmallProject >> save [
 	self class class compile: source classified: 'projects'.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> supportFileRelocationScript [
 	"Preserve your play pages when you move to a new image. To automate, place in a MetaC postload e.g. `spec for: #'common' do: [ spec postLoadDoIt: #'postLoad'. ]`"
 	| template |
@@ -448,12 +448,12 @@ SmallProject >> supportFileRelocationScript [
 	^ template format: { #projectName -> self name } asDictionary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> supportedImages [
 	^ self maLazyInstVarUsing: self descriptionSupportedImages
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SmallProject >> supportedImages: anObject [
 	supportedImages := anObject
 ]
