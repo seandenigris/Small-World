@@ -58,9 +58,32 @@ SmallProject >> baselineLoadSnippet [
 			#repoURL -> self repository directDownloadURL } asDictionary
 ]
 
+{ #category : 'magritte' }
+SmallProject >> cloneConsoleDescription [
+	<magritteActionDescription>
+	
+	^ MAActionDescription new
+			action: #forkCloneOpenConsole;
+			label: 'Fork - Open Console';
+			isMutator: false;
+			shortcut: $f asShortcut;
+			icon: #glmOpenFromURL;
+			yourself
+]
+
 { #category : 'actions' }
 SmallProject >> cloneOpenConsole [
 	LibC system: 'open -a Terminal ', self repository localCloneFolder fullName surroundedByDoubleQuotes
+]
+
+{ #category : 'magritte' }
+SmallProject >> copyBaselineLoadSnippetDescription [
+	<magritteActionDescription>
+	^ MAActionDescription new
+		priority: 150;
+		label: 'Copy Baseline Load Snippet';
+		action: [ Clipboard clipboardText: self baselineLoadSnippet ];
+		yourself
 ]
 
 { #category : 'actions' }
@@ -94,29 +117,6 @@ SmallProject >> description: anObject [
 ]
 
 { #category : 'magritte' }
-SmallProject >> descriptionCloneConsole [
-	<magritteActionDescription>
-	
-	^ MAActionDescription new
-			action: #forkCloneOpenConsole;
-			label: 'Fork - Open Console';
-			isMutator: false;
-			shortcut: $f asShortcut;
-			icon: #glmOpenFromURL;
-			yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionCopyBaselineLoadSnippet [
-	<magritteActionDescription>
-	^ MAActionDescription new
-		priority: 150;
-		label: 'Copy Baseline Load Snippet';
-		action: [ Clipboard clipboardText: self baselineLoadSnippet ];
-		yourself
-]
-
-{ #category : 'magritte' }
 SmallProject >> descriptionDescription [
 	<magritteDescription>
 
@@ -124,100 +124,6 @@ SmallProject >> descriptionDescription [
 		priority: 125;
 		accessor: #description;
 		lineCount: 5;
-		yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionHasMetacelloConfiguration [
-	<magritteDescription>
-	^ MABooleanDescription new
-		priority: 250;
-		accessor: #hasMetacelloConfiguration;
-		beReadOnly;
-		beRequired;
-		yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionIsPrivate [
-	<magritteDescription>
-
-	^ MABooleanDescription new
-		priority: 275;
-		accessor: #isPrivate;
-		beRequired;
-		yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionLoadScript [
-	<magritteDescription>
-
-	^ MAToOneRelationDescription new
-		priority: 350;
-		accessor: #loadScript;
-		initializer: [ :e | e project: self ];
-		classes: SmallLoadScript allSubclasses;
-		"beRequired;
-		"yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionName [
-	<magritteDescription>
-
-	^ MAStringDescription new
-		priority: 100;
-		accessor: #name;
-		beRequired;
-		yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionRepository [
-	<magritteDescription>
-
-	^ MAToOneRelationDescription new
-		priority: 200;
-		accessor: #repository;
-		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallRepository allSubclasses;
-		initializer: [ :repo | repo project: self ];
-		beRequired;
-		yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionRepositoryView [
-	<magritteActionDescription>
-	
-	^ MAActionDescription new
-			action: [ :target | target repository view ];
-			label: 'Open Repository';
-			isMutator: false;
-			shortcut: $r asShortcut;
-			icon: #glmOpenFromURL;
-			yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionSupportFileRelocationScript [
-	<magritteDescription>
-	^ MAMemoDescription new
-		accessor: #supportFileRelocationScript;
-		readOnly: true;
-		priority: 500;
-		lineCount: 20;
-		yourself
-]
-
-{ #category : 'magritte' }
-SmallProject >> descriptionSupportedImages [
-	<magritteDescription>
-	^ MAMultipleOptionDescription new
-		accessor: #supportedImages;
-		priority: 250;
-		options: self allSmalltalkImages;
-		morphicClass: MATokenCompletionMorph;
 		yourself
 ]
 
@@ -241,6 +147,17 @@ SmallProject >> forkCloneOpenConsole [
 SmallProject >> hasMetacelloConfiguration [
 
 	^ self isKindOf: SmallMetacelloProject.
+]
+
+{ #category : 'magritte' }
+SmallProject >> hasMetacelloConfigurationDescription [
+	<magritteDescription>
+	^ MABooleanDescription new
+		priority: 250;
+		accessor: #hasMetacelloConfiguration;
+		beReadOnly;
+		beRequired;
+		yourself
 ]
 
 { #category : 'testing' }
@@ -277,6 +194,17 @@ SmallProject >> isPrivate: anObject [
 	isPrivate := anObject
 ]
 
+{ #category : 'magritte' }
+SmallProject >> isPrivateDescription [
+	<magritteDescription>
+
+	^ MABooleanDescription new
+		priority: 275;
+		accessor: #isPrivate;
+		beRequired;
+		yourself
+]
+
 { #category : 'accessing' }
 SmallProject >> linkPillar [
 	^ PRExternalLink titled: self name targeting: self repository url
@@ -290,6 +218,19 @@ SmallProject >> loadScript [
 { #category : 'accessing' }
 SmallProject >> loadScript: anObject [
 	loadScript := anObject
+]
+
+{ #category : 'magritte' }
+SmallProject >> loadScriptDescription [
+	<magritteDescription>
+
+	^ MAToOneRelationDescription new
+		priority: 350;
+		accessor: #loadScript;
+		initializer: [ :e | e project: self ];
+		classes: SmallLoadScript allSubclasses;
+		"beRequired;
+		"yourself
 ]
 
 { #category : 'accessing' }
@@ -312,6 +253,17 @@ SmallProject >> name [
 SmallProject >> name: aString [ 
 
 	name := aString.
+]
+
+{ #category : 'magritte' }
+SmallProject >> nameDescription [
+	<magritteDescription>
+
+	^ MAStringDescription new
+		priority: 100;
+		accessor: #name;
+		beRequired;
+		yourself
 ]
 
 { #category : 'accessing' }
@@ -404,6 +356,32 @@ SmallProject >> repository: anObject [
 	repository := anObject.
 ]
 
+{ #category : 'magritte' }
+SmallProject >> repositoryDescription [
+	<magritteDescription>
+
+	^ MAToOneRelationDescription new
+		priority: 200;
+		accessor: #repository;
+		classes: { ZnUrl }, AbstractFileReference allSubclasses, SmallRepository allSubclasses;
+		initializer: [ :repo | repo project: self ];
+		beRequired;
+		yourself
+]
+
+{ #category : 'magritte' }
+SmallProject >> repositoryViewDescription [
+	<magritteActionDescription>
+	
+	^ MAActionDescription new
+			action: [ :target | target repository view ];
+			label: 'Open Repository';
+			isMutator: false;
+			shortcut: $r asShortcut;
+			icon: #glmOpenFromURL;
+			yourself
+]
+
 { #category : 'saving' }
 SmallProject >> save [
 
@@ -448,12 +426,34 @@ SmallProject >> supportFileRelocationScript [
 	^ template format: { #projectName -> self name } asDictionary
 ]
 
+{ #category : 'magritte' }
+SmallProject >> supportFileRelocationScriptDescription [
+	<magritteDescription>
+	^ MAMemoDescription new
+		accessor: #supportFileRelocationScript;
+		readOnly: true;
+		priority: 500;
+		lineCount: 20;
+		yourself
+]
+
 { #category : 'accessing' }
 SmallProject >> supportedImages [
-	^ self maLazyInstVarUsing: self descriptionSupportedImages
+	^ self maLazyInstVarUsing: self supportedImagesDescription
 ]
 
 { #category : 'accessing' }
 SmallProject >> supportedImages: anObject [
 	supportedImages := anObject
+]
+
+{ #category : 'magritte' }
+SmallProject >> supportedImagesDescription [
+	<magritteDescription>
+	^ MAMultipleOptionDescription new
+		accessor: #supportedImages;
+		priority: 250;
+		options: self allSmalltalkImages;
+		morphicClass: MATokenCompletionMorph;
+		yourself
 ]

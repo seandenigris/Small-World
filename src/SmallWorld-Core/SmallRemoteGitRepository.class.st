@@ -24,7 +24,7 @@ SmallRemoteGitRepository >> addRemote: urlString as: nameString [
 
 { #category : 'accessing' }
 SmallRemoteGitRepository >> codeSubfolder [
-	^ self maLazyInstVarUsing: self descriptionCodeSubfolder
+	^ self maLazyInstVarUsing: self codeSubfolderDescription
 ]
 
 { #category : 'accessing' }
@@ -32,23 +32,8 @@ SmallRemoteGitRepository >> codeSubfolder: aString [
 	codeSubfolder := aString
 ]
 
-{ #category : 'accessing' }
-SmallRemoteGitRepository >> defaultBranch [
-	^ self maLazyInstVarUsing: self descriptionDefaultBranch
-]
-
-{ #category : 'accessing' }
-SmallRemoteGitRepository >> defaultBranch: anObject [
-	defaultBranch := anObject
-]
-
-{ #category : 'accessing' }
-SmallRemoteGitRepository >> defaultUser [
-	self subclassResponsibility
-]
-
 { #category : 'magritte' }
-SmallRemoteGitRepository >> descriptionCodeSubfolder [
+SmallRemoteGitRepository >> codeSubfolderDescription [
 	<magritteDescription>
 	^ MASingleOptionDescription new
 		priority: 100;
@@ -59,8 +44,18 @@ SmallRemoteGitRepository >> descriptionCodeSubfolder [
 		yourself
 ]
 
+{ #category : 'accessing' }
+SmallRemoteGitRepository >> defaultBranch [
+	^ self maLazyInstVarUsing: self defaultBranchDescription
+]
+
+{ #category : 'accessing' }
+SmallRemoteGitRepository >> defaultBranch: anObject [
+	defaultBranch := anObject
+]
+
 { #category : 'magritte' }
-SmallRemoteGitRepository >> descriptionDefaultBranch [
+SmallRemoteGitRepository >> defaultBranchDescription [
 	<magritteDescription>
 	^ MAStringDescription new
 		accessor: #defaultBranch;
@@ -68,50 +63,9 @@ SmallRemoteGitRepository >> descriptionDefaultBranch [
 		yourself
 ]
 
-{ #category : 'magritte' }
-SmallRemoteGitRepository >> descriptionHasProjectMetadata [
-	<magritteDescription>
-
-	^ MABooleanDescription new
-		priority: 400;
-		accessor: #hasProjectMetadata;
-		default: false;
-		yourself
-]
-
-{ #category : 'magritte' }
-SmallRemoteGitRepository >> descriptionIsUpstream [
-	<magritteDescription>
-	^ MABooleanDescription new
-		accessor: #isUpstream;
-		label: 'Upstream?';
-		comment: 'Is this someone else''s project that you''ve forked?';
-		default: false;
-		yourself
-]
-
-{ #category : 'magritte' }
-SmallRemoteGitRepository >> descriptionSyncForkScript [
-	<gtInspectorPresentationOrder: 200>
-
-	| result |
-	result := MAMemoDescription new
-			accessor: #syncForkScript;
-			yourself.
-	self isUpstream ifFalse: [ result glmPresentation: nil ].
-	^ result
-]
-
-{ #category : 'magritte' }
-SmallRemoteGitRepository >> descriptionUser [
-	<magritteDescription>
-
-	^ MAStringDescription new
-		priority: 200;
-		accessor: #user;
-		default: self defaultUser;
-		beRequired;
-		yourself
+{ #category : 'accessing' }
+SmallRemoteGitRepository >> defaultUser [
+	self subclassResponsibility
 ]
 
 { #category : 'accessing' }
@@ -120,7 +74,7 @@ SmallRemoteGitRepository >> directDownloadURL [
 	| scheme url path |
 	scheme := self hostname copyUpTo: $..
 	path := self projectName.
-	self defaultBranch = self descriptionDefaultBranch default ifFalse: [ path := path, ':', self defaultBranch ].
+	self defaultBranch = self defaultBranchDescription default ifFalse: [ path := path, ':', self defaultBranch ].
 	url := ZnUrl new
 		scheme: scheme;
 		host: self workingUser;
@@ -134,12 +88,23 @@ SmallRemoteGitRepository >> directDownloadURL [
 
 { #category : 'accessing' }
 SmallRemoteGitRepository >> hasProjectMetadata [
-	^ self maLazyInstVarUsing: self descriptionHasProjectMetadata
+	^ self maLazyInstVarUsing: self hasProjectMetadataDescription
 ]
 
 { #category : 'accessing' }
 SmallRemoteGitRepository >> hasProjectMetadata: anObject [
 	hasProjectMetadata := anObject
+]
+
+{ #category : 'magritte' }
+SmallRemoteGitRepository >> hasProjectMetadataDescription [
+	<magritteDescription>
+
+	^ MABooleanDescription new
+		priority: 400;
+		accessor: #hasProjectMetadata;
+		default: false;
+		yourself
 ]
 
 { #category : 'accessing' }
@@ -149,12 +114,23 @@ SmallRemoteGitRepository >> hostname [
 
 { #category : 'accessing' }
 SmallRemoteGitRepository >> isUpstream [
-	^ self maLazyInstVarUsing: self descriptionIsUpstream
+	^ self maLazyInstVarUsing: self isUpstreamDescription
 ]
 
 { #category : 'accessing' }
 SmallRemoteGitRepository >> isUpstream: anObject [
 	isUpstream := anObject
+]
+
+{ #category : 'magritte' }
+SmallRemoteGitRepository >> isUpstreamDescription [
+	<magritteDescription>
+	^ MABooleanDescription new
+		accessor: #isUpstream;
+		label: 'Upstream?';
+		comment: 'Is this someone else''s project that you''ve forked?';
+		default: false;
+		yourself
 ]
 
 { #category : 'accessing' }
@@ -261,6 +237,18 @@ git push origin master
 			#sshUpstreamUrl -> self sshUpstreamUrl } asDictionary.
 ]
 
+{ #category : 'magritte' }
+SmallRemoteGitRepository >> syncForkScriptDescription [
+	<gtInspectorPresentationOrder: 200>
+
+	| result |
+	result := MAMemoDescription new
+			accessor: #syncForkScript;
+			yourself.
+	self isUpstream ifFalse: [ result glmPresentation: nil ].
+	^ result
+]
+
 { #category : 'accessing' }
 SmallRemoteGitRepository >> url [
 	^ super url
@@ -271,12 +259,24 @@ SmallRemoteGitRepository >> url [
 
 { #category : 'accessing' }
 SmallRemoteGitRepository >> user [
-	^ self maLazyInstVarUsing: self descriptionUser
+	^ self maLazyInstVarUsing: self userDescription
 ]
 
 { #category : 'accessing' }
 SmallRemoteGitRepository >> user: anObject [
 	user := anObject
+]
+
+{ #category : 'magritte' }
+SmallRemoteGitRepository >> userDescription [
+	<magritteDescription>
+
+	^ MAStringDescription new
+		priority: 200;
+		accessor: #user;
+		default: self defaultUser;
+		beRequired;
+		yourself
 ]
 
 { #category : 'accessing' }
