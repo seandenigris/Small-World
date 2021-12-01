@@ -4,6 +4,11 @@ Class {
 	#category : #BaselineOfSmallWorld
 }
 
+{ #category : #accessing }
+BaselineOfSmallWorld class >> isDynabook [
+	^ true
+]
+
 { #category : #baselines }
 BaselineOfSmallWorld >> baseline: spec [
 	<baseline>
