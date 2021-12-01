@@ -7,7 +7,7 @@ Class {
 	#classVars : [
 		'UniqueInstance'
 	],
-	#category : 'SmallWorld-Core-Projects'
+	#category : #'SmallWorld-Core-Projects'
 }
 
 { #category : #'private-spotter' }
@@ -60,6 +60,14 @@ SmallProjectRegistry class >> uniqueInstance [
 { #category : #accessing }
 SmallProjectRegistry class >> uniqueInstance: anObject [
 	UniqueInstance := anObject
+]
+
+{ #category : #accessing }
+SmallProjectRegistry >> detectForBaseline: aClass [
+	^ self projects detect: [ :p | 
+		p loadScript 
+			ifNil: [ false ]
+			ifNotNil: [ :ls | ls baselineClass = aClass ] ]
 ]
 
 { #category : #spotter }

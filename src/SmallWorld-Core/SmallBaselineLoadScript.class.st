@@ -6,7 +6,7 @@ Class {
 		'postLoadDoIt',
 		'isTargetingGToolkit'
 	],
-	#category : 'SmallWorld-Core-Scripts'
+	#category : #'SmallWorld-Core-Scripts'
 }
 
 { #category : #'as yet unclassified' }
@@ -21,6 +21,11 @@ SmallBaselineLoadScript class >> example [
 		given: [ SmallProject example ]
 		when: [ :proj | self building: proj ]
 		then: [ :script | script baselineName should equal: 'MyProject' ]
+]
+
+{ #category : #accessing }
+SmallBaselineLoadScript >> baselineClass [
+	^ Smalltalk classNamed: ('BaselineOf', self baselineName) asSymbol
 ]
 
 { #category : #accessing }
