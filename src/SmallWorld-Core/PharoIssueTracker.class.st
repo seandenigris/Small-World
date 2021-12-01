@@ -1,16 +1,16 @@
 Class {
-	#name : 'PharoIssueTracker',
-	#superclass : 'Object',
+	#name : #PharoIssueTracker,
+	#superclass : #Object,
 	#category : 'SmallWorld-Core-Bugs'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoIssueTracker class >> goToWebsite [
 
 	ExternalWebBrowser openOnUrl: self url.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoIssueTracker class >> menuCommandOn: aBuilder [ 
 
 	<worldMenu>
@@ -20,7 +20,7 @@ PharoIssueTracker class >> menuCommandOn: aBuilder [
 		help: 'Go to Pharo issue tracker site'.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoIssueTracker class >> url [
 
 	^ 'http://code.google.com/p/pharo/issues/list'.

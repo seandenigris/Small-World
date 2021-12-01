@@ -1,10 +1,10 @@
 Class {
-	#name : 'SmallGitHubRepository',
-	#superclass : 'SmallRemoteGitRepository',
+	#name : #SmallGitHubRepository,
+	#superclass : #SmallRemoteGitRepository,
 	#category : 'SmallWorld-Core-Projects'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallGitHubRepository class >> example [
 	<gtExample>
 	^ self
@@ -21,12 +21,12 @@ SmallGitHubRepository class >> example [
 					#project -> proj name } asDictionary ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallGitHubRepository >> defaultUser [
 	^ Author fullName asLowercase
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallGitHubRepository >> hostname [
 	^ 'github.com'
 ]

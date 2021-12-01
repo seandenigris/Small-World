@@ -1,29 +1,29 @@
-Extension { #name : 'AbstractFileReference' }
+Extension { #name : #AbstractFileReference }
 
-{ #category : '*SmallWorld-Core' }
+{ #category : #'*SmallWorld-Core' }
 AbstractFileReference >> addToGofer: aGofer [ 
 
 	aGofer directory: self.
 ]
 
-{ #category : '*SmallWorld-Core' }
+{ #category : #'*SmallWorld-Core' }
 AbstractFileReference >> asGoferString [
 
 	^ self fullName.
 ]
 
-{ #category : '*SmallWorld-Core' }
+{ #category : #'*SmallWorld-Core' }
 AbstractFileReference >> goferLoadCascade [
 	^ 'directory: ', self asGoferString surroundedBySingleQuotes
 ]
 
-{ #category : '*SmallWorld-Core' }
+{ #category : #'*SmallWorld-Core' }
 AbstractFileReference >> goferRepositorySetter [
 
 	^ #directory:.
 ]
 
-{ #category : '*SmallWorld-Core' }
+{ #category : #'*SmallWorld-Core' }
 AbstractFileReference >> swConstructorString [
 
 	| isLocalRepository |
@@ -40,7 +40,7 @@ AbstractFileReference >> swConstructorString [
 		ifFalse: [ self fullName surroundedBySingleQuotes, ' asFileReference' ].
 ]
 
-{ #category : '*SmallWorld-Core' }
+{ #category : #'*SmallWorld-Core' }
 AbstractFileReference >> swDescription [
 
 	^ MADirectoryDescription new

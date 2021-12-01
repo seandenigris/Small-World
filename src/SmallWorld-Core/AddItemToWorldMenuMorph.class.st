@@ -1,20 +1,20 @@
 Class {
-	#name : 'AddItemToWorldMenuMorph',
-	#superclass : 'Object',
+	#name : #AddItemToWorldMenuMorph,
+	#superclass : #Object,
 	#instVars : [
 		'targetClass'
 	],
 	#category : 'SmallWorld-Core-IDE'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 AddItemToWorldMenuMorph class >> openToAddMenuFor: aClass [
 	"self openToAddMenuFor: Array"
 	
 	^ (self new setTargetClass: aClass) open.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 AddItemToWorldMenuMorph >> open [
 
 	| builder content |
@@ -41,7 +41,7 @@ AddItemToWorldMenuMorph >> open [
 	(content openInWindowLabeled: 'New menu item for ', targetClass name) extent: 400 @ 200.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 AddItemToWorldMenuMorph >> setTargetClass: aClass [ 
 
 	targetClass := aClass.

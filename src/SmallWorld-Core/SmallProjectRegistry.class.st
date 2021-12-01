@@ -1,6 +1,6 @@
 Class {
-	#name : 'SmallProjectRegistry',
-	#superclass : 'Object',
+	#name : #SmallProjectRegistry,
+	#superclass : #Object,
 	#instVars : [
 		'projects'
 	],
@@ -10,7 +10,7 @@ Class {
 	#category : 'SmallWorld-Core-Projects'
 }
 
-{ #category : 'private-spotter' }
+{ #category : #'private-spotter' }
 SmallProjectRegistry class >> gtSpotterOn: candidatesSource priority: aNumber for: aStep [
 	"Helper to make available both from global and instance Spotters. See senders"
 
@@ -23,7 +23,7 @@ SmallProjectRegistry class >> gtSpotterOn: candidatesSource priority: aNumber fo
 		itemName: #name
 ]
 
-{ #category : 'world menu' }
+{ #category : #'world menu' }
 SmallProjectRegistry class >> menuCommandOn: aBuilder [ 
 	<worldMenu> 
 	
@@ -40,29 +40,29 @@ SmallProjectRegistry class >> menuCommandOn: aBuilder [
 				icon: Smalltalk ui icons smallLoadProjectIcon. ]
 ]
 
-{ #category : 'persistence' }
+{ #category : #persistence }
 SmallProjectRegistry class >> restoreFrom: anObject [
 
 	UniqueInstance := anObject.
 ]
 
-{ #category : 'persistence' }
+{ #category : #persistence }
 SmallProjectRegistry class >> spData [
 
 	^ UniqueInstance
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallProjectRegistry class >> uniqueInstance [
 	^ UniqueInstance ifNil: [  UniqueInstance := self new ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallProjectRegistry class >> uniqueInstance: anObject [
 	UniqueInstance := anObject
 ]
 
-{ #category : 'spotter' }
+{ #category : #spotter }
 SmallProjectRegistry >> gtSpotterFor: aStep [
 	<gtSearch>
 	^ self class
@@ -71,7 +71,7 @@ SmallProjectRegistry >> gtSpotterFor: aStep [
 		for: aStep
 ]
 
-{ #category : 'spotter' }
+{ #category : #spotter }
 SmallProjectRegistry >> gtSpotterNewProjectFor: aStep [
 	<gtSearch>
 	aStep listProcessor
@@ -90,7 +90,7 @@ SmallProjectRegistry >> gtSpotterNewProjectFor: aStep [
 		send: [ :newName :spotterStep | self projects add: (SmallProject named: newName) ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallProjectRegistry >> gtViewProjectsOn: aView [
 	<gtView>
 	
@@ -102,7 +102,7 @@ SmallProjectRegistry >> gtViewProjectsOn: aView [
 		yourself.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallProjectRegistry >> printOn: aStream [
 	aStream
 		nextPutAll: 'Registry of ';
@@ -110,12 +110,12 @@ SmallProjectRegistry >> printOn: aStream [
 		nextPutAll: ' projects'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallProjectRegistry >> projects [
 	^ projects ifNil: [ projects := SortedCollection sortBlock: #name ascending ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallProjectRegistry >> projects: anObject [
 	projects := anObject
 ]

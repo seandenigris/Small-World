@@ -1,6 +1,6 @@
 Class {
-	#name : 'SmallLoadScript',
-	#superclass : 'SmallScript',
+	#name : #SmallLoadScript,
+	#superclass : #SmallScript,
 	#instVars : [
 		'debug',
 		'loads',
@@ -13,34 +13,34 @@ Class {
 	#category : 'SmallWorld-Core-Scripts'
 }
 
-{ #category : 'instance creation' }
+{ #category : #'instance creation' }
 SmallLoadScript class >> building: aSmallProject [ 
 
 	^ self new project: aSmallProject.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 SmallLoadScript class >> defaultProjectVersion [
 	self subclassResponsibility
 ]
 
-{ #category : 'converting' }
+{ #category : #converting }
 SmallLoadScript >> beDebug [
 
 	debug := true.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallLoadScript >> conflictBlock [
 	^ self maLazyInstVarUsing: self descriptionConflictBlock
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallLoadScript >> conflictBlock: anObject [
 	conflictBlock := anObject
 ]
 
-{ #category : 'Magritte' }
+{ #category : #Magritte }
 SmallLoadScript >> descriptionConflictBlock [
 	<magritteDescription>
 
@@ -51,7 +51,7 @@ SmallLoadScript >> descriptionConflictBlock [
 		yourself
 ]
 
-{ #category : 'Magritte' }
+{ #category : #Magritte }
 SmallLoadScript >> descriptionContents [
 	<gtInspectorPresentationOrder: 2>
 
@@ -62,7 +62,7 @@ SmallLoadScript >> descriptionContents [
 			yourself
 ]
 
-{ #category : 'debugging' }
+{ #category : #debugging }
 SmallLoadScript >> initialize [
 
 	super initialize.
@@ -71,7 +71,7 @@ SmallLoadScript >> initialize [
 	loadConfigurationOnly := false.
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SmallLoadScript >> isSmallProjectLoaded [
 	| registration |
 	registration := MetacelloProjectRegistration registry 
@@ -80,18 +80,18 @@ SmallLoadScript >> isSmallProjectLoaded [
 	^ registration loadedInImage
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 SmallLoadScript >> load: aStringOrCollection [
 	whatToLoad := aStringOrCollection
 ]
 
-{ #category : 'configuring' }
+{ #category : #configuring }
 SmallLoadScript >> loadingVersion: aString [ 
 
 	projectVersion := aString.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SmallLoadScript >> printConfigurationLoadStatementOn: aStream [
 
 	| loadTemplate loadParameters loadCommand |
@@ -107,7 +107,7 @@ SmallLoadScript >> printConfigurationLoadStatementOn: aStream [
 	aStream nextPutAll: loadCommand; cr.
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallLoadScript >> printOn: aStream [
 
 	self printConfigurationLoadStatementOn: aStream.
@@ -115,29 +115,29 @@ SmallLoadScript >> printOn: aStream [
 	shouldSave | shouldQuit ifTrue: [ self printSnaphotStatementOn: aStream ]
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SmallLoadScript >> printSnaphotStatementOn: aStream [
 
 	 "aStream nextPutAll: 'Smalltalk snapshot: ', shouldSave asString, ' andQuit: ', shouldQuit asString, '.' "
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallLoadScript >> project [
 	^ project
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SmallLoadScript >> project: aSmallProject [ 
 
 	project := aSmallProject.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallLoadScript >> projectVersion [
 	^ projectVersion ifNil: [ projectVersion := self class defaultProjectVersion ]
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallLoadScript >> projectVersion: aSymbol loading: anObject [
 	"
 	aSymbol - a symbolic Metacello version (e.g. #bleedingEdge | #stable | #development)
@@ -147,14 +147,14 @@ SmallLoadScript >> projectVersion: aSymbol loading: anObject [
 	whatToLoad := anObject.
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallLoadScript >> quitting: aBoolean [
 
 	shouldQuit := aBoolean.
 	
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallLoadScript >> saving: aBoolean [
 
 	shouldSave := aBoolean.

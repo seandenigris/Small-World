@@ -1,6 +1,6 @@
 Class {
-	#name : 'SmallBaselineLoadScript',
-	#superclass : 'SmallLoadScript',
+	#name : #SmallBaselineLoadScript,
+	#superclass : #SmallLoadScript,
 	#instVars : [
 		'baselineName',
 		'postLoadDoIt',
@@ -9,12 +9,12 @@ Class {
 	#category : 'SmallWorld-Core-Scripts'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 SmallBaselineLoadScript class >> defaultProjectVersion [
 	^ 'master'
 ]
 
-{ #category : 'examples' }
+{ #category : #examples }
 SmallBaselineLoadScript class >> example [
 	<gtExample>
 	^ self
@@ -23,23 +23,23 @@ SmallBaselineLoadScript class >> example [
 		then: [ :script | script baselineName should equal: 'MyProject' ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallBaselineLoadScript >> baselineName [
 	^ baselineName ifNil: [ self project name copyWithout: Character space ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallBaselineLoadScript >> baselineName: aString [ 
 	baselineName := aString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallBaselineLoadScript >> configurationName [
 	"To be polymorphic w. Config load script"
 	^ self baselineName
 ]
 
-{ #category : 'Magritte' }
+{ #category : #Magritte }
 SmallBaselineLoadScript >> descriptionBaselineName [
 	<magritteDescription>
 
@@ -49,7 +49,7 @@ SmallBaselineLoadScript >> descriptionBaselineName [
 			yourself
 ]
 
-{ #category : 'Magritte' }
+{ #category : #Magritte }
 SmallBaselineLoadScript >> descriptionPostLoadDoIt [
 	<magritteDescription>
 
@@ -59,7 +59,7 @@ SmallBaselineLoadScript >> descriptionPostLoadDoIt [
 		yourself
 ]
 
-{ #category : 'Magritte' }
+{ #category : #Magritte }
 SmallBaselineLoadScript >> descriptionProjectVersion [
 	<magritteDescription>
 
@@ -71,32 +71,32 @@ SmallBaselineLoadScript >> descriptionProjectVersion [
 		yourself
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallBaselineLoadScript >> isTargetingGToolkit [
 	isTargetingGToolkit ifNil: [ ^ true ]
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallBaselineLoadScript >> localSourceFolder [
 	^ self project repository localSourceFolder
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallBaselineLoadScript >> postLoadDoIt [
 	^ postLoadDoIt ifNil: [ '' ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallBaselineLoadScript >> postLoadDoIt: anObject [
 	postLoadDoIt := anObject
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallBaselineLoadScript >> printConfigurationLoadStatementOn: aStream [
 	"No-op pending refactor. Don't yet understand the difference bewteen BaselineOf and ConfigurationOf well enough to finalize the API"
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallBaselineLoadScript >> printFileTreeLoadOn: aStream [ 
 
 	| template |
@@ -115,7 +115,7 @@ SmallBaselineLoadScript >> printFileTreeLoadOn: aStream [
 		on: aStream
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallBaselineLoadScript >> printGitCloneOn: aStream [
 	| template |
 	template := 'repoFolder := {repoFolder}.
@@ -134,7 +134,7 @@ repoFolder exists
 		on: aStream.
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallBaselineLoadScript >> printLoadOn: aStream [ 
 
 	| template loadCascade |
@@ -163,7 +163,7 @@ SmallBaselineLoadScript >> printLoadOn: aStream [
 	self isTargetingGToolkit ifTrue: [ aStream cr; nextPutAll: '] fork.' ].
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallBaselineLoadScript >> printLoadStatementsOn: aStream [
 
 	self repository ifNil: [ ^ self ].
@@ -174,7 +174,7 @@ SmallBaselineLoadScript >> printLoadStatementsOn: aStream [
 			nextPutAll: pl ].
 ]
 
-{ #category : 'printing' }
+{ #category : #printing }
 SmallBaselineLoadScript >> printTemplate: aString format: convertibleToDictionary on: aStream [
 	| filled |
 	filled := aString
@@ -184,22 +184,22 @@ SmallBaselineLoadScript >> printTemplate: aString format: convertibleToDictionar
 		cr
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallBaselineLoadScript >> projectVersion: aString [ 
 	projectVersion := aString
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallBaselineLoadScript >> projectVersionString [
 	^ self projectVersion
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SmallBaselineLoadScript >> repository [
 	^ self project repository
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallBaselineLoadScript >> smalltalkCIConfigOn: aStream [
 	aStream 
 		nextPutAll: 'SmalltalkCISpec {

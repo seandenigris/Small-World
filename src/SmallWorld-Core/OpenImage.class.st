@@ -1,10 +1,10 @@
 Class {
-	#name : 'OpenImage',
-	#superclass : 'Object',
+	#name : #OpenImage,
+	#superclass : #Object,
 	#category : 'SmallWorld-Core-Images'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 OpenImage class >> file: imageFileReference [
 
 	| template command |
@@ -13,19 +13,19 @@ OpenImage class >> file: imageFileReference [
 	PipeableOSProcess command: command.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 OpenImage class >> file: imageFileReference andExecute: scriptFileReference [
 
 		^ self file: imageFileReference withVmNamed: 'pharo-ui' andExecute: scriptFileReference.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 OpenImage class >> file: imageFileReference headlessAndExecute: scriptFileReference [
 
 	^ self file: imageFileReference withVmNamed: 'pharo' andExecute: scriptFileReference.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 OpenImage class >> file: imageFileReference withVmNamed: aString andExecute: scriptFileReference [
 
 	| template command |
@@ -35,7 +35,7 @@ OpenImage class >> file: imageFileReference withVmNamed: aString andExecute: scr
 	^ PipeableOSProcess command: command.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 OpenImage class >> vmBundle [
 
 	^ PharoImage new vmBundle.

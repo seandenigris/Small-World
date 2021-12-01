@@ -1,28 +1,28 @@
 Class {
-	#name : 'PharoTrunkImage',
-	#superclass : 'PharoImage',
+	#name : #PharoTrunkImage,
+	#superclass : #PharoImage,
 	#category : 'SmallWorld-Core-Images'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoTrunkImage class >> archiveFileName [
 
 	^ 'PharoTrunk.zip'.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoTrunkImage class >> description [
 
 	^ 'Pharo Trunk'.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoTrunkImage class >> latestLocal [
 
 	^ (self basicNew setScriptContents: '.') initialize.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoTrunkImage class >> uncompressFreshCopy [
 
 	| archive |
@@ -30,32 +30,32 @@ PharoTrunkImage class >> uncompressFreshCopy [
 	archive extractAllTo: (FileDirectory on: self archiveDirectoryPath).
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoTrunkImage >> filePath [
 
 	^ '/Users/sean/Squeak/Fresh Images/PharoTrunk/PharoTrunk.image'.
 ]
 
-{ #category : 'initialization' }
+{ #category : #initialization }
 PharoTrunkImage >> initialize [
 
 	super initialize.
 	self class uncompressFreshCopy.
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 PharoTrunkImage >> setupScript [
 
 	(Smalltalk at: #UpdateStreamer) new updateFromServer.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoTrunkImage >> setupScriptFileName [
 
 	^ 'trunk_setup.st'.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 PharoTrunkImage >> setupScriptPath [
 
 	^ self setupScriptDirectoryPath, self setupScriptFileName.

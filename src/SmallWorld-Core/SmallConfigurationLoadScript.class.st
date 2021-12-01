@@ -1,77 +1,77 @@
 Class {
-	#name : 'SmallConfigurationLoadScript',
-	#superclass : 'SmallLoadScript',
+	#name : #SmallConfigurationLoadScript,
+	#superclass : #SmallLoadScript,
 	#category : 'SmallWorld-Core-Scripts'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 SmallConfigurationLoadScript class >> defaultProjectVersion [
 	^ #'stable'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallConfigurationLoadScript >> configurationName [
 	^ ('ConfigurationOf', self project name copyWithout: Character space) asSymbol
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallConfigurationLoadScript >> loadingBleedingEdge [
 
 	self loadingBleedingEdge: 'default'.
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallConfigurationLoadScript >> loadingBleedingEdge: anObject [
 	"anObject - see #projectVersion:load: comment"
 
 	self projectVersion: #bleedingEdge loading: anObject.
 ]
 
-{ #category : 'configuring' }
+{ #category : #configuring }
 SmallConfigurationLoadScript >> loadingConfigurationOnly [
 
 	loadConfigurationOnly := true.
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallConfigurationLoadScript >> loadingDevelopment [
 
 	self projectVersion: #'development' loading: 'default'.
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallConfigurationLoadScript >> loadingDevelopment: anObject [
 	"anObject - see #projectVersion:load: comment"
 
 	self projectVersion: #'development' loading: anObject.
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallConfigurationLoadScript >> loadingStable [
 
 	self loadingStable: 'default'.
 ]
 
-{ #category : 'initialize-release' }
+{ #category : #'initialize-release' }
 SmallConfigurationLoadScript >> loadingStable: anObject [
 	"anObject - see #projectVersion:load: comment"
 
 	self projectVersion: #stable loading: anObject.
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SmallConfigurationLoadScript >> loadsBleedingEdge [
 
 	^ projectVersion = #bleedingEdge.
 ]
 
-{ #category : 'testing' }
+{ #category : #testing }
 SmallConfigurationLoadScript >> loadsDevelopment [
 
 	^ projectVersion = #development.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SmallConfigurationLoadScript >> printLoadStatementsOn: aStream [ 
 		 
 	| projectLoadTemplate projectLoadString |
@@ -83,14 +83,14 @@ SmallConfigurationLoadScript >> printLoadStatementsOn: aStream [
 	aStream nextPutAll: projectLoadString; cr. 
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallConfigurationLoadScript >> project: aSmallProject [ 
 
 	super project: aSmallProject.
 	projectVersion := aSmallProject defaultVersion.
 ]
 
-{ #category : 'private' }
+{ #category : #private }
 SmallConfigurationLoadScript >> projectVersionString [
 	
 	^ String streamContents: [ :str |

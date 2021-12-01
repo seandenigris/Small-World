@@ -1,6 +1,6 @@
-Extension { #name : 'ByteString' }
+Extension { #name : #ByteString }
 
-{ #category : '*SmallWorld-Core' }
+{ #category : #'*SmallWorld-Core' }
 ByteString >> swConstructorString [
 
 	^ self printString.

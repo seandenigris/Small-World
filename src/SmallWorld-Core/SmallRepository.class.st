@@ -1,6 +1,6 @@
 Class {
-	#name : 'SmallRepository',
-	#superclass : 'Object',
+	#name : #SmallRepository,
+	#superclass : #Object,
 	#instVars : [
 		'project',
 		'projectName'
@@ -8,17 +8,17 @@ Class {
 	#category : 'SmallWorld-Core-Projects'
 }
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRepository >> project [
 	^ project
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRepository >> project: anObject [
 	project := anObject
 ]
 
-{ #category : 'magritte' }
+{ #category : #magritte }
 SmallRepository >> projectDescription [
 	<magritteDescription>
 	^ MASingleOptionDescription new
@@ -31,17 +31,17 @@ SmallRepository >> projectDescription [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRepository >> projectName [
 	^ projectName ifNil: [ self project name ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRepository >> projectName: aString [
 	projectName := aString copyReplaceAll: ' ' with: '-'
 ]
 
-{ #category : 'magritte' }
+{ #category : #magritte }
 SmallRepository >> projectNameDescription [
 	<magritteDescription>
 
@@ -52,7 +52,7 @@ SmallRepository >> projectNameDescription [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRepository >> url [
 	^ ZnUrl new
 			scheme: #https;

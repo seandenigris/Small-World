@@ -1,6 +1,6 @@
 Class {
-	#name : 'SmallRemoteGitRepository',
-	#superclass : 'SmallRepository',
+	#name : #SmallRemoteGitRepository,
+	#superclass : #SmallRepository,
 	#instVars : [
 		'user',
 		'codeSubfolder',
@@ -11,7 +11,7 @@ Class {
 	#category : 'SmallWorld-Core-Projects'
 }
 
-{ #category : 'adding' }
+{ #category : #adding }
 SmallRemoteGitRepository >> addRemote: urlString as: nameString [
 	"Assumes repo is loaded"
 	
@@ -22,17 +22,17 @@ SmallRemoteGitRepository >> addRemote: urlString as: nameString [
 	remote fetch
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> codeSubfolder [
 	^ self maLazyInstVarUsing: self codeSubfolderDescription
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> codeSubfolder: aString [
 	codeSubfolder := aString
 ]
 
-{ #category : 'magritte' }
+{ #category : #magritte }
 SmallRemoteGitRepository >> codeSubfolderDescription [
 	<magritteDescription>
 	^ MASingleOptionDescription new
@@ -44,17 +44,17 @@ SmallRemoteGitRepository >> codeSubfolderDescription [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> defaultBranch [
 	^ self maLazyInstVarUsing: self defaultBranchDescription
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> defaultBranch: anObject [
 	defaultBranch := anObject
 ]
 
-{ #category : 'magritte' }
+{ #category : #magritte }
 SmallRemoteGitRepository >> defaultBranchDescription [
 	<magritteDescription>
 	^ MAStringDescription new
@@ -63,12 +63,12 @@ SmallRemoteGitRepository >> defaultBranchDescription [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> defaultUser [
 	self subclassResponsibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> directDownloadURL [
 
 	| scheme url path |
@@ -86,17 +86,17 @@ SmallRemoteGitRepository >> directDownloadURL [
 			ifNil: [ url ].
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> hasProjectMetadata [
 	^ self maLazyInstVarUsing: self hasProjectMetadataDescription
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> hasProjectMetadata: anObject [
 	hasProjectMetadata := anObject
 ]
 
-{ #category : 'magritte' }
+{ #category : #magritte }
 SmallRemoteGitRepository >> hasProjectMetadataDescription [
 	<magritteDescription>
 
@@ -107,22 +107,22 @@ SmallRemoteGitRepository >> hasProjectMetadataDescription [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> hostname [
 	self subclassResponsibility
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> isUpstream [
 	^ self maLazyInstVarUsing: self isUpstreamDescription
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> isUpstream: anObject [
 	isUpstream := anObject
 ]
 
-{ #category : 'magritte' }
+{ #category : #magritte }
 SmallRemoteGitRepository >> isUpstreamDescription [
 	<magritteDescription>
 	^ MABooleanDescription new
@@ -133,52 +133,52 @@ SmallRemoteGitRepository >> isUpstreamDescription [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> localCloneFolder [
 	| safeProjectName |
 	safeProjectName := self projectName copyReplaceAll: ' ' with: '-'.
 	^ FileLocator home / 'Dynabook' / 'Repositories' / self user asLowercase / safeProjectName
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> localCloneFolderForUser: userString [
 	| safeProjectName |
 	safeProjectName := self projectName copyReplaceAll: ' ' with: '-'.
 	^ FileLocator home / 'Dynabook' / 'Repositories' / userString asLowercase / safeProjectName
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> localCloneURL [
 	^ '''filetree://'', (', self localSourceFolder storeString, ') fullName'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> localSourceFolder [
 	^ self codeSubfolder
 			ifNil: [ self localCloneFolder ]
 			ifNotNil: [ :subfolder | self localCloneFolder / subfolder ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> metacelloURLFor: project [
 	^ project isPrivate 
 			ifTrue: [ self localCloneURL ]
 			ifFalse: [ self directDownloadURL surroundedBySingleQuotes ]
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> printOn: aStream [
 	aStream
 		nextPutAll: self url asString;
 		nextPutAll: ' Repo'
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> projectPath [
 	^ self projectName copyReplaceAll: ' ' with: '-'
 ]
 
-{ #category : 'adding' }
+{ #category : #adding }
 SmallRemoteGitRepository >> scriptToAddRemote: urlString as: nameString [
 	| method transformer |
 	method := SmallRemoteGitRepository>>#addRemote:as:.
@@ -192,27 +192,27 @@ SmallRemoteGitRepository >> scriptToAddRemote: urlString as: nameString [
 	^ transformer newSource
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : #'as yet unclassified' }
 SmallRemoteGitRepository >> scriptToAddUpstreamRemote [
 	^ self scriptToAddRemote: self sshUpstreamUrl as: 'upstream'.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> sshCloneUrl [
 	^ self sshUrlForUserNamed: self workingUser
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> sshUpstreamUrl [
 	^ self sshUrlForUserNamed: self user
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> sshUrlForUserNamed: aString [
 	^ 'git@', self hostname, ':', aString, '/', self projectPath, '.git'
 ]
 
-{ #category : 'actions' }
+{ #category : #actions }
 SmallRemoteGitRepository >> syncFork [
 	| commandTemplate command |
 	self isUpstream ifFalse: [ self error: 'No fork to sync!' ].
@@ -221,7 +221,7 @@ SmallRemoteGitRepository >> syncFork [
 	UIManager inform: 'Sync command copied to clipboard'.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> syncForkScript [
 	| commandTemplate |
 	commandTemplate := 'git clone git@github.com:{defaultUser}/{projectName}.git
@@ -237,7 +237,7 @@ git push origin master
 			#sshUpstreamUrl -> self sshUpstreamUrl } asDictionary.
 ]
 
-{ #category : 'magritte' }
+{ #category : #magritte }
 SmallRemoteGitRepository >> syncForkScriptDescription [
 	<gtInspectorPresentationOrder: 200>
 
@@ -249,7 +249,7 @@ SmallRemoteGitRepository >> syncForkScriptDescription [
 	^ result
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> url [
 	^ super url
 			addPathSegment: self user;
@@ -257,17 +257,17 @@ SmallRemoteGitRepository >> url [
 			yourself.
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> user [
 	^ self maLazyInstVarUsing: self userDescription
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> user: anObject [
 	user := anObject
 ]
 
-{ #category : 'magritte' }
+{ #category : #magritte }
 SmallRemoteGitRepository >> userDescription [
 	<magritteDescription>
 
@@ -279,7 +279,7 @@ SmallRemoteGitRepository >> userDescription [
 		yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : #accessing }
 SmallRemoteGitRepository >> workingUser [
 	"If we've forked, all downloads, clones, etc. should come from the fork"
 	^ self isUpstream ifTrue: [ self defaultUser ] ifFalse: [ self user ].
