@@ -35,7 +35,9 @@ SmallGitHubRepository >> hostname [
 SmallGitHubRepository >> readme [
 
 	| template legalPage legalMarkdown baselineComment |
-	template := 'TLDR: {description}
+	template := '# {project}
+	
+TLDR: {description}
 	
 # Overview
 	
@@ -60,6 +62,7 @@ N.B. you only have to do the outer fork if on GT and you want the UI to stay res
 	legalMarkdown := legalPage children first asMarkdownString allButFirst: 2.
 
 	^ template format: {
+		#project -> self project name.
 		#description -> self project description.
 		#baseline -> self project loadScript baselineClass name.
 		#baselineComment -> baselineComment.
