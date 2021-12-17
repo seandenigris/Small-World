@@ -5,7 +5,7 @@ Class {
 		'project',
 		'projectName'
 	],
-	#category : 'SmallWorld-Core-Projects'
+	#category : #'SmallWorld-Core-Projects'
 }
 
 { #category : #accessing }
@@ -33,12 +33,12 @@ SmallRepository >> projectDescription [
 
 { #category : #accessing }
 SmallRepository >> projectName [
-	^ projectName ifNil: [ self project name ]
+	^ projectName ifNil: [ self project name copyReplaceAll: ' ' with: '-' ]
 ]
 
 { #category : #accessing }
 SmallRepository >> projectName: aString [
-	projectName := aString copyReplaceAll: ' ' with: '-'
+	projectName := aString
 ]
 
 { #category : #magritte }
