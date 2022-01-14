@@ -209,6 +209,11 @@ SmallProject >> isPrivateDescription [
 ]
 
 { #category : #accessing }
+SmallProject >> linkMarkdown [
+	^ '[', self name, '](', self repository url asString, ')'
+]
+
+{ #category : #accessing }
 SmallProject >> linkPillar [
 	^ PRExternalLink titled: self name targeting: self repository url
 ]
