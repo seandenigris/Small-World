@@ -220,7 +220,7 @@ SmallProject >> linkPillar [
 
 { #category : #accessing }
 SmallProject >> loadScript [
-	^ loadScript
+	^ loadScript ifNil: [ loadScript := SmallBaselineLoadScript building: self ]
 ]
 
 { #category : #accessing }
