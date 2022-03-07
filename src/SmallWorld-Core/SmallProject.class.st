@@ -246,6 +246,22 @@ SmallProject >> localFolderName [
 	^ self name copyReplaceAll: ' ' with: '-'
 ]
 
+{ #category : #accessing }
+SmallProject >> maGtLoadScriptFor: aView [
+	<gtView>
+
+	^ aView textEditor
+		title: 'Load script';
+		aptitude: [ BrGlamorousCodeEditorAptitude ];
+		styler: [ BrRBTextStyler new
+				   isForWorkspace: true;
+				   yourself ];
+		text: [ self loadScript printString ];
+		actionButtonIcon: BrGlamorousVectorIcons play
+			tooltip: 'Run'
+			action: [ :aButton :aTab | self loadScript run ]
+]
+
 { #category : #Metacello }
 SmallProject >> metacelloURL [
 	^ self repository metacelloURLFor: self
