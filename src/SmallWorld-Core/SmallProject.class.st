@@ -1,6 +1,8 @@
 Class {
 	#name : #SmallProject,
 	#superclass : #Object,
+	#traits : 'MATPropertyOwner',
+	#classTraits : 'MATPropertyOwner classTrait',
 	#instVars : [
 		'name',
 		'description',
