@@ -1,8 +1,8 @@
 Class {
 	#name : #AddItemToWorldMenuUI,
-	#superclass : #ComposableModel,
+	#superclass : #SpPresenter,
 	#instVars : [
 		'targetClass'
 	],
-	#category : 'SmallWorld-Core-IDE'
+	#category : #'SmallWorld-Core-IDE'
 }
