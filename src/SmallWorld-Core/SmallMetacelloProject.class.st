@@ -14,7 +14,7 @@ Class {
 		'testPackages',
 		'defaultVersion'
 	],
-	#category : 'SmallWorld-Core-Projects'
+	#category : #'SmallWorld-Core-Projects'
 }
 
 { #category : #'version status' }
@@ -101,17 +101,6 @@ SmallMetacelloProject >> descriptionLoadDefaultVersion [
 ]
 
 { #category : #magritte }
-SmallMetacelloProject >> descriptionLoadScriptSource [
-	<gtInspectorPresentationOrder: 2>
-
-	^ MAMemoDescription new
-			label: 'Load Script';
-			accessor: { #loadScript. #asString };
-			glmPresentation: [ :a | a pharoScript ];
-			yourself
-]
-
-{ #category : #magritte }
 SmallMetacelloProject >> descriptionTestPackages [
 	<magritteDescription>
 
@@ -156,6 +145,16 @@ SmallMetacelloProject >> loadConfiguration [
 SmallMetacelloProject >> loadScript [
 
 	^ loadScript ifNil: [ loadScript := SmallBaselineLoadScript building: self ].
+]
+
+{ #category : #magritte }
+SmallMetacelloProject >> loadScriptSourceDescription [
+	<gtInspectorPresentationOrder: 2>
+
+	^ MAMemoDescription new
+			label: 'Load Script';
+			accessor: { #loadScript. #asString };
+			yourself
 ]
 
 { #category : #committing }

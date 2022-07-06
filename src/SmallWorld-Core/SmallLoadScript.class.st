@@ -10,7 +10,7 @@ Class {
 		'loadConfigurationOnly',
 		'conflictBlock'
 	],
-	#category : 'SmallWorld-Core-Scripts'
+	#category : #'SmallWorld-Core-Scripts'
 }
 
 { #category : #'instance creation' }
@@ -41,6 +41,16 @@ SmallLoadScript >> conflictBlock: anObject [
 ]
 
 { #category : #Magritte }
+SmallLoadScript >> contentsDescription [
+	<gtInspectorPresentationOrder: 2>
+
+	^ MAMemoDescription new
+			label: 'Contents';
+			accessor: #asString;
+			yourself
+]
+
+{ #category : #Magritte }
 SmallLoadScript >> descriptionConflictBlock [
 	<magritteDescription>
 
@@ -49,17 +59,6 @@ SmallLoadScript >> descriptionConflictBlock [
 		default: [ :ex | ex allow ];
 		accessor: #conflictBlock;
 		yourself
-]
-
-{ #category : #Magritte }
-SmallLoadScript >> descriptionContents [
-	<gtInspectorPresentationOrder: 2>
-
-	^ MAMemoDescription new
-			label: 'Contents';
-			accessor: #asString;
-			glmPresentation: [ :a | a pharoScript ];
-			yourself
 ]
 
 { #category : #debugging }

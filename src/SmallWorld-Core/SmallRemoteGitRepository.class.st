@@ -8,7 +8,7 @@ Class {
 		'isUpstream',
 		'defaultBranch'
 	],
-	#category : 'SmallWorld-Core-Projects'
+	#category : #'SmallWorld-Core-Projects'
 }
 
 { #category : #adding }
@@ -245,7 +245,7 @@ SmallRemoteGitRepository >> syncForkScriptDescription [
 	result := MAMemoDescription new
 			accessor: #syncForkScript;
 			yourself.
-	self isUpstream ifFalse: [ result glmPresentation: nil ].
+	self isUpstream ifFalse: [ "result glmPresentation: nil" ].
 	^ result
 ]
 
