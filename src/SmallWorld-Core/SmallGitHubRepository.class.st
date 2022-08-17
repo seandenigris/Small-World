@@ -34,7 +34,7 @@ SmallGitHubRepository >> hostname [
 { #category : #accessing }
 SmallGitHubRepository >> readme [
 
-	| template legalPage legalMarkdown baselineComment |
+	| template legalPage legalMarkdown |
 	template := '# {project}
 	
 TLDR: {description}
@@ -43,7 +43,7 @@ TLDR: {description}
 
 NB. This section is an export of the class comment of {baseline}. When viewed from inside the system, it is live, dynamic and beautiful. "Just the markdown" only gives you a taste. We suggest you dive in and view the documentation as it was intended as quickly as possible - it will be more enjoyable and productive!
 
-{baselineComment}
+{baselineReadme}
 	
 # Installation
 In GToolkit (preferably) or Pharo (v. 9 best supported at time of writing), do the following:
@@ -55,9 +55,6 @@ N.B. you only have to do the outer fork if on GT and you want the UI to stay res
 
 {legal}'.
 
-	baselineComment := self project loadScript baselineClass hasComment
-		ifTrue: [ self project loadScript baselineClass gitHubComment ]
-		ifFalse: [ '' ].
 	legalPage := LeDatabasesRegistry defaultLogicalDatabase pageNamed: 'Publishing Private Repos'.
 	legalMarkdown := legalPage children first asMarkdownString allButFirst: 2.
 
@@ -65,7 +62,7 @@ N.B. you only have to do the outer fork if on GT and you want the UI to stay res
 		#project -> self projectName.
 		#description -> self project description.
 		#baseline -> self project loadScript baselineClass gitHubMarkdownLink.
-		#baselineComment -> baselineComment.
+		#baselineReadme -> self project loadScript baselineClass readme.
 		#loadScript -> self project loadScript printString.
 		#legal -> legalMarkdown } asDictionary
 ]
