@@ -11,15 +11,14 @@ Class {
 }
 
 { #category : #'private-spotter' }
-SmallProjectRegistry class >> gtSpotterOn: candidatesSource priority: aNumber for: aStep [
+SmallProjectRegistry class >> gtSpotterOn: candidatesSource priority: aNumber for: aSearch [
 	"Helper to make available both from global and instance Spotters. See senders"
 
-	^ aStep listProcessor
+	^ aSearch list
 		priority: aNumber;
 		title: 'Projects';
-		allCandidates: [ candidatesSource projects ];
-		filter: GtFilterSubstrings;
-		candidatesLimit: 7;
+		items: [ candidatesSource projects ];
+		matchSubstrings;
 		itemName: #name
 ]
 
@@ -80,9 +79,10 @@ SmallProjectRegistry >> gtSpotterFor: aStep [
 ]
 
 { #category : #spotter }
-SmallProjectRegistry >> gtSpotterNewProjectFor: aStep [
+SmallProjectRegistry >> gtSpotterNewProjectFor: aSearch [
 	<gtSearch>
-	aStep listProcessor
+	
+	^ aSearch list
 		title: 'New Project';
 		priority: 50;
 		itemName: [ :input | 'Create new project: ', input ];
