@@ -85,17 +85,9 @@ SmallProjectRegistry >> gtSpotterNewProjectFor: aSearch [
 	^ aSearch list
 		title: 'New Project';
 		priority: 50;
-		itemName: [ :input | 'Create new project: ', input ];
-		previewObject: [ :input | SmallProject named: input ];
-		wantsToDisplayOnEmptyQuery: false;
-		filter: GtNullFilter
-			item: [ :filter :context | 
-				| isExisting |
-				isExisting := self projects anySatisfy: [ :e | 
-					e name = context textTrimmed ].
-				isExisting ifFalse: [ 
-					filter value: context textTrimmed ] ];
-		send: [ :newName :spotterStep | self projects add: (SmallProject named: newName) ]
+		itemName: [ :result | '+ ' , result gtDisplayText ];
+		search: [ :context | { SmallProject named: context searchQuery trimmed } ];
+		itemSpawnAfter: [ :result | self projects add: result ]
 ]
 
 { #category : #accessing }
