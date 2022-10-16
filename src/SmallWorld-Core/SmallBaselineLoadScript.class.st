@@ -205,6 +205,22 @@ SmallBaselineLoadScript >> repository [
 ]
 
 { #category : #accessing }
+SmallBaselineLoadScript >> scriptViewFor: aView [
+	<gtView>
+
+	^ aView textEditor
+		title: 'Script';
+		aptitude: [ BrGlamorousCodeEditorAptitude ];
+		styler: [ BrRBTextStyler new
+				   isForWorkspace: true;
+				   yourself ];
+		text: [ self printString ];
+		actionButtonIcon: BrGlamorousVectorIcons play
+			tooltip: 'Run'
+			action: [ :aButton :aTab | self loadScript run ]
+]
+
+{ #category : #accessing }
 SmallBaselineLoadScript >> smalltalkCIConfigOn: aStream [
 	aStream 
 		nextPutAll: 'SmalltalkCISpec {

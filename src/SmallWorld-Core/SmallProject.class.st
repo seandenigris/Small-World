@@ -244,24 +244,19 @@ SmallProject >> loadScriptDescription [
 ]
 
 { #category : #accessing }
-SmallProject >> localFolderName [
-	^ self name copyReplaceAll: ' ' with: '-'
+SmallProject >> loadScriptViewFor: aView [
+	<gtView>
+
+	^ aView forward
+		title: 'Load script';
+		priority: 75;
+		object: [ self loadScript ];
+		view: #scriptViewFor:
 ]
 
 { #category : #accessing }
-SmallProject >> maGtLoadScriptFor: aView [
-	<gtView>
-
-	^ aView textEditor
-		title: 'Load script';
-		aptitude: [ BrGlamorousCodeEditorAptitude ];
-		styler: [ BrRBTextStyler new
-				   isForWorkspace: true;
-				   yourself ];
-		text: [ self loadScript printString ];
-		actionButtonIcon: BrGlamorousVectorIcons play
-			tooltip: 'Run'
-			action: [ :aButton :aTab | self loadScript run ]
+SmallProject >> localFolderName [
+	^ self name copyReplaceAll: ' ' with: '-'
 ]
 
 { #category : #Metacello }

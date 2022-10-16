@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #'private-spotter' }
-SmallProjectRegistry class >> gtSpotterOn: candidatesSource priority: aNumber for: aSearch [
+SmallProjectRegistry class >> itemsSearchOn: candidatesSource priority: aNumber for: aSearch [
 	"Helper to make available both from global and instance Spotters. See senders"
 
 	^ aSearch list
@@ -69,39 +69,6 @@ SmallProjectRegistry >> detectForBaseline: aClass [
 			ifNotNil: [ :ls | ls baselineClass = aClass ] ]
 ]
 
-{ #category : #spotter }
-SmallProjectRegistry >> gtSpotterFor: aStep [
-	<gtSearch>
-	^ self class
-		gtSpotterOn: self
-		priority: 5 
-		for: aStep
-]
-
-{ #category : #spotter }
-SmallProjectRegistry >> gtSpotterNewProjectFor: aSearch [
-	<gtSearch>
-	
-	^ aSearch list
-		title: 'New Project';
-		priority: 50;
-		itemName: [ :result | '+ ' , result gtDisplayText ];
-		search: [ :context | { SmallProject named: context searchQuery trimmed } ];
-		itemSpawnAfter: [ :result | self projects add: result ]
-]
-
-{ #category : #accessing }
-SmallProjectRegistry >> gtViewProjectsOn: aView [
-	<gtView>
-	
-	^ aView list
-		title: 'Projects' translated;
-		priority: 5;
-		items: [ self projects ];
-		"send: #model;"
-		yourself.
-]
-
 { #category : #accessing }
 SmallProjectRegistry >> printOn: aStream [
 	aStream
@@ -118,4 +85,37 @@ SmallProjectRegistry >> projects [
 { #category : #accessing }
 SmallProjectRegistry >> projects: anObject [
 	projects := anObject
+]
+
+{ #category : #spotter }
+SmallProjectRegistry >> projectsSearchFor: aStep [
+	<gtSearch>
+	^ self class
+		itemsSearchOn: self
+		priority: 5 
+		for: aStep
+]
+
+{ #category : #spotter }
+SmallProjectRegistry >> projectsSearchNewFor: aSearch [
+	<gtSearch>
+	
+	^ aSearch explicit
+		title: 'New Project';
+		priority: 50;
+		itemName: [ :result | '+ ' , result gtDisplayText ];
+		search: [ :context | { SmallProject named: context searchQuery trimmed } ];
+		itemSpawnAfter: [ :result | self projects add: result ]
+]
+
+{ #category : #accessing }
+SmallProjectRegistry >> projectsViewFor: aView [
+	<gtView>
+	
+	^ aView list
+		title: 'Projects' translated;
+		priority: 5;
+		items: [ self projects ];
+		"send: #model;"
+		yourself.
 ]

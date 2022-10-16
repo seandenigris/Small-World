@@ -4,7 +4,7 @@ Extension { #name : #GtSpotterStart }
 GtSpotterStart >> spGtProjectSpotterFor: aStep [
 	<gtSearch>
 	^ SmallProjectRegistry
-		gtSpotterOn: SmallProjectRegistry uniqueInstance
+		itemsSearchOn: SmallProjectRegistry uniqueInstance
 		priority: 87 
 		for: aStep
 ]
