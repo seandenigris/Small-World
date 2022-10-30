@@ -395,7 +395,7 @@ SmallProject >> repositoryViewDescription [
 	<magritteActionDescription>
 	
 	^ MAActionDescription new
-			action: [ :target | target repository view ];
+			action: [ :target | target repository present ];
 			label: 'Open Repository';
 			isMutator: false;
 			shortcut: $r asShortcut;

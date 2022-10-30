@@ -1,7 +1,7 @@
 Extension { #name : #SmallRemoteGitRepository }
 
 { #category : #'*SmallWorld-UI' }
-SmallRemoteGitRepository >> view [
+SmallRemoteGitRepository >> present [
 	self url open
 
 ]
