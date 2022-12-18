@@ -105,7 +105,7 @@ SmallProjectRegistry >> projectsSearchNewFor: aSearch [
 		priority: 50;
 		itemName: [ :result | '+ ' , result gtDisplayText ];
 		search: [ :context | { SmallProject named: context searchQuery trimmed } ];
-		itemSpawnAfter: [ :result | self projects add: result ]
+		send: [ :result | self projects add: result ]
 ]
 
 { #category : #accessing }
