@@ -164,6 +164,12 @@ SmallProject >> hasMetacelloConfigurationDescription [
 		yourself
 ]
 
+{ #category : #accessing }
+SmallProject >> initialize [
+	super initialize.
+	self ensureUUID
+]
+
 { #category : #testing }
 SmallProject >> isLoaded [
 	^ self loadScript isSmallProjectLoaded
