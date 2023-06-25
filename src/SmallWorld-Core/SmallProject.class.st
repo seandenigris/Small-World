@@ -410,7 +410,7 @@ SmallProject >> repositoryViewDescription [
 ]
 
 { #category : #saving }
-SmallProject >> save [
+SmallProject >> saveToMethod [
 
 	| source |
 	source := String streamContents: [ :str |
