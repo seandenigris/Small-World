@@ -3,7 +3,7 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'SmallWorld',
-      #directory : 'repository',
+      #directory : 'src',
       #platforms : [ #pharo ]
     }
   ]
