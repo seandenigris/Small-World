@@ -1,8 +1,8 @@
 Class {
 	#name : #SmallProject,
 	#superclass : #Object,
-	#traits : 'MATPropertyOwner',
-	#classTraits : 'MATPropertyOwner classTrait',
+	#traits : 'DbTDomainObject',
+	#classTraits : 'DbTDomainObject classTrait',
 	#instVars : [
 		'name',
 		'description',
