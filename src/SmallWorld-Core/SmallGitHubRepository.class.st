@@ -35,23 +35,23 @@ SmallGitHubRepository >> hostname [
 SmallGitHubRepository >> readme [
 
 	| template legalPage legalMarkdown |
-	template := '# {project}
+	template := '# TLDR
 	
-TLDR: {description}
-	
-# Overview
-
-NB. This section is an export of the class comment of {baseline}. When viewed from inside the system, it is live, dynamic and beautiful. "Just the markdown" only gives you a taste. We suggest you dive in and view the documentation as it was intended as quickly as possible - it will be more enjoyable and productive!
-
-{baselineReadme}
+{description}
 	
 # Installation
-In GToolkit (preferably) or Pharo (v. 9 best supported at time of writing), do the following:
+In GToolkit (preferably) or Pharo (v. 10 best supported at time of writing), do the following:
 
 ```smalltalk
 {loadScript}
 ```
 N.B. you only have to do the outer fork if on GT and you want the UI to stay responsive during the load.
+
+# Overview
+
+NB. Much of the following is an export of the class comment of {baseline}. When viewed from inside the system, it is live, dynamic and beautiful. "Just the markdown" only gives you a taste. We suggest you dive in and view the documentation as it was intended as quickly as possible - it will be more enjoyable and productive!
+
+{baselineReadme}
 
 {legal}'.
 
