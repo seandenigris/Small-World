@@ -1,6 +1,8 @@
 Class {
 	#name : #SmallProjectRegistry,
 	#superclass : #Object,
+	#traits : 'PeTEnumerable',
+	#classTraits : 'PeTEnumerable classTrait',
 	#instVars : [
 		'projects'
 	],
@@ -77,6 +79,11 @@ SmallProjectRegistry >> printOn: aStream [
 		nextPutAll: ' projects'
 ]
 
+{ #category : #enumerating }
+SmallProjectRegistry >> privateEnumerable [
+	^ self projects
+]
+
 { #category : #accessing }
 SmallProjectRegistry >> projects [
 	^ projects ifNil: [ projects := SortedCollection sortBlock: #name ascending ]
@@ -117,5 +124,5 @@ SmallProjectRegistry >> projectsViewFor: aView [
 		priority: 5;
 		items: [ self projects ];
 		"send: #model;"
-		yourself.
+		actionUpdateButton
 ]

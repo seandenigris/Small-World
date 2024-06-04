@@ -196,7 +196,7 @@ SmallProject >> isObsoleteDescription [
 
 { #category : #testing }
 SmallProject >> isPrivate [
-	^ isPrivate
+	^ self maLazyInstVarUsing: self isPrivateDescription
 ]
 
 { #category : #accessing }
