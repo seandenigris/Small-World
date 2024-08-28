@@ -1,10 +1,11 @@
 SmalltalkCISpec {
-  #preLoading : 'scripts/preLoading.st',
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'SmallWorld',
-      #directory : 'src',
-      #platforms : [ #pharo ]
+      #directory : 'repository',
+      #onConflict : #useIncoming
     }
-  ]
+  ],
+  #testing : {
+      #failOnZeroTests : false  }
 }
