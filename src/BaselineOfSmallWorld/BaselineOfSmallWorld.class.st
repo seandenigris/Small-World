@@ -15,31 +15,31 @@ BaselineOfSmallWorld >> baseline: spec [
 
 	spec for: #'common' do: [
 		spec 
-			baseline: 'DynabookFoundation' with: [
+			baseline: #'DynabookFoundation' with: [
 				spec repository: 'github://seandenigris/Dynabook-Foundation' ];
-			baseline: 'ExternalWebBrowser' with: [
+			baseline: #'ExternalWebBrowser' with: [
 				spec repository: 'github://seandenigris/Pharo-Web-Browser' ];
-			baseline: 'GitLabCI' with: [
+			baseline: #'GitLabCI' with: [
 				spec repository: 'gitlab://seandenigris/gitlab-smalltalk-ci:master/src' ];
-			baseline: 'Magritte' with: [ 
+			baseline: #'Magritte' with: [ 
 				spec repository: 'github://seandenigris/Magritte' ];
-			baseline: 'Mocketry' with: [
+			baseline: #'Mocketry' with: [
 				spec repository: 'github://dionisiydk/Mocketry' ];
-			baseline: 'PharoEnhancements' with: [
+			baseline: #'PharoEnhancements' with: [
 				spec repository: 'github://seandenigris/Pharo-Enhancements' ];
-			baseline: 'SimplePersistence' with: [
+			baseline: #'SimplePersistence' with: [
 				spec repository: 'github://seandenigris/Simple-Persistence' ].
 		spec
-			package: 'SmallWorld-Core' with: [
-				spec requires: #('DynabookFoundation' 'Magritte' 'GitLabCI'). ];
-			package: 'SmallWorld-UI' with: [
+			package: #'SmallWorld-Core' with: [
+				spec requires: #(#'DynabookFoundation' #'Magritte' #'GitLabCI'). ];
+			package: #'SmallWorld-UI' with: [
 				spec requires: #('ExternalWebBrowser'). ];
-			package: 'SmallWorld-Specification' with: [
+			package: #'SmallWorld-Specification' with: [
 				spec requires: #('Mocketry' ) ];
 			package: #'SmallWorld-Persistence' with: [
-				spec requires: #('SimplePersistence' 'PharoEnhancements' ). ]. ].
+				spec requires: #(#'SimplePersistence' #'PharoEnhancements' ). ]. ].
 	
-	spec for: #'PharoLauncher' do: [ spec package: 'SmallWorld-PharoLauncher' ]
+	spec for: #'PharoLauncher' do: [ spec package: #'SmallWorld-PharoLauncher' ]
 ]
 
 { #category : #accessing }
