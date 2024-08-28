@@ -60,6 +60,12 @@ SmallProject >> baselineLoadSnippet [
 			#repoURL -> self repository directDownloadURL } asDictionary
 ]
 
+{ #category : #baselines }
+SmallProject >> baselineName [
+	
+	^ self name select: #isLetter
+]
+
 { #category : #magritte }
 SmallProject >> cloneConsoleDescription [
 	<magritteActionDescription>
@@ -144,6 +150,12 @@ SmallProject >> forkCloneOpenConsole [
 	| myUsername |
 	myUsername := 'seandenigris'.
 	LibC system: 'open -a Terminal ', (self repository localCloneFolderForUser: myUsername) fullName surroundedByDoubleQuotes
+]
+
+{ #category : #accessing }
+SmallProject >> githubCIWorkflow [
+
+	^ SmallGithubCIWorkflow for: self.
 ]
 
 { #category : #testing }
@@ -428,6 +440,12 @@ SmallProject >> saveToMethod [
 			nextPutAll: 'yourself.' ].
 	
 	self class class compile: source classified: 'projects'.
+]
+
+{ #category : #accessing }
+SmallProject >> smalltalkSton [
+
+	^ SmallSmalltalkSton for: self
 ]
 
 { #category : #accessing }

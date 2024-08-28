@@ -15,6 +15,8 @@ BaselineOfSmallWorld >> baseline: spec [
 
 	spec for: #'common' do: [
 		spec 
+			baseline: #'ComputerWorld' with: [
+				spec repository: 'github://seandenigris/Computer-World' ];
 			baseline: #'DynabookFoundation' with: [
 				spec repository: 'github://seandenigris/Dynabook-Foundation' ];
 			baseline: #'ExternalWebBrowser' with: [
@@ -31,7 +33,7 @@ BaselineOfSmallWorld >> baseline: spec [
 				spec repository: 'github://seandenigris/Simple-Persistence' ].
 		spec
 			package: #'SmallWorld-Core' with: [
-				spec requires: #(#'DynabookFoundation' #'Magritte' #'GitLabCI'). ];
+				spec requires: #(#ComputerWorld #'DynabookFoundation' #'Magritte' #'GitLabCI'). ];
 			package: #'SmallWorld-UI' with: [
 				spec requires: #('ExternalWebBrowser'). ];
 			package: #'SmallWorld-Specification' with: [

@@ -32,6 +32,12 @@ SmallGitHubRepository >> hostname [
 ]
 
 { #category : #accessing }
+SmallGitHubRepository >> isGitHub [
+
+	^ true
+]
+
+{ #category : #accessing }
 SmallGitHubRepository >> readme [
 
 	| template legalPage legalMarkdown |

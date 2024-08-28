@@ -113,6 +113,12 @@ SmallRemoteGitRepository >> hostname [
 ]
 
 { #category : #accessing }
+SmallRemoteGitRepository >> isGit [
+
+	^ true
+]
+
+{ #category : #accessing }
 SmallRemoteGitRepository >> isUpstream [
 	^ self maLazyInstVarUsing: self isUpstreamDescription
 ]
@@ -134,10 +140,18 @@ SmallRemoteGitRepository >> isUpstreamDescription [
 ]
 
 { #category : #accessing }
+SmallRemoteGitRepository >> localClone [
+	
+	^ CwGitClone new
+		location: self localCloneFolder;
+		yourself
+]
+
+{ #category : #accessing }
 SmallRemoteGitRepository >> localCloneFolder [
 	| safeProjectName |
 	safeProjectName := self projectName copyReplaceAll: ' ' with: '-'.
-	^ FileLocator home / 'Dynabook' / 'Repositories' / self user asLowercase / safeProjectName
+	^ FileLocator localDirectory / 'iceberg' / self user asLowercase / safeProjectName
 ]
 
 { #category : #accessing }

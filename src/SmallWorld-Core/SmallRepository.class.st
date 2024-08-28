@@ -9,6 +9,18 @@ Class {
 }
 
 { #category : #accessing }
+SmallRepository >> isGit [
+
+	^ false
+]
+
+{ #category : #accessing }
+SmallRepository >> isGitHub [
+
+	^ false
+]
+
+{ #category : #accessing }
 SmallRepository >> project [
 	^ project
 ]
