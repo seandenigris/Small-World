@@ -95,9 +95,15 @@ SmallSmalltalkSton >> project: anObject [
 { #category : #accessing }
 SmallSmalltalkSton >> publish [
 
+	self publishWithMessage: '[CI]: Update smalltalk STON'
+]
+
+{ #category : #accessing }
+SmallSmalltalkSton >> publishWithMessage: aString [
+
 	self project repository localClone
 		stageAll;
-		commit: '[CI]: Update smalltalk STON';
+		commit: aString withUnixLineEndings;
 		push
 ]
 
