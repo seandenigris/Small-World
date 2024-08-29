@@ -60,12 +60,6 @@ SmallProject >> baselineLoadSnippet [
 			#repoURL -> self repository directDownloadURL } asDictionary
 ]
 
-{ #category : #baselines }
-SmallProject >> baselineName [
-	
-	^ self name select: #isLetter
-]
-
 { #category : #magritte }
 SmallProject >> cloneConsoleDescription [
 	<magritteActionDescription>

@@ -27,7 +27,7 @@ SmallSmalltalkSton >> currentContents [
 SmallSmalltalkSton >> desiredContents [
 
 	^ self template format: { 
-		#baseline -> self project baselineName.
+		#baseline -> self project loadScript baselineName.
 		#codeSubfolder -> self project repository codeSubfolder } asDictionary.
 ]
 

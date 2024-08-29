@@ -30,7 +30,7 @@ SmallBaselineLoadScript >> baselineClass [
 
 { #category : #accessing }
 SmallBaselineLoadScript >> baselineName [
-	^ baselineName ifNil: [ self project name copyWithout: Character space ]
+	^ baselineName ifNil: [ self project name select: #isAlphaNumeric ]
 ]
 
 { #category : #accessing }
