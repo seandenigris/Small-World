@@ -1,11 +1,1 @@
-SmalltalkCISpec {
-  #loading : [
-    SCIMetacelloLoadSpec {
-      #baseline : 'SmallWorld',
-      #directory : 'repository',
-      #onConflict : #useIncoming
-    }
-  ],
-  #testing : {
-      #failOnZeroTests : false  }
-}
+SmalltalkCISpec {  #loading : [    SCIMetacelloLoadSpec {      #baseline : 'SmallWorld',      #directory : 'src',      #onConflict : #useIncoming    }  ],  #testing : {      #failOnZeroTests : false  }}
