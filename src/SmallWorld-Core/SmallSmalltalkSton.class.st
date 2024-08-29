@@ -31,6 +31,22 @@ SmallSmalltalkSton >> desiredContents [
 		#codeSubfolder -> self project repository codeSubfolder } asDictionary.
 ]
 
+{ #category : #'as yet unclassified' }
+SmallSmalltalkSton >> diffGtViewFor: aView [
+
+	<gtView>
+	self isUpToDate ifTrue: [ ^ aView empty ].
+	
+	^ aView forward
+		title: 'Diff';
+		priority: 10;
+		object: [ 
+			PeCharacterDiff 
+				comparing: self desiredContents
+				to: self currentContents ];
+			view: #gtViewTextFor:
+]
+
 { #category : #accessing }
 SmallSmalltalkSton >> ensurePublished [
 
