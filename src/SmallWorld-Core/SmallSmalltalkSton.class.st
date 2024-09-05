@@ -115,11 +115,12 @@ SmallSmalltalkSton >> template [
     SCIMetacelloLoadSpec \{
       #baseline : ''{baseline}'',
       #directory : ''{codeSubfolder}'',
-      #onConflict : #useIncoming
+      #onConflict : #useIncoming,
+      #registerInIceberg : true
     \}
   ],
   #testing : \{
       #failOnZeroTests : false
   \}
-\}'
+\}' withUnixLineEndings
 ]
