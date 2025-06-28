@@ -217,7 +217,7 @@ SmallBaselineLoadScript >> scriptViewFor: aView [
 		text: [ self printString ];
 		actionButtonIcon: BrGlamorousVectorIcons play
 			tooltip: 'Run'
-			action: [ :aButton :aTab | self loadScript run ]
+			action: [ :aButton :aTab | self run ]
 ]
 
 { #category : #accessing }
